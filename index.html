@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHSIS - Climate Smart Agriculture | Alpine Hub for Sustainable Innovation</title>
+  <meta name="description" content="AHSIS - Accelerating agricultural transformation in rural India through geospatial intelligence, Earth observation technologies, and data-driven innovation.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon">A</div>
+      <span class="nav-logo-text">AHSIS</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#specializations">Services</a>
+      <a href="#skills">Programs</a>
+      <a href="#projects">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Partner With Us</a>
+    <button class="nav-toggle" id="nav-toggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about">About</a>
+  <a href="#specializations">Services</a>
+  <a href="#skills">Programs</a>
+  <a href="#projects">Projects</a>
+  <a href="#journey">Journey</a>
+  <a href="#team">Team</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="mobile-menu-cta">Partner With Us</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="https://static.prod-images.emergentagent.com/jobs/8f832d45-494b-4c2c-927a-60ef2ac268e0/images/cba3119e682c0a8b831366163764451e32ec8e9d23f2bcc61db352da5be3fe92.png" alt="Agriculture technology">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="hero-badge-dot"></span>
+        <span class="hero-badge-text">DPIIT Recognized Startup</span>
+      </div>
+      <h1 class="reveal reveal-delay-1 font-heading">Climate Smart <span class="text-gradient-blue">Agriculture.</span><br>Accelerated.</h1>
+      <p class="hero-subtitle reveal reveal-delay-2">Accelerating agricultural transformation in rural India through geospatial intelligence, Earth observation technologies, and data-driven innovation for sustainable development.</p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a href="#skills" class="btn-primary">Explore Programs <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <a href="#impact" class="hero-scroll">
+    <span class="font-mono">Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </a>
+</section>
+
+<!-- ===== IMPACT STATS ===== -->
+<section class="impact-section" id="impact">
+  <div class="container">
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="impact-icon" style="background:rgba(0,102,255,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="impact-number font-heading" data-count="500" data-suffix="+">0</div>
+        <div class="impact-label">Farmers Reached</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-1">
+        <div class="impact-icon" style="background:rgba(0,85,221,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0055DD" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 10 3 12 0v-5"/></svg></div>
+        <div class="impact-number font-heading" data-count="150" data-suffix="+">0</div>
+        <div class="impact-label">Youth Placed</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-2">
+        <div class="impact-icon" style="background:rgba(255,85,0,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <div class="impact-number font-heading" data-count="200" data-suffix="+">0</div>
+        <div class="impact-label">Skill Courses Delivered</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-3">
+        <div class="impact-icon" style="background:rgba(0,102,255,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+        <div class="impact-number font-heading" data-count="10" data-suffix="+">0</div>
+        <div class="impact-label">Collaborations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section-padding" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="section-label">About AHSIS</span>
+        <h2 class="section-title">Bridging Innovation, <span class="text-gradient-blue">Sustainability</span> & Community</h2>
+        <p class="section-desc" style="margin-top:24px">Founded in 2025, Alpine Hub for Sustainable Innovation and Skills (AHSIS) is a DPIIT-recognized startup dedicated to bridging the gap between innovation, sustainability, and community development.</p>
+        <p class="section-desc" style="margin-top:16px">We harness the power of geospatial intelligence, Earth observation technologies, and data-driven innovation to address complex challenges in natural resource management, climate resilience, Agrotech, and rural development.</p>
+        <div class="about-badges">
+          <span class="about-badge">MCA Registered</span>
+          <span class="about-badge">MSME Certified</span>
+          <span class="about-badge">Startup India</span>
+        </div>
+        <a href="javascript:void(0)" class="link-arrow" data-popup="about">Dig More <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="about-img">
+          <img src="https://static.prod-images.emergentagent.com/jobs/8f832d45-494b-4c2c-927a-60ef2ac268e0/images/19c18e849cea3799cdf79e6ad199206527e1d12cd9fc3691c1fbd3b1852ae059.png" alt="Digital soil innovation">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CORE PROGRAMS ===== -->
+<section class="section-padding" id="programs" style="background:rgba(249,250,251,0.5)">
+  <div class="glow-line"></div>
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:64px">
+      <span class="section-label">Core Focus Areas</span>
+      <h2 class="section-title">Our Programs</h2>
+    </div>
+    <div class="cards-grid-3">
+      <div class="card reveal"><div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(0,102,255,0.25),transparent)"></div><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3 class="font-heading">Geospatial Technology & Innovation</h3><p>Leveraging Remote Sensing, GIS, satellite-based climatology, and spatial modeling to provide transformative geospatial solutions for sustainable development.</p></div>
+      <div class="card reveal reveal-delay-1"><div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(255,85,0,0.25),transparent)"></div><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div><h3 class="font-heading">Climate Change & Sustainable Development</h3><p>Addressing climate resilience and rural transformation through data-driven strategies, sustainability science, and community-focused development programs.</p></div>
+      <div class="card reveal reveal-delay-2"><div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(0,102,255,0.25),transparent)"></div><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="font-heading">Smart Agriculture & Agrometeorology</h3><p>Precision farming, crop monitoring, and weather-based advisory services powered by AI and geospatial intelligence for modern agricultural practices.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPECIALIZATIONS ===== -->
+<section class="section-padding" id="specializations">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:64px">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Specialization Areas</h2>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-item bento-span-8 reveal" data-popup-service="gis-remote-sensing"><div class="bento-bg-img"><img src="https://static.prod-images.emergentagent.com/jobs/8f832d45-494b-4c2c-927a-60ef2ac268e0/images/afbd544eed1eea08e28fde16189e5bb5961debd1c9c359399ee36066bfa389a5.png" alt=""><div class="overlay"></div></div><div class="bento-content"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">GIS & Remote Sensing</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Advanced geospatial solutions for mapping, monitoring, and spatial decision-making.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-4 bento-row-2 reveal reveal-delay-1" data-popup-service="agri-innovation"><div class="bento-content" style="display:flex;flex-direction:column;justify-content:flex-end;min-height:280px"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c-1.9-.5-3-1.8-3.5-3.5-.5-1.6-.2-3.7.7-6 2.3 1.2 3.3 3.2 3.9 5.5z"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">AhsisAgri Innovation</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Precision farming, crop monitoring, and technology-driven Agri-solutions.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-4 reveal reveal-delay-2" data-popup-service="geoinnovation-lab"><div class="bento-content"><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">GeoInnovation Lab</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Research, prototyping, and GIS-based innovations for real-world applications.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-4 reveal reveal-delay-1" data-popup-service="agromet-advisory"><div class="bento-bg-img"><img src="https://images.pexels.com/photos/586056/pexels-photo-586056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""><div class="overlay"></div></div><div class="bento-content"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">Agromet Advisory</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Weather-based advisory and climate-smart solutions for farmers and stakeholders.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-4 reveal reveal-delay-2" data-popup-service="innovation-hubs"><div class="bento-content"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">Innovation Hubs & Incubation</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Supporting startups and innovators with mentoring, incubation, and resources.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-6 reveal reveal-delay-1" data-popup-service="ai-solutions"><div class="bento-bg-img"><img src="https://static.prod-images.emergentagent.com/jobs/8f832d45-494b-4c2c-927a-60ef2ac268e0/images/f1bb89c99fc3ece40ee09c2f902087084fb82193b0b3045665f79739498528f6.png" alt=""><div class="overlay"></div></div><div class="bento-content"><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"/><path d="m15 9-6 6"/><path d="M9.5 9.5h.01"/><path d="M14.5 14.5h.01"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">AI-Driven Solutions</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Leveraging artificial intelligence for analytics, automation, and decision support.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-6 reveal reveal-delay-2"><div class="bento-content" style="display:flex;flex-direction:column;justify-content:center;min-height:160px"><p class="font-heading" style="font-size:24px;font-weight:500;color:#374151;line-height:1.4">"Transforming rural India through <span class="text-gradient-blue">technology</span> and <span class="text-gradient-orange">innovation</span>"</p><p class="font-mono" style="font-size:13px;color:#9ca3af;margin-top:16px">- AHSIS Vision</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILL HUB ===== -->
+<section class="section-padding" id="skills" style="background:rgba(249,250,251,0.5)">
+  <div class="glow-line"></div>
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <span class="section-label">Skill Development</span>
+      <h2 class="section-title">Programs & Courses</h2>
+      <p class="section-desc center">Industry-relevant skill training designed to bridge the gap between academia and real-world challenges.</p>
+    </div>
+    <div class="skill-tabs reveal">
+      <button class="skill-tab active" data-tab="6m"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 Months</button>
+      <button class="skill-tab" data-tab="3m"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 Months</button>
+      <button class="skill-tab" data-tab="2m"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 2 Months</button>
+      <button class="skill-tab" data-tab="1m"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 1 Month</button>
+    </div>
+    <div id="courses-6m" class="course-panel skill-courses active">
+      <div class="card reveal" data-popup-program="gis-remote-sensing"><div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(0,102,255,0.2),transparent)"></div><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3 class="font-heading">Advanced GIS & Remote Sensing</h3><p>Comprehensive geospatial analysis with ArcGIS, QGIS, and satellite image processing.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+      <div class="card reveal reveal-delay-1" data-popup-program="ai-ml-agriculture"><div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(0,85,221,0.2),transparent)"></div><div class="card-icon" style="background:rgba(0,85,221,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0055DD" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></div><h3 class="font-heading">AI & Machine Learning for Agriculture</h3><p>Deep learning, predictive analytics, and crop health monitoring using AI models.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+      <div class="card reveal reveal-delay-2" data-popup-program="webgis-development"><div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(255,85,0,0.2),transparent)"></div><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m6.08 9.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"/><path d="m6.08 14.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"/></svg></div><h3 class="font-heading">Full Stack Web GIS Development</h3><p>Build interactive GIS web applications using modern frameworks and spatial databases.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+    </div>
+    <div id="courses-3m" class="course-panel skill-courses">
+      <div class="card" data-popup-program="drone-mapping"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3 class="font-heading">Drone Technology & Mapping</h3><p>UAV operations, aerial surveying, photogrammetry, and 3D terrain modeling.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+      <div class="card" data-popup-program="iot-agriculture"><div class="card-icon" style="background:rgba(0,85,221,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0055DD" stroke-width="2"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg></div><h3 class="font-heading">IoT for Smart Agriculture</h3><p>Sensor networks, soil monitoring, automated irrigation, and precision farming.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+      <div class="card" data-popup-program="climate-analytics"><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M2 12a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V7h-5a8 8 0 0 0-5 2 8 8 0 0 0-5-2H2Z"/></svg></div><h3 class="font-heading">Climate Data Analytics</h3><p>Climate modeling, weather pattern analysis, and agrometeorology advisory.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+    </div>
+    <div id="courses-2m" class="course-panel skill-courses">
+      <div class="card" data-popup-program="python-geospatial"><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3 class="font-heading">Python for Geospatial Analysis</h3><p>Geospatial libraries, satellite data processing, and automation scripts.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+      <div class="card"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M2 12a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V7h-5a8 8 0 0 0-5 2 8 8 0 0 0-5-2H2Z"/></svg></div><h3 class="font-heading">Remote Sensing Image Analysis</h3><p>NDVI, EVI, LULC classification, and change detection techniques.</p></div>
+    </div>
+    <div id="courses-1m" class="course-panel skill-courses">
+      <div class="card" data-popup-program="intro-gis"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3 class="font-heading">Introduction to GIS</h3><p>Fundamentals of geographic information systems, spatial data, and map creation.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+      <div class="card" data-popup-program="data-visualization"><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3 class="font-heading">Data Visualization & Dashboards</h3><p>Creating interactive dashboards using modern data visualization tools.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+    </div>
+    <div style="text-align:center;margin-top:40px" class="reveal"><a href="javascript:void(0)" class="btn-primary" data-popup="all-courses">View All Courses <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="section-padding" id="projects">
+  <div class="glow-line"></div>
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:64px">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Projects & Research</h2>
+      <p class="section-desc center">Glimpse of current and completed projects in agriculture, geospatial analysis, and AI-driven solutions.</p>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-item bento-span-7 reveal" data-popup-project="ndvi-analysis"><div class="bento-bg-img"><img src="https://static.prod-images.emergentagent.com/jobs/8f832d45-494b-4c2c-927a-60ef2ac268e0/images/afbd544eed1eea08e28fde16189e5bb5961debd1c9c359399ee36066bfa389a5.png" alt=""><div class="overlay"></div></div><div class="bento-content"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">NDVI Analysis</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Normalized Difference Vegetation Index mapping for crop health assessment across agricultural regions.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-5 reveal reveal-delay-1" data-popup-project="evi-mapping"><div class="bento-content"><div class="card-icon" style="background:rgba(0,85,221,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0055DD" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">EVI Mapping</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Enhanced Vegetation Index analysis for improved biomass estimation and canopy structural variations.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-5 reveal" data-popup-project="lulc-classification"><div class="bento-content"><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m6.08 9.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">LULC Classification</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Land Use / Land Cover classification using satellite imagery and machine learning algorithms.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-7 reveal reveal-delay-1" data-popup-project="satellite-drone"><div class="bento-bg-img"><img src="https://images.pexels.com/photos/586056/pexels-photo-586056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""><div class="overlay"></div></div><div class="bento-content"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M2 12a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V7h-5a8 8 0 0 0-5 2 8 8 0 0 0-5-2H2Z"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">Satellite & Drone Imagery</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">High-resolution satellite and UAV imagery for precision agriculture, environmental monitoring, and resource mapping.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-6 reveal" data-popup-project="webgis-apps"><div class="bento-content"><div class="card-icon" style="background:rgba(0,85,221,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0055DD" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">Web GIS Applications</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Interactive web-based GIS platforms for real-time spatial data visualization and decision support systems.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+      <div class="bento-item bento-span-6 reveal reveal-delay-1" data-popup-project="ai-ml-showcase"><div class="bento-bg-img"><img src="https://static.prod-images.emergentagent.com/jobs/8f832d45-494b-4c2c-927a-60ef2ac268e0/images/f1bb89c99fc3ece40ee09c2f902087084fb82193b0b3045665f79739498528f6.png" alt=""><div class="overlay"></div></div><div class="bento-content"><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin-top:12px">AI/ML Model Showcase</h3><p style="font-size:14px;color:#6b7280;margin-top:8px">Machine learning models for crop prediction, pest detection, yield estimation, and climate impact analysis.</p><span class="link-arrow" style="margin-top:12px;display:inline-flex">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR JOURNEY ===== -->
+<section class="section-padding" id="journey" style="background:rgba(249,250,251,0.5)">
+  <div class="glow-line"></div>
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:64px">
+      <span class="section-label">Milestones</span>
+      <h2 class="section-title">Our Journey</h2>
+    </div>
+    <div class="timeline-desktop">
+      <div class="timeline-row">
+        <div class="timeline-line"></div>
+        <div class="timeline-progress"></div>
+        <div class="timeline-item reveal"><div class="timeline-node"><div class="timeline-dot" style="background:#0066FF;box-shadow:0 0 10px rgba(0,102,255,0.4)"></div></div><div class="timeline-card"><div class="timeline-card-icon" style="background:rgba(0,102,255,0.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg></div><p class="timeline-year font-mono" style="color:#0066FF">2025</p><h4 class="font-heading">Foundation</h4><p>AHSIS Pvt. Ltd. officially registered under MCA, MSME, and Startup India.</p></div></div>
+        <div class="timeline-item reveal reveal-delay-1"><div class="timeline-node"><div class="timeline-dot" style="background:#0055DD;box-shadow:0 0 10px rgba(0,85,221,0.4)"></div></div><div class="timeline-card"><div class="timeline-card-icon" style="background:rgba(0,85,221,0.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0055DD" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><p class="timeline-year font-mono" style="color:#0055DD">2025</p><h4 class="font-heading">Skill Launch</h4><p>Initiated training in GIS, AI, and sustainable technologies.</p></div></div>
+        <div class="timeline-item reveal reveal-delay-2"><div class="timeline-node" style="border-color:rgba(255,85,0,0.2)"><div class="timeline-dot" style="background:#FF5500;box-shadow:0 0 10px rgba(255,85,0,0.4)"></div></div><div class="timeline-card"><div class="timeline-card-icon" style="background:rgba(255,85,0,0.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/></svg></div><p class="timeline-year font-mono" style="color:#FF5500">2025</p><h4 class="font-heading">Agri Innovation</h4><p>Introduced climate-smart agriculture and agromet advisory.</p></div></div>
+        <div class="timeline-item reveal reveal-delay-3"><div class="timeline-node"><div class="timeline-dot" style="background:#0066FF;box-shadow:0 0 10px rgba(0,102,255,0.4)"></div></div><div class="timeline-card"><div class="timeline-card-icon" style="background:rgba(0,102,255,0.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/></svg></div><p class="timeline-year font-mono" style="color:#0066FF">2025</p><h4 class="font-heading">R&D Expansion</h4><p>Established GeoInnovation Lab and AI-driven solutions.</p></div></div>
+        <div class="timeline-item reveal reveal-delay-4"><div class="timeline-node" style="border-color:rgba(0,85,221,0.2)"><div class="timeline-dot" style="background:#0055DD;box-shadow:0 0 10px rgba(0,85,221,0.4)"></div></div><div class="timeline-card"><div class="timeline-card-icon" style="background:rgba(0,85,221,0.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0055DD" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><p class="timeline-year font-mono" style="color:#0055DD">2025</p><h4 class="font-heading">Community Impact</h4><p>Reached 500+ farmers and enabled rural transformation.</p></div></div>
+        <div class="timeline-item reveal reveal-delay-5"><div class="timeline-node" style="border-color:rgba(255,85,0,0.2)"><div class="timeline-dot" style="background:#FF5500;box-shadow:0 0 10px rgba(255,85,0,0.4)"></div></div><div class="timeline-card"><div class="timeline-card-icon" style="background:rgba(255,85,0,0.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></div><p class="timeline-year font-mono" style="color:#FF5500">2025</p><h4 class="font-heading">Partnerships</h4><p>Built collaborations with institutions and organizations.</p></div></div>
+        <div class="timeline-item timeline-future reveal reveal-delay-6"><div class="timeline-node"><div class="timeline-dot" style="background:#0066FF;box-shadow:0 0 14px rgba(0,102,255,0.5)"></div></div><div class="timeline-card"><div class="timeline-card-icon" style="background:rgba(0,102,255,0.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg></div><p class="timeline-year font-mono" style="color:#0066FF">Future</p><h4 class="font-heading">Global Expansion</h4><p>Scaling impact across South Asia with advanced AI platforms.</p></div></div>
+      </div>
+    </div>
+    <div class="timeline-mobile">
+      <div class="timeline-v-line"></div>
+      <div class="timeline-m-item reveal"><div class="timeline-m-node"><div class="timeline-m-dot" style="background:#0066FF;box-shadow:0 0 6px rgba(0,102,255,0.4)"></div></div><div class="timeline-m-card"><p class="timeline-year font-mono" style="color:#0066FF">2025</p><h4 class="font-heading" style="font-size:16px;color:#111827;margin:4px 0">Foundation</h4><p style="font-size:14px;color:#9ca3af">AHSIS Pvt. Ltd. officially registered under MCA, MSME, and Startup India.</p></div></div>
+      <div class="timeline-m-item reveal reveal-delay-1"><div class="timeline-m-node"><div class="timeline-m-dot" style="background:#0055DD;box-shadow:0 0 6px rgba(0,85,221,0.4)"></div></div><div class="timeline-m-card"><p class="timeline-year font-mono" style="color:#0055DD">2025</p><h4 class="font-heading" style="font-size:16px;color:#111827;margin:4px 0">Skill Development Launch</h4><p style="font-size:14px;color:#9ca3af">Initiated training programs in GIS, AI, and sustainable technologies.</p></div></div>
+      <div class="timeline-m-item reveal reveal-delay-2"><div class="timeline-m-node" style="border-color:rgba(255,85,0,0.25)"><div class="timeline-m-dot" style="background:#FF5500;box-shadow:0 0 6px rgba(255,85,0,0.4)"></div></div><div class="timeline-m-card"><p class="timeline-year font-mono" style="color:#FF5500">2025</p><h4 class="font-heading" style="font-size:16px;color:#111827;margin:4px 0">Agricultural Innovation</h4><p style="font-size:14px;color:#9ca3af">Introduced climate-smart agriculture and agrometeorology advisory solutions.</p></div></div>
+      <div class="timeline-m-item reveal reveal-delay-3"><div class="timeline-m-node"><div class="timeline-m-dot" style="background:#0066FF;box-shadow:0 0 6px rgba(0,102,255,0.4)"></div></div><div class="timeline-m-card"><p class="timeline-year font-mono" style="color:#0066FF">2025</p><h4 class="font-heading" style="font-size:16px;color:#111827;margin:4px 0">Research & Tech Expansion</h4><p style="font-size:14px;color:#9ca3af">Established GeoInnovation Lab and launched AI-driven geospatial solutions.</p></div></div>
+      <div class="timeline-m-item reveal reveal-delay-4"><div class="timeline-m-node" style="border-color:rgba(0,85,221,0.25)"><div class="timeline-m-dot" style="background:#0055DD;box-shadow:0 0 6px rgba(0,85,221,0.4)"></div></div><div class="timeline-m-card"><p class="timeline-year font-mono" style="color:#0055DD">2025</p><h4 class="font-heading" style="font-size:16px;color:#111827;margin:4px 0">Community Impact</h4><p style="font-size:14px;color:#9ca3af">Reached 500+ farmers and enabled rural transformation initiatives.</p></div></div>
+      <div class="timeline-m-item reveal reveal-delay-5"><div class="timeline-m-node" style="border-color:rgba(255,85,0,0.25)"><div class="timeline-m-dot" style="background:#FF5500;box-shadow:0 0 6px rgba(255,85,0,0.4)"></div></div><div class="timeline-m-card"><p class="timeline-year font-mono" style="color:#FF5500">2025</p><h4 class="font-heading" style="font-size:16px;color:#111827;margin:4px 0">Partnerships & Growth</h4><p style="font-size:14px;color:#9ca3af">Built collaborations with institutions and organizations.</p></div></div>
+      <div class="timeline-m-item reveal reveal-delay-6"><div class="timeline-m-node" style="border-style:dashed;border-color:rgba(0,102,255,0.2)"><div class="timeline-m-dot" style="background:#0066FF;box-shadow:0 0 8px rgba(0,102,255,0.5)"></div></div><div class="timeline-m-card" style="border-style:dashed;border-color:rgba(0,102,255,0.15)"><p class="timeline-year font-mono" style="color:#0066FF">Future</p><h4 class="font-heading" style="font-size:16px;color:#111827;margin:4px 0">Global Expansion</h4><p style="font-size:14px;color:#9ca3af">Scaling impact across South Asia with advanced AI platforms and partnerships.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISION & MISSION ===== -->
+<section class="section-padding" id="vision">
+  <div class="glow-line"></div>
+  <div class="container">
+    <div class="vm-grid">
+      <div class="vm-card reveal"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3 class="font-heading" style="font-size:28px;color:#111827;margin:16px 0">Our Vision</h3><p style="color:#6b7280;line-height:1.7">To be a global leader in technology and geospatial innovation, recognized for quality, innovation, and impact. We transform businesses and communities through cutting-edge, technology-enabled solutions that support the UN Sustainable Development Goals.</p></div>
+      <div class="vm-card reveal reveal-delay-2"><div class="card-icon" style="background:rgba(255,85,0,0.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3 class="font-heading" style="font-size:28px;color:#111827;margin:16px 0">Our Mission</h3><p style="color:#6b7280;line-height:1.7">To empower businesses and communities by delivering innovative technology and geospatial solutions that drive growth, resilience, and sustainability. We provide high-quality skill development programs tailored to the unique needs of each partner.</p></div>
+    </div>
+    <div class="sdg-marquee reveal" style="margin-top:80px">
+      <p style="text-align:center;margin-bottom:32px" class="font-mono section-label" style="color:#9ca3af">Aligned with UN Sustainable Development Goals</p>
+      <div class="sdg-track">
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">2</span><span class="sdg-name">Zero Hunger</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">4</span><span class="sdg-name">Quality Education</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">6</span><span class="sdg-name">Clean Water</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">7</span><span class="sdg-name">Clean Energy</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">9</span><span class="sdg-name">Innovation</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">13</span><span class="sdg-name">Climate Action</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">15</span><span class="sdg-name">Life on Land</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">17</span><span class="sdg-name">Partnerships</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">2</span><span class="sdg-name">Zero Hunger</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">4</span><span class="sdg-name">Quality Education</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">6</span><span class="sdg-name">Clean Water</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">7</span><span class="sdg-name">Clean Energy</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">9</span><span class="sdg-name">Innovation</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">13</span><span class="sdg-name">Climate Action</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">15</span><span class="sdg-name">Life on Land</span></div>
+        <div class="sdg-pill"><span class="sdg-num text-gradient-blue">17</span><span class="sdg-name">Partnerships</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SDG ===== -->
+<section class="section-padding" id="sdg" style="background:rgba(249,250,251,0.5)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:64px">
+      <span class="section-label">Global Impact</span>
+      <h2 class="section-title">SDG Alignment</h2>
+      <p class="section-desc center">AHSIS is dedicated to promoting sustainable development through innovation, education, and geospatial solutions.</p>
+    </div>
+    <div class="sdg-grid">
+      <div class="sdg-card reveal"><div class="sdg-card-bar" style="background:#DDA63A"></div><div class="sdg-card-header"><div class="sdg-card-num font-heading" style="background:#DDA63A18;color:#DDA63A">2</div><h3 class="font-heading">Zero Hunger</h3></div><p>Climate-smart agriculture and food security solutions</p></div>
+      <div class="sdg-card reveal reveal-delay-1"><div class="sdg-card-bar" style="background:#C5192D"></div><div class="sdg-card-header"><div class="sdg-card-num font-heading" style="background:#C5192D18;color:#C5192D">4</div><h3 class="font-heading">Quality Education</h3></div><p>Skill development and practical training programs</p></div>
+      <div class="sdg-card reveal reveal-delay-2"><div class="sdg-card-bar" style="background:#26BDE2"></div><div class="sdg-card-header"><div class="sdg-card-num font-heading" style="background:#26BDE218;color:#26BDE2">6</div><h3 class="font-heading">Clean Water</h3></div><p>Water resource management through geospatial tech</p></div>
+      <div class="sdg-card reveal reveal-delay-3"><div class="sdg-card-bar" style="background:#FCC30B"></div><div class="sdg-card-header"><div class="sdg-card-num font-heading" style="background:#FCC30B18;color:#FCC30B">7</div><h3 class="font-heading">Clean Energy</h3></div><p>Renewable energy training and rural solutions</p></div>
+      <div class="sdg-card reveal"><div class="sdg-card-bar" style="background:#F36D25"></div><div class="sdg-card-header"><div class="sdg-card-num font-heading" style="background:#F36D2518;color:#F36D25">9</div><h3 class="font-heading">Innovation</h3></div><p>Innovation hubs and technology incubation</p></div>
+      <div class="sdg-card reveal reveal-delay-1"><div class="sdg-card-bar" style="background:#3F7E44"></div><div class="sdg-card-header"><div class="sdg-card-num font-heading" style="background:#3F7E4418;color:#3F7E44">13</div><h3 class="font-heading">Climate Action</h3></div><p>Climate modeling and disaster risk management</p></div>
+      <div class="sdg-card reveal reveal-delay-2"><div class="sdg-card-bar" style="background:#56C02B"></div><div class="sdg-card-header"><div class="sdg-card-num font-heading" style="background:#56C02B18;color:#56C02B">15</div><h3 class="font-heading">Life on Land</h3></div><p>Environmental monitoring and biodiversity mapping</p></div>
+      <div class="sdg-card reveal reveal-delay-3"><div class="sdg-card-bar" style="background:#19486A"></div><div class="sdg-card-header"><div class="sdg-card-num font-heading" style="background:#19486A18;color:#19486A">17</div><h3 class="font-heading">Partnerships</h3></div><p>Collaborative ecosystem for sustainable impact</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG ===== -->
+<section class="section-padding" id="blog">
+  <div class="glow-line"></div>
+  <div class="container">
+    <div class="blog-header reveal">
+      <div><span class="section-label">Insights</span><h2 class="section-title">Latest from AHSIS</h2></div>
+      <a href="javascript:void(0)" class="link-arrow" data-popup="all-posts" style="margin-top:0">View all posts <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal" data-popup-blog="renewable-energy-training"><span class="blog-tag" style="color:#0066FF;background:rgba(0,102,255,0.05);border:1px solid rgba(0,102,255,0.1)">Skill Training</span><h3 class="font-heading">AHSIS Launches Skill Training Initiative in Renewable Energy</h3><p>Empowering rural communities with practical skills in solar energy, biogas systems, and sustainable energy solutions.</p><span class="blog-read-more font-mono">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+      <div class="blog-card reveal reveal-delay-1" data-popup-blog="ai-agro-sensing"><span class="blog-tag" style="color:#0055DD;background:rgba(0,85,221,0.05);border:1px solid rgba(0,85,221,0.1)">AI & Innovation</span><h3 class="font-heading">AI Meets Agriculture: AHSIS Unveils New Agro-sensing Technologies</h3><p>Launching AI-powered tools for smart farming -- from crop health monitoring to yield prediction using satellite data.</p><span class="blog-read-more font-mono">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+      <div class="blog-card reveal reveal-delay-2" data-popup-blog="vertical-farming"><span class="blog-tag" style="color:#FF5500;background:rgba(255,85,0,0.05);border:1px solid rgba(255,85,0,0.1)">Research</span><h3 class="font-heading">Breaking Ground: AHSIS Expands Vertical Farming Research</h3><p>Exploring vertical farming techniques and controlled environment agriculture for food security in urban areas.</p><span class="blog-read-more font-mono">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+      <div class="blog-card reveal reveal-delay-3" data-popup-blog="gis-rural-leaders"><span class="blog-tag" style="color:#0066FF;background:rgba(0,102,255,0.05);border:1px solid rgba(0,102,255,0.1)">GIS Training</span><h3 class="font-heading">GIS Training Program for Rural Leaders Completed</h3><p>Empowering grassroots leaders with geospatial tools for better resource management and planning.</p><span class="blog-read-more font-mono">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section-padding testimonial-section" id="testimonials">
+  <div class="container" style="max-width:800px;text-align:center">
+    <div class="reveal"><span class="section-label">Testimonials</span><h2 class="section-title">What People Think</h2></div>
+    <div style="min-height:260px;display:flex;align-items:center;justify-content:center;margin-top:48px">
+      <div class="testimonial-slide active"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(0,102,255,0.12)" stroke-width="2" style="margin:0 auto 24px"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><p class="testimonial-quote">"AHSIS represents a timely and much-needed initiative that bridges scientific understanding with real-world applications, particularly in rural and vulnerable regions."</p><div class="testimonial-author"><div class="testimonial-avatar">DP</div><div class="testimonial-info"><p class="testimonial-name font-heading">Mr. Deepak Panda</p><p class="testimonial-role">Ph.D. Research Scholar</p></div></div></div>
+      <div class="testimonial-slide"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(0,102,255,0.12)" stroke-width="2" style="margin:0 auto 24px"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><p class="testimonial-quote">"AHSIS stands out as a dynamic platform that is truly bridging the gap between academic research and ground-level sustainability action."</p><div class="testimonial-author"><div class="testimonial-avatar">MJ</div><div class="testimonial-info"><p class="testimonial-name font-heading">Ms. Mahjabeen</p><p class="testimonial-role">PhD Research Scholar</p></div></div></div>
+      <div class="testimonial-slide"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(0,102,255,0.12)" stroke-width="2" style="margin:0 auto 24px"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><p class="testimonial-quote">"AHSIS stands out for its practical, hands-on approach to sustainability, empowering communities and young professionals with regionally relevant skills."</p><div class="testimonial-author"><div class="testimonial-avatar">HS</div><div class="testimonial-info"><p class="testimonial-name font-heading">Dr. Husain Shabbar</p><p class="testimonial-role">Assistant Professor (Geology)</p></div></div></div>
+    </div>
+    <div class="testimonial-controls"><button class="testimonial-btn" id="test-prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button><div class="testimonial-dots"><div class="testimonial-dot active"></div><div class="testimonial-dot"></div><div class="testimonial-dot"></div></div><button class="testimonial-btn" id="test-next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button></div>
+    <div style="margin-top:24px"><a href="javascript:void(0)" class="link-arrow" data-popup="all-testimonials" style="justify-content:center">View All Testimonials <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ===== TEAM ===== -->
+<section class="section-padding" id="team">
+  <div class="glow-line"></div>
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:64px"><span class="section-label">Our People</span><h2 class="section-title">Leadership & Advisory</h2></div>
+    <div id="team-container">
+      <!-- Team cards rendered dynamically from team.js -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== GET INVOLVED ===== -->
+<section class="section-padding" id="get-involved" style="background:rgba(249,250,251,0.5)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:64px"><span class="section-label">Join Us</span><h2 class="section-title">Get Involved</h2></div>
+    <div class="involved-grid">
+      <div class="involved-card reveal"><div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(0,102,255,0.2),transparent)"></div><div class="card-icon" style="background:rgba(0,102,255,0.06);width:56px;height:56px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div><h3 class="font-heading" style="font-size:24px;color:#111827;margin:16px 0 12px">Become a Member</h3><p style="color:#6b7280;line-height:1.7;margin-bottom:24px">Join AHSIS to contribute to research, innovation, workshops, webinars, and sustainable development.</p><a href="#contact" class="btn-primary" data-contact-subject="Membership Application">Apply for Membership <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+      <div class="involved-card reveal reveal-delay-1"><div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(255,85,0,0.2),transparent)"></div><div class="card-icon" style="background:rgba(255,85,0,0.06);width:56px;height:56px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3 class="font-heading" style="font-size:24px;color:#111827;margin:16px 0 12px">Work With Us</h3><p style="color:#6b7280;line-height:1.7;margin-bottom:24px">Check back for openings in research, technology, education, and community development roles.</p><a href="#contact" class="btn-outline" style="border-color:rgba(255,85,0,0.3);color:#FF5500" data-contact-subject="Career Inquiry">View Openings <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+      <div class="involved-card reveal reveal-delay-2"><div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(0,85,221,0.2),transparent)"></div><div class="card-icon" style="background:rgba(0,85,221,0.06);width:56px;height:56px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0055DD" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 class="font-heading" style="font-size:24px;color:#111827;margin:16px 0 12px">Partner With Us</h3><p style="color:#6b7280;line-height:1.7;margin-bottom:24px">Collaborate on projects, sponsor initiatives, or explore partnership opportunities for mutual growth.</p><a href="#contact" class="btn-outline" style="border-color:rgba(0,85,221,0.3);color:#0055DD" data-contact-subject="Partnership Inquiry">Explore Partnership <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STUDENTS ===== -->
+<section class="section-padding" id="students">
+  <div class="glow-line"></div>
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:64px"><span class="section-label">For Students</span><h2 class="section-title">Internships & Placements</h2><p class="section-desc center">Kickstart your career with hands-on experience in geospatial tech, AI, and sustainable innovation.</p></div>
+    <div class="students-grid">
+      <div class="student-card reveal"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 10 3 12 0v-5"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin:16px 0 12px">Research Internships</h3><p style="font-size:14px;color:#6b7280;line-height:1.7;margin-bottom:16px">Work alongside industry experts on real-world research projects in geospatial tech and climate science.</p><ul class="student-list"><li><span class="dot"></span>Hands-on project experience</li><li><span class="dot"></span>Mentorship from domain experts</li><li><span class="dot"></span>Certificate upon completion</li><li><span class="dot"></span>Publication opportunities</li></ul><a href="#contact" class="link-arrow" data-contact-subject="Research Internship" style="margin-top:0">Apply Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+      <div class="student-card reveal reveal-delay-1"><div class="card-icon" style="background:rgba(0,102,255,0.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg></div><h3 class="font-heading" style="font-size:20px;color:#111827;margin:16px 0 12px">Placement Cell</h3><p style="font-size:14px;color:#6b7280;line-height:1.7;margin-bottom:16px">Dedicated career counselling connecting students with industry partners in agritech and geospatial sectors.</p><ul class="student-list"><li><span class="dot"></span>150+ youth placed successfully</li><li><span class="dot"></span>Industry partner network</li><li><span class="dot"></span>Career counselling support</li><li><span class="dot"></span>Resume & interview preparation</li></ul><a href="#contact" class="link-arrow" data-contact-subject="Placement Inquiry" style="margin-top:0">Contact Placement Cell <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<section class="section-padding" id="map-section" style="background:rgba(249,250,251,0.5)">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:48px"><span class="section-label">Locations</span><h2 class="section-title">Our Presence</h2></div>
+    <div class="reveal">
+      <div class="map-container">
+        <div id="map"></div>
+        <div class="map-info-cards">
+          <div class="map-info-card"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><p class="label">J&K, India (HQ)</p><p class="coord">33.73N, 75.14E</p></div></div>
+          <div class="map-info-card"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><p class="label">Kolkata, India</p><p class="coord">22.57N, 88.36E</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section-padding" id="contact">
+  <div class="glow-line"></div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Contact With Us</h2>
+        <p class="section-desc">Drop us a message and our team will get back to you within 24 hours.</p>
+        <div class="contact-items">
+          <div class="contact-item"><div class="contact-item-icon" style="background:rgba(0,102,255,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><p class="label">Locations</p><p class="value">NH-44 Anantnag, J&K - India 192101</p><p class="value">Kolkata - 700089</p></div></div>
+          <div class="contact-item"><div class="contact-item-icon" style="background:rgba(0,85,221,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0055DD" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><p class="label">Phone</p><p class="value">+91 95412 96515 / +91 98311 45771</p></div></div>
+          <div class="contact-item"><div class="contact-item-icon" style="background:rgba(255,85,0,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><p class="label">Email</p><p class="value">infoahsis@gmail.com</p></div></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="contact-form-wrapper">
+          <form id="contact-form">
+            <div class="form-group"><label class="form-label">NAME</label><input class="form-input" name="name" placeholder="Your full name" required></div>
+            <div class="form-group"><label class="form-label">EMAIL</label><input class="form-input" name="email" type="email" placeholder="you@example.com" required></div>
+            <div class="form-group"><label class="form-label">PHONE</label><input class="form-input" name="phone" placeholder="+91 XXXXX XXXXX"></div>
+            <div class="form-group"><label class="form-label">MESSAGE</label><textarea class="form-textarea" name="message" placeholder="Write your message..." required rows="4"></textarea></div>
+            <div id="form-msg" class="form-msg"></div>
+            <button type="submit" class="form-submit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-cta"><h2 class="font-heading">Ready to <span class="text-gradient-blue">Transform</span> Agriculture?</h2><p>Partner with AHSIS for sustainable, technology-driven solutions that create lasting impact.</p><a href="#contact" class="btn-primary" style="margin-top:32px">Get Started <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a></div>
+    <div class="footer-links-grid">
+      <div class="footer-col"><div style="display:flex;align-items:center;gap:12px;margin-bottom:16px"><div class="nav-logo-icon" style="width:32px;height:32px;font-size:12px">A</div><span class="font-heading" style="font-weight:600;color:#111827">AHSIS</span></div><p style="font-size:14px;color:#9ca3af;line-height:1.6">Alpine Hub for Sustainable Innovation and Skills Pvt. Ltd.</p><div class="footer-social"><a href="https://www.linkedin.com/company/alpine-hub-for-sustainable-innovation-and-skills-ahsis" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.instagram.com/ahsis_official/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://t.me/ahsis_official" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a></div></div>
+      <div class="footer-col"><h4 class="font-heading">Services</h4><ul><li><a href="#specializations">GIS & Remote Sensing</a></li><li><a href="#specializations">AhsisAgri Innovation</a></li><li><a href="#specializations">AI-Driven Solutions</a></li><li><a href="#specializations">GeoInnovation Lab</a></li><li><a href="#specializations">Agromet Advisory</a></li></ul></div>
+      <div class="footer-col"><h4 class="font-heading">Programs & Students</h4><ul><li><a href="#skills">Skill Courses</a></li><li><a href="#students">Internships</a></li><li><a href="#students">Placements</a></li><li><a href="#get-involved">Become a Member</a></li></ul></div>
+      <div class="footer-col"><h4 class="font-heading">Company</h4><ul><li><a href="#about">About Us</a></li><li><a href="#journey">Our Journey</a></li><li><a href="#team">Team</a></li><li><a href="#blog">Blog</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-reg">CIN: U74900JK2025PTC017288 · UDYAM: JK-11-0018379 · DIPP: 201833</span><span class="footer-copy">&copy; 2025 AHSIS Pvt. Ltd. All rights reserved.</span></div>
+    <div class="footer-watermark"><span class="font-heading">AHSIS</span></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="team.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
