@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHSIS — Climate Smart Agriculture. Accelerated.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════
+   TOKENS & RESET
+═══════════════════════════════════════════════════════════ */
+:root{
+  /* Palette */
+  --white:#ffffff; --off:#f8faf7; --soft:#f1f5f0; --card:#ffffff;
+  --border:#e3ebe1; --border2:#c8d8c5;
+  --ink:#0b1a0c; --ink2:#2e3d2f; --ink3:#5f7060; --ink4:#8fa090;
+  --green:#1b6e38; --green-m:#27934d; --green-b:#38c069; --green-p:#eaf5ec; --green-p2:#d3ebd8;
+  --teal:#0e7c94; --amber:#b05a0a;
+  --hero-bg:#050f07; --hero-surface:rgba(255,255,255,.03);
+
+  /* Shadows */
+  --s1:0 1px 4px rgba(11,26,12,.07); --s2:0 4px 18px rgba(11,26,12,.09); --s3:0 16px 56px rgba(11,26,12,.14);
+
+  /* Shape */
+  --r:10px; --rl:18px; --rp:999px;
+
+  /* Spacing */
+  --sec:110px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--off)}::-webkit-scrollbar-thumb{background:var(--green-m);border-radius:4px}
+
+/* ════ UTILITY ════ */
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+.flex{display:flex}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:8px;margin-bottom:14px}
+.eyebrow::before{content:'';width:20px;height:1.5px;background:var(--green);flex-shrink:0}
+.h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,3.8vw,52px);font-weight:800;line-height:1.07;letter-spacing:-.025em;color:var(--ink)}
+.h2 em{font-style:normal;color:var(--green)}
+.lead{font-size:clamp(15px,1.3vw,18px);line-height:1.75;color:var(--ink3);margin-top:16px;max-width:580px}
+.geo-dots{background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);background-size:22px 22px}
+
+/* ════ SCROLL PROGRESS ════ */
+#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--green),var(--green-b));z-index:9999;width:0;transition:width .1s}
+
+/* ════ NAV ════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .3s,box-shadow .3s}
+nav.scrolled{background:rgba(5,15,7,.92);backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.logo-hex{width:36px;height:36px;background:linear-gradient(135deg,var(--green),var(--green-m));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#fff;flex-shrink:0}
+.nav-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#fff;letter-spacing:-.01em}
+.nav-sub{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase;display:block}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,.6);padding:6px 11px;border-radius:7px;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.08)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green-b);background:rgba(56,192,105,.1);border:1px solid rgba(56,192,105,.2);padding:5px 11px;border-radius:var(--rp)}
+.nav-cta{font-size:13px;font-weight:700;color:var(--ink);background:var(--green-b);padding:9px 20px;border-radius:var(--rp);transition:transform .15s,box-shadow .2s,background .2s;box-shadow:0 2px 12px rgba(56,192,105,.3)}
+.nav-cta:hover{transform:translateY(-2px);background:var(--green-m);box-shadow:0 4px 20px rgba(56,192,105,.4);color:#fff}
+.ham{display:none;flex-direction:column;gap:5px;padding:8px;background:rgba(255,255,255,.08);border-radius:8px;cursor:pointer}
+.ham span{width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(5,15,7,.97);backdrop-filter:blur(24px);padding:20px clamp(20px,5vw,56px);border-bottom:1px solid rgba(255,255,255,.06);z-index:499;transform:translateY(-10px);opacity:0;transition:transform .3s,opacity .3s;pointer-events:none}
+.mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:all}
+.mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.mobile-menu a{font-size:16px;font-weight:600;color:rgba(255,255,255,.7);padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);display:block;transition:color .2s}
+.mobile-menu a:hover{color:#fff}
+
+/* ════ HERO ════ */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;background:var(--hero-bg);overflow:hidden}
+#geo-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(27,110,56,.18),transparent),radial-gradient(ellipse 40% 40% at 80% 20%,rgba(14,124,148,.08),transparent)}
+.hero-inner{position:relative;z-index:10;max-width:1240px;margin:0 auto;padding:140px clamp(20px,5vw,56px) 80px;display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--green-b);margin-bottom:24px}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:var(--green-b);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(56,192,105,.6)}70%{box-shadow:0 0 0 8px rgba(56,192,105,0)}}
+.hero-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,5.5vw,74px);font-weight:800;line-height:1.0;letter-spacing:-.03em;color:#fff}
+.hero-title span{background:linear-gradient(135deg,var(--green-b),#6ee7a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:clamp(14px,1.2vw,17px);line-height:1.8;color:rgba(255,255,255,.55);margin-top:22px;max-width:520px}
+.hero-actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn-glow{font-size:14px;font-weight:700;color:var(--ink);background:var(--green-b);padding:14px 28px;border-radius:var(--rp);transition:transform .15s,box-shadow .2s,background .2s;box-shadow:0 4px 24px rgba(56,192,105,.4);display:inline-flex;align-items:center;gap:8px}
+.btn-glow:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(56,192,105,.5);background:#4dd47e;color:var(--ink)}
+.btn-ghost-dark{font-size:14px;font-weight:600;color:rgba(255,255,255,.75);border:1.5px solid rgba(255,255,255,.15);padding:14px 28px;border-radius:var(--rp);transition:border-color .2s,color .2s,transform .15s;backdrop-filter:blur(8px);background:rgba(255,255,255,.04)}
+.btn-ghost-dark:hover{border-color:var(--green-b);color:var(--green-b);transform:translateY(-3px)}
+.hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--rl);padding:30px;backdrop-filter:blur(16px);position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),var(--green-b),var(--teal))}
+.hc-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
+.hc-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:6px}
+.hc-sub{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:18px}
+.hc-sep{height:1px;background:rgba(255,255,255,.08);margin:16px 0}
+.mono-block{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,.4);line-height:2}
+.mono-block em{color:var(--green-b);font-style:normal}
+.mini-pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.mp{font-size:11px;font-weight:600;color:var(--green-b);background:rgba(56,192,105,.1);border:1px solid rgba(56,192,105,.2);padding:4px 11px;border-radius:var(--rp)}
+
+/* ════ STATS ════ */
+.stats-section{position:relative;z-index:20;padding-bottom:0}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--white);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;box-shadow:var(--s3);margin:0 clamp(20px,5vw,56px);transform:translateY(-36px)}
+.si{padding:28px 20px;text-align:center;border-right:1px solid var(--border);position:relative}
+.si:last-child{border-right:none}
+.si::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green-b));transform:scaleX(0);transition:transform .6s ease;transform-origin:left}
+.si:hover::before{transform:scaleX(1)}
+.si-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(24px,3vw,38px);font-weight:800;color:var(--green);line-height:1;display:block}
+.si-lbl{font-size:12px;color:var(--ink3);margin-top:5px;font-weight:500;font-family:'JetBrains Mono',monospace;letter-spacing:.05em}
+
+/* ════ SECTIONS SHARED ════ */
+section{padding:var(--sec) 0}
+.sec-header{margin-bottom:clamp(36px,4vw,60px)}
+.sec-header.center{text-align:center}
+.sec-header.center .lead{margin-left:auto;margin-right:auto}
+
+/* ════ ABOUT ════ */
+.about-card{background:var(--soft);border:1px solid var(--border);border-radius:var(--rl);padding:clamp(24px,3vw,40px);position:relative;overflow:hidden}
+.about-card::after{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,var(--green-p2),transparent 65%);pointer-events:none}
+.ac-title{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+.ac-text{font-size:15px;line-height:1.78;color:var(--ink2)}
+.ac-sep{height:1px;background:var(--border);margin:20px 0}
+.reg-row{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink3);padding:5px 0;display:flex;gap:14px}
+.reg-row strong{color:var(--ink2);min-width:60px}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.bp{font-size:12px;font-weight:600;color:var(--ink2);background:var(--soft);border:1px solid var(--border);padding:6px 14px;border-radius:var(--rp);transition:border-color .2s,color .2s}
+.bp:hover{border-color:var(--green-m);color:var(--green)}
+
+/* ════ FOCUS AREAS ════ */
+.focus{background:var(--soft)}
+.f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.fc{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:clamp(24px,2.5vw,36px);transition:box-shadow .3s,transform .3s,border-color .3s;position:relative;overflow:hidden}
+.fc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green-b));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.fc:hover{box-shadow:var(--s3);transform:translateY(-5px);border-color:var(--green-p2)}
+.fc:hover::after{transform:scaleX(1)}
+.fc-icon{width:52px;height:52px;background:var(--green-p);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;transition:transform .3s}
+.fc:hover .fc-icon{transform:scale(1.1) rotate(-5deg)}
+.fc-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.fc-desc{font-size:14px;line-height:1.75;color:var(--ink3)}
+
+/* ════ SERVICES ════ */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sc{background:var(--soft);border:1px solid var(--border);border-radius:var(--rl);padding:28px 24px;transition:box-shadow .25s,transform .25s,background .2s;position:relative;overflow:hidden;cursor:pointer}
+.sc:hover{box-shadow:var(--s2);transform:translateY(-4px);background:var(--white)}
+.sc-bar{position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--green),var(--green-b));opacity:0;transition:opacity .25s}
+.sc:hover .sc-bar{opacity:1}
+.sn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink4);margin-bottom:12px;font-weight:500}
+.st{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.sd{font-size:14px;line-height:1.72;color:var(--ink3);margin-bottom:18px}
+.sl{font-size:13px;font-weight:700;color:var(--green);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.sl svg{transition:transform .2s}
+.sc:hover .sl{gap:10px}
+.sc:hover .sl svg{transform:translateX(3px)}
+
+/* ════ QUOTE ════ */
+.quote-sec{background:var(--ink);padding:56px 0}
+.quote-wrap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;position:relative}
+.qt{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(20px,3vw,34px);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.3;max-width:800px}
+.qt em{font-style:normal;background:linear-gradient(135deg,var(--green-b),#6ee7a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.qa{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.15em;text-transform:uppercase}
+
+/* ════ COURSES WITH FILTER ════ */
+.courses{background:var(--soft)}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px;margin-bottom:36px;align-items:center}
+.filter-pill{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);background:var(--white);border:1.5px solid var(--border);padding:9px 18px;border-radius:var(--rp);cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.filter-pill::before{content:'';position:absolute;inset:0;background:var(--green);transform:scaleX(0);transition:transform .25s;transform-origin:left;z-index:0}
+.filter-pill span{position:relative;z-index:1}
+.filter-pill.active,.filter-pill:hover{color:#fff;border-color:var(--green);box-shadow:0 2px 12px rgba(27,110,56,.25)}
+.filter-pill.active::before,.filter-pill:hover::before{transform:scaleX(1)}
+.course-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink4);margin-left:auto;letter-spacing:.05em}
+.co-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cc{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:28px 24px;transition:box-shadow .25s,transform .25s;position:relative;overflow:hidden}
+.cc:hover{box-shadow:var(--s3);transform:translateY(-5px)}
+.cc.hidden{display:none}
+.cd-pill{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--green-p);border:1px solid var(--green-p2);padding:5px 12px;border-radius:var(--rp);margin-bottom:18px}
+.ct{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.35}
+.cx{font-size:13.5px;line-height:1.72;color:var(--ink3);margin-bottom:18px}
+.cc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--border)}
+.cl{font-size:13px;font-weight:700;color:var(--green);display:inline-flex;align-items:center;gap:5px;transition:gap .2s}
+.cc:hover .cl{gap:9px}
+.cc-tag{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink4);padding:3px 8px;border:1px solid var(--border);border-radius:var(--rp)}
+.cc-corner{position:absolute;top:0;right:0;width:0;height:0;border-left:28px solid transparent;border-top:28px solid var(--green-p);transition:border-top-color .2s}
+.cc:hover .cc-corner{border-top-color:var(--green-p2)}
+
+/* ════ PROJECTS ════ */
+.pj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pjc{background:var(--soft);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:box-shadow .3s,transform .3s;group:true}
+.pjc:hover{box-shadow:var(--s3);transform:translateY(-6px)}
+.pj-vis{height:148px;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;overflow:hidden;transition:transform .4s}
+.pjc:hover .pj-vis{transform:scale(1.04)}
+.pj-vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px);background-size:20px 20px;opacity:.6}
+.pj-vis-pulse{position:absolute;width:60px;height:60px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);animation:ripple 2.5s infinite}
+.pj-vis-pulse2{animation-delay:.8s;width:90px;height:90px}
+@keyframes ripple{0%{transform:scale(.7);opacity:1}100%{transform:scale(1.5);opacity:0}}
+.pj-body{padding:22px}
+.pj-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green-m);margin-bottom:8px}
+.pj-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:7px}
+.pj-desc{font-size:13px;line-height:1.72;color:var(--ink3);margin-bottom:14px}
+.pj-link{font-size:13px;font-weight:700;color:var(--green);display:inline-flex;align-items:center;gap:5px;transition:gap .2s}
+.pjc:hover .pj-link{gap:9px}
+
+/* ════ JOURNEY ════ */
+.journey{background:var(--soft)}
+.jrn-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,5vw,80px);align-items:start}
+.tl{position:relative;padding-left:32px}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:2px;background:linear-gradient(180deg,var(--green) 70%,var(--border));border-radius:2px}
+.tli{position:relative;margin-bottom:32px;cursor:pointer}
+.tli-dot{position:absolute;left:-39px;top:5px;width:15px;height:15px;border-radius:50%;background:var(--white);border:2.5px solid var(--green);transition:background .25s,transform .25s;box-shadow:0 0 0 0 rgba(27,110,56,.3)}
+.tli:hover .tli-dot{background:var(--green);transform:scale(1.2);box-shadow:0 0 0 6px rgba(27,110,56,.1)}
+.tli-future .tli-dot{border-color:var(--amber)}
+.tli-yr{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;color:var(--green);margin-bottom:5px;text-transform:uppercase;letter-spacing:.1em}
+.tli-future .tli-yr{color:var(--amber)}
+.tli-h{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.tli-b{font-size:14px;line-height:1.7;color:var(--ink3)}
+.vm-stack{display:flex;flex-direction:column;gap:18px}
+.vmc{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:clamp(24px,2.5vw,36px);position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.vmc:hover{box-shadow:var(--s2);transform:translateY(-3px)}
+.vmc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green-b))}
+.vmc-eye{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.vmc-h{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:10px}
+.vmc-t{font-size:14px;line-height:1.78;color:var(--ink3)}
+
+/* ════ SDG ════ */
+.sdg-sec{background:var(--ink);padding:var(--sec) 0}
+.sdg-sec .h2{color:#fff}
+.sdg-sec .h2 em{background:linear-gradient(135deg,var(--green-b),#6ee7a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sdg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:52px}
+.sgc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:24px 18px;transition:all .25s;position:relative;overflow:hidden}
+.sgc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,192,105,.08),transparent);opacity:0;transition:opacity .3s}
+.sgc:hover{border-color:rgba(56,192,105,.3);transform:translateY(-4px);background:rgba(56,192,105,.06)}
+.sgc:hover::before{opacity:1}
+.sgn{font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;font-weight:800;color:var(--green-b);line-height:1}
+.sgt{font-size:13px;font-weight:700;color:#fff;margin:8px 0 6px}
+.sgd{font-size:12px;line-height:1.65;color:rgba(255,255,255,.38)}
+
+/* ════ STUDENT INTERNSHIP SHOWCASE ════ */
+.internship-sec{background:var(--white);padding:var(--sec) 0}
+.intern-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center;margin-bottom:clamp(48px,5vw,80px)}
+.intern-intro-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ist-card{background:var(--soft);border:1px solid var(--border);border-radius:var(--r);padding:24px;position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.ist-card:hover{box-shadow:var(--s2);transform:translateY(-3px)}
+.ist-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green-b))}
+.ist-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:800;color:var(--green);line-height:1;display:block}
+.ist-lbl{font-size:13px;color:var(--ink3);margin-top:5px;font-weight:500}
+.intern-cards-title{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink4);margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.intern-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.if-btn{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);background:var(--soft);border:1.5px solid var(--border);padding:7px 14px;border-radius:var(--rp);cursor:pointer;transition:all .2s}
+.if-btn.active,.if-btn:hover{color:var(--green);border-color:var(--green-m);background:var(--green-p)}
+.intern-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.intern-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:box-shadow .3s,transform .3s;position:relative}
+.intern-card:hover{box-shadow:var(--s3);transform:translateY(-6px)}
+.ic-banner{height:100px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ic-banner-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:16px 16px}
+.ic-avatar{width:72px;height:72px;border-radius:50%;border:3px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:#fff;position:relative;z-index:1;flex-shrink:0;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.ic-status{position:absolute;top:12px;right:12px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:var(--rp);display:flex;align-items:center;gap:5px}
+.ic-status.completed{background:rgba(56,192,105,.2);color:#4dd47e;border:1px solid rgba(56,192,105,.3)}
+.ic-status.active{background:rgba(14,124,148,.2);color:#4ac9e4;border:1px solid rgba(14,124,148,.3)}
+.ic-status-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+.ic-status.active .ic-status-dot{animation:pulse 1.5s infinite}
+.ic-body{padding:20px}
+.ic-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--ink);margin-bottom:2px}
+.ic-role{font-size:12.5px;color:var(--ink3);margin-bottom:14px;font-weight:500}
+.ic-project-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink4);margin-bottom:6px}
+.ic-project-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:14px;line-height:1.35}
+.ic-meta{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.ic-meta-row{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink3)}
+.ic-meta-icon{width:24px;height:24px;border-radius:6px;background:var(--green-p);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.ic-cert{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--green-p),var(--green-p2));border:1px solid var(--green-p2);border-radius:8px;padding:10px 12px;margin-top:14px}
+.ic-cert-icon{width:28px;height:28px;border-radius:7px;background:var(--green);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex-shrink:0}
+.ic-cert-text{font-size:12px;font-weight:700;color:var(--green);line-height:1.3}
+.ic-cert-sub{font-size:10.5px;color:var(--green-m);font-weight:500}
+.ic-progress{margin-top:14px}
+.ic-progress-label{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink3);margin-bottom:6px}
+.ic-progress-bar{height:5px;background:var(--border);border-radius:var(--rp);overflow:hidden}
+.ic-progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--green-b));border-radius:var(--rp);transition:width 1.2s ease}
+.intern-cta-row{display:flex;gap:16px;margin-top:clamp(32px,4vw,56px);align-items:center;flex-wrap:wrap}
+.intern-cta-card{flex:1;min-width:260px;background:var(--soft);border:1px solid var(--border);border-radius:var(--rl);padding:32px 28px;display:flex;gap:18px;align-items:flex-start;transition:box-shadow .25s,transform .25s}
+.intern-cta-card:hover{box-shadow:var(--s2);transform:translateY(-3px)}
+.ictc-icon{width:52px;height:52px;border-radius:12px;background:var(--green-p);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.ictc-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.ictc-desc{font-size:13.5px;color:var(--ink3);line-height:1.65;margin-bottom:16px}
+.ul-check{list-style:none;margin-bottom:16px;display:flex;flex-direction:column;gap:6px}
+.ul-check li{font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:8px}
+.ul-check li::before{content:'✓';font-weight:700;color:var(--green);font-size:12px}
+
+/* ════ TEAM ════ */
+.ts-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink4);margin:48px 0 22px;padding-bottom:12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.ts-label:first-of-type{margin-top:clamp(36px,4vw,56px)}
+.tm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tm-grid.adv{grid-template-columns:repeat(5,1fr)}
+.tmc{background:var(--soft);border:1px solid var(--border);border-radius:var(--rl);padding:22px;transition:box-shadow .25s,transform .25s;position:relative;overflow:hidden}
+.tmc:hover{box-shadow:var(--s2);transform:translateY(-3px)}
+.tmc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),var(--green-b));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.tmc:hover::before{transform:scaleX(1)}
+.tm-av{width:46px;height:46px;border-radius:11px;background:var(--green-p);border:1px solid var(--green-p2);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:var(--green);margin-bottom:13px}
+.tm-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.tm-role{font-size:12px;line-height:1.55;color:var(--ink3)}
+
+/* ════ BLOG ════ */
+.blog{background:var(--soft)}
+.bl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.blc{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:box-shadow .3s,transform .3s;cursor:pointer;display:flex;flex-direction:column}
+.blc:hover{box-shadow:var(--s3);transform:translateY(-5px)}
+.blc-top{height:6px;background:linear-gradient(90deg,var(--green),var(--green-b))}
+.blc-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.bl-cat{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:11px;display:flex;align-items:center;gap:6px}
+.bl-dot{width:5px;height:5px;border-radius:50%;background:var(--green-b)}
+.bl-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:10px;flex:1}
+.bl-exc{font-size:13px;line-height:1.65;color:var(--ink3);margin-bottom:16px}
+.bl-link{font-size:13px;font-weight:700;color:var(--green);display:inline-flex;align-items:center;gap:5px;transition:gap .2s;margin-top:auto}
+.blc:hover .bl-link{gap:9px}
+
+/* ════ TESTIMONIALS ════ */
+.te-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tec{background:var(--soft);border:1px solid var(--border);border-radius:var(--rl);padding:30px 26px;transition:box-shadow .25s,transform .25s;position:relative;overflow:hidden}
+.tec:hover{box-shadow:var(--s2);transform:translateY(-3px)}
+.te-q-mark{font-family:'Plus Jakarta Sans',sans-serif;font-size:72px;font-weight:800;color:var(--green-p2);line-height:.8;margin-bottom:12px;display:block}
+.te-text{font-size:15px;line-height:1.78;color:var(--ink2);font-style:italic;margin-bottom:22px}
+.te-auth{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid var(--border)}
+.te-av{width:40px;height:40px;border-radius:10px;background:var(--green-p);border:1px solid var(--green-p2);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;color:var(--green);flex-shrink:0}
+.te-name{font-size:14px;font-weight:700;color:var(--ink)}
+.te-role{font-size:12px;color:var(--ink4);margin-top:1px}
+
+/* ════ GET INVOLVED ════ */
+.involved{background:var(--soft)}
+.inv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.invc{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:clamp(24px,2.5vw,36px);transition:box-shadow .3s,transform .3s;position:relative;overflow:hidden}
+.invc:hover{box-shadow:var(--s3);transform:translateY(-5px)}
+.invc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green-b));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.invc:hover::after{transform:scaleX(1)}
+.inv-ic{width:52px;height:52px;background:var(--green-p);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;transition:transform .3s}
+.invc:hover .inv-ic{transform:scale(1.1) rotate(-5deg)}
+.inv-t{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin-bottom:9px}
+.inv-d{font-size:14px;line-height:1.72;color:var(--ink3);margin-bottom:22px}
+.inv-btn{font-size:13px;font-weight:700;color:var(--green);border:1.5px solid var(--green-m);padding:10px 20px;border-radius:var(--rp);display:inline-block;transition:background .2s,color .2s,transform .15s}
+.inv-btn:hover{background:var(--green);color:#fff;transform:translateY(-2px)}
+
+/* ════ LOCATIONS ════ */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.locc{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:28px;display:flex;gap:18px;align-items:flex-start;transition:box-shadow .25s,transform .25s}
+.locc:hover{box-shadow:var(--s2);transform:translateY(-3px)}
+.loc-pin{width:48px;height:48px;background:var(--green-p);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.loc-type{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+.loc-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.loc-addr{font-size:14px;color:var(--ink3);line-height:1.6}
+.loc-coords{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink4);margin-top:7px;display:flex;align-items:center;gap:6px}
+
+/* ════ CONTACT ════ */
+.ct-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,5vw,80px);align-items:start}
+.ct-info{display:flex;flex-direction:column;gap:14px}
+.cii{display:flex;gap:14px;align-items:flex-start;padding:18px;background:var(--soft);border:1px solid var(--border);border-radius:var(--r);transition:border-color .2s,box-shadow .2s}
+.cii:hover{border-color:var(--green-p2);box-shadow:var(--s1)}
+.cii-ic{width:38px;height:38px;border-radius:9px;background:var(--green-p);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.cii-lbl{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cii-val{font-size:14px;color:var(--ink2);font-weight:600}
+.form-wrap{background:var(--soft);border:1px solid var(--border);border-radius:var(--rl);padding:clamp(24px,3vw,40px)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--ink3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.fg input,.fg textarea,.fg select{width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:9px;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:14px;padding:11px 15px;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(27,110,56,.1)}
+.fg textarea{height:110px;resize:vertical}
+.form-btn{width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--green),var(--green-m));border:none;padding:15px;border-radius:var(--rp);cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(27,110,56,.3);display:flex;align-items:center;justify-content:center;gap:8px}
+.form-btn:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(27,110,56,.38)}
+
+/* ════ CTA BANNER ════ */
+.cta-banner{background:var(--ink);padding:clamp(60px,8vw,100px) 0;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 100%,rgba(27,110,56,.25),transparent),radial-gradient(ellipse 40% 50% at 80% 20%,rgba(14,124,148,.1),transparent)}
+.cta-inner{position:relative;z-index:1;text-align:center}
+.cta-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(26px,4.5vw,56px);font-weight:800;color:#fff;letter-spacing:-.025em;line-height:1.1;margin-bottom:14px}
+.cta-title em{font-style:normal;background:linear-gradient(135deg,var(--green-b),#6ee7a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-sub{font-size:clamp(14px,1.2vw,18px);color:rgba(255,255,255,.55);margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-white{font-size:15px;font-weight:800;color:var(--ink);background:#fff;padding:14px 32px;border-radius:var(--rp);transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.btn-ow{font-size:15px;font-weight:600;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.2);padding:14px 32px;border-radius:var(--rp);transition:all .2s}
+.btn-ow:hover{border-color:var(--green-b);color:var(--green-b);background:rgba(56,192,105,.06)}
+
+/* ════ FOOTER ════ */
+footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
+.ft-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(24px,4vw,56px);margin-bottom:44px}
+.ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ft-brand{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;color:#fff}
+.ft-sub{font-size:13px;color:rgba(255,255,255,.35);line-height:1.65;margin-bottom:18px;max-width:260px}
+.ft-contact{font-size:13px;color:rgba(255,255,255,.4);line-height:2.1}
+.ft-ct{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:18px}
+.ft-links{list-style:none}
+.ft-links li{margin-bottom:9px}
+.ft-links a{font-size:14px;color:rgba(255,255,255,.45);transition:color .2s,padding-left .2s;display:inline-flex;align-items:center}
+.ft-links a:hover{color:#fff;padding-left:4px}
+.ft-div{height:1px;background:rgba(255,255,255,.06);margin-bottom:22px}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:13px;color:rgba(255,255,255,.25)}
+.ft-cins{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:rgba(255,255,255,.18);letter-spacing:.05em;text-align:right}
+
+/* ════ ANIMATIONS ════ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal.on{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal-left.on{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal-right.on{opacity:1;transform:translateX(0)}
+
+/* ════ RESPONSIVE ════ */
+@media(max-width:1100px){
+  .ft-top{grid-template-columns:1fr 1fr}
+  .sdg-grid{grid-template-columns:repeat(4,1fr)}
+  .tm-grid.adv{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:900px){
+  :root{--sec:80px}
+  .nav-links,.nav-badge{display:none}
+  .ham{display:flex}
+  .mobile-menu{display:block}
+  .hero-inner{grid-template-columns:1fr;gap:40px;padding:120px clamp(20px,5vw,40px) 60px}
+  .hero-card{max-width:480px}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .si:nth-child(2){border-right:none}
+  .si:nth-child(3){border-right:1px solid var(--border)}
+  .si:nth-child(3),.si:nth-child(4){border-top:1px solid var(--border)}
+  .grid2{grid-template-columns:1fr}
+  .about-card{margin-top:0}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .co-grid{grid-template-columns:1fr 1fr}
+  .pj-grid{grid-template-columns:1fr 1fr}
+  .jrn-grid{grid-template-columns:1fr}
+  .sdg-grid{grid-template-columns:repeat(4,1fr)}
+  .intern-intro{grid-template-columns:1fr}
+  .intern-grid{grid-template-columns:1fr 1fr}
+  .intern-cta-row{flex-direction:column}
+  .intern-cta-card{min-width:unset;width:100%}
+  .tm-grid{grid-template-columns:1fr 1fr}
+  .tm-grid.adv{grid-template-columns:repeat(3,1fr)}
+  .bl-grid{grid-template-columns:1fr 1fr}
+  .te-grid{grid-template-columns:1fr 1fr}
+  .inv-grid{grid-template-columns:1fr}
+  .loc-grid{grid-template-columns:1fr}
+  .ct-grid{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .f-grid,.svc-grid,.co-grid,.pj-grid,.sdg-grid{grid-template-columns:1fr}
+  .sdg-grid{grid-template-columns:1fr 1fr}
+  .intern-grid,.te-grid,.bl-grid{grid-template-columns:1fr}
+  .tm-grid,.tm-grid.adv{grid-template-columns:1fr 1fr}
+  .ft-top{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .hero-actions{flex-direction:column}
+  .cta-btns{flex-direction:column;align-items:center}
+  .intern-intro-stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="prog"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="#" class="nav-brand">
+      <div class="logo-hex">A</div>
+      <div>
+        <span class="nav-name">AHSIS</span>
+        <span class="nav-sub">Alpine Hub · Est. 2025</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#internship">Internships</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-badge">DPIIT Recognized</span>
+      <a href="#contact" class="nav-cta">Partner With Us</a>
+      <div class="ham" id="ham" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#services" onclick="closeMenu()">Services</a></li>
+    <li><a href="#programs" onclick="closeMenu()">Programs</a></li>
+    <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+    <li><a href="#internship" onclick="closeMenu()">Internships</a></li>
+    <li><a href="#journey" onclick="closeMenu()">Journey</a></li>
+    <li><a href="#team" onclick="closeMenu()">Team</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    <li><a href="#contact" onclick="closeMenu()" style="color:var(--green-b);font-weight:800">Partner With Us →</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="geo-canvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="hero-dot"></span> DPIIT Recognized Startup · 2025</div>
+      <h1 class="hero-title">
+        Climate Smart<br>Agriculture.<br><span>Accelerated.</span>
+      </h1>
+      <p class="hero-desc">Accelerating agricultural transformation in rural India through geospatial intelligence, Earth observation technologies, and data-driven innovation for sustainable development.</p>
+      <div class="hero-actions">
+        <a href="#programs" class="btn-glow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Explore Programs
+        </a>
+        <a href="#about" class="btn-ghost-dark">Learn More</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-card reveal-right">
+        <div class="hc-label">// System Registry</div>
+        <div class="hc-title">AHSIS Pvt. Ltd.</div>
+        <div class="hc-sub">Alpine Hub for Sustainable Innovation and Skills — DPIIT Recognized, Est. 2025</div>
+        <div class="hc-sep"></div>
+        <div class="mono-block">
+          <div><em>CIN</em> &nbsp; U74900JK2025PTC017288</div>
+          <div><em>UDYAM</em> JK-11-0018379</div>
+          <div><em>DIPP</em> &nbsp; 201833</div>
+          <div><em>HQ</em> &nbsp;&nbsp; 33.73°N, 75.14°E · J&K, India</div>
+        </div>
+        <div class="hc-sep"></div>
+        <div class="mini-pills">
+          <span class="mp">MCA Registered</span>
+          <span class="mp">MSME Certified</span>
+          <span class="mp">Startup India</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-bar reveal">
+    <div class="si"><span class="si-num" data-count="500">0</span><div class="si-lbl">Farmers Reached</div></div>
+    <div class="si"><span class="si-num" data-count="150">0</span><div class="si-lbl">Youth Placed</div></div>
+    <div class="si"><span class="si-num" data-count="200">0</span><div class="si-lbl">Courses Delivered</div></div>
+    <div class="si"><span class="si-num" data-count="10">0</span><div class="si-lbl">Collaborations</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" style="padding-top:60px">
+  <div class="wrap">
+    <div class="grid2">
+      <div class="reveal-left">
+        <div class="eyebrow">About AHSIS</div>
+        <h2 class="h2">Bridging <em>Innovation</em>, Sustainability & Community</h2>
+        <p class="lead">Founded in 2025, AHSIS is a DPIIT-recognized startup dedicated to bridging the gap between innovation, sustainability, and community development.</p>
+        <p style="font-size:15px;line-height:1.78;color:var(--ink3);margin-top:14px;max-width:520px;">We harness the power of geospatial intelligence, Earth observation technologies, and data-driven innovation to address complex challenges in natural resource management, climate resilience, Agrotech, and rural development.</p>
+        <div class="badge-row">
+          <span class="bp">MCA Registered</span><span class="bp">MSME Certified</span><span class="bp">Startup India</span><span class="bp">DPIIT Recognized</span>
+        </div>
+      </div>
+      <div class="about-card reveal-right">
+        <div class="ac-title">// Registration Details</div>
+        <p class="ac-text">Alpine Hub for Sustainable Innovation and Skills Pvt. Ltd. — Officially incorporated in 2025, operating at the intersection of geospatial technology, climate resilience, and rural development across India.</p>
+        <div class="ac-sep"></div>
+        <div class="reg-row"><strong>CIN</strong> U74900JK2025PTC017288</div>
+        <div class="reg-row"><strong>UDYAM</strong> JK-11-0018379</div>
+        <div class="reg-row"><strong>DIPP</strong> 201833</div>
+        <div class="ac-sep"></div>
+        <p class="ac-text" style="font-size:14px;">Aligned with the United Nations Sustainable Development Goals, driving innovation at the intersection of climate, technology, and community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOCUS -->
+<section class="focus geo-dots">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Core Focus Areas</div>
+      <h2 class="h2">Our <em>Programs</em></h2>
+    </div>
+    <div class="f-grid">
+      <div class="fc reveal"><div class="fc-icon">🛰️</div><div class="fc-title">Geospatial Technology & Innovation</div><p class="fc-desc">Leveraging Remote Sensing, GIS, satellite-based climatology, and spatial modeling to provide transformative geospatial solutions for sustainable development.</p></div>
+      <div class="fc reveal"><div class="fc-icon">🌿</div><div class="fc-title">Climate Change & Sustainable Development</div><p class="fc-desc">Addressing climate resilience and rural transformation through data-driven strategies, sustainability science, and community-focused development programs.</p></div>
+      <div class="fc reveal"><div class="fc-icon">🌾</div><div class="fc-title">Smart Agriculture & Agrometeorology</div><p class="fc-desc">Precision farming, crop monitoring, and weather-based advisory services powered by AI and geospatial intelligence for modern agricultural practices.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">What We Do</div>
+      <h2 class="h2">Specialization <em>Areas</em></h2>
+    </div>
+    <div class="svc-grid">
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">01</div><div class="st">GIS & Remote Sensing</div><p class="sd">Advanced geospatial solutions for mapping, monitoring, and spatial decision-making using cutting-edge satellite and sensor technologies.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">02</div><div class="st">AhsisAgri Innovation</div><p class="sd">Precision farming, crop monitoring, and technology-driven Agri-solutions for transforming agricultural productivity and sustainability.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">03</div><div class="st">GeoInnovation Lab</div><p class="sd">Research, prototyping, and GIS-based innovations for real-world applications, bridging the gap between lab and field deployment.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">04</div><div class="st">Agromet Advisory</div><p class="sd">Weather-based advisory and climate-smart solutions for farmers, delivering actionable insights through spatial analytics and AI.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">05</div><div class="st">Innovation Hubs & Incubation</div><p class="sd">Supporting startups and innovators with mentoring, incubation, and resources to develop scalable technology solutions.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">06</div><div class="st">AI-Driven Solutions</div><p class="sd">Leveraging artificial intelligence for analytics, automation, and decision support in agricultural and environmental monitoring systems.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-sec">
+  <div class="wrap">
+    <div class="quote-wrap reveal">
+      <p class="qt">"Transforming rural India through <em>technology and innovation</em>"</p>
+      <span class="qa">— AHSIS Vision</span>
+    </div>
+  </div>
+</div>
+
+<!-- COURSES WITH FILTER -->
+<section class="courses" id="programs">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Skill Development</div>
+      <h2 class="h2">Programs &amp; <em>Courses</em></h2>
+      <p class="lead">Industry-relevant skill training designed to bridge the gap between academia and real-world challenges.</p>
+    </div>
+    <div class="filter-bar reveal">
+      <button class="filter-pill active" data-filter="all"><span>All Courses</span></button>
+      <button class="filter-pill" data-filter="6m"><span>6 Months</span></button>
+      <button class="filter-pill" data-filter="3m"><span>3 Months</span></button>
+      <button class="filter-pill" data-filter="2m"><span>2 Months</span></button>
+      <button class="filter-pill" data-filter="1m"><span>1 Month</span></button>
+      <span class="course-count" id="course-count">10 courses</span>
+    </div>
+    <div class="co-grid">
+      <div class="cc reveal" data-dur="6m"><div class="cc-corner"></div><span class="cd-pill">⏱ 6 Months</span><div class="ct">Advanced GIS & Remote Sensing</div><p class="cx">Comprehensive geospatial analysis with ArcGIS, QGIS, and satellite image processing. Industry-grade workflow from raw data to insights.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Geospatial</span></div></div>
+      <div class="cc reveal" data-dur="3m"><div class="cc-corner"></div><span class="cd-pill">⏱ 3 Months</span><div class="ct">AI & Machine Learning for Agriculture</div><p class="cx">Deep learning, predictive analytics, and crop health monitoring using AI models. Build and deploy real agri-intelligence systems.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">AI/ML</span></div></div>
+      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Full Stack Web GIS Development</div><p class="cx">Build interactive GIS web applications using modern frameworks and spatial databases for real-world deployment.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Web Dev</span></div></div>
+      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Drone Technology & UAV Mapping</div><p class="cx">UAV operations, aerial surveying, photogrammetry, and 3D terrain modeling for precision agriculture and environmental assessment.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">UAV</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">IoT for Smart Agriculture</div><p class="cx">Sensor networks, soil monitoring, automated irrigation, and precision farming technologies for next-generation farms.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">IoT</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Climate Data Analytics</div><p class="cx">Climate modeling, weather pattern analysis, and agrometeorology advisory. Turn climate data into farmer-ready intelligence.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Climate</span></div></div>
+      <div class="cc reveal" data-dur="3m"><div class="cc-corner"></div><span class="cd-pill">⏱ 3 Months</span><div class="ct">Python for Geospatial Analysis</div><p class="cx">Geospatial libraries, satellite data processing, automation scripts, and geospatial pipelines using Python and open-source tools.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Python</span></div></div>
+      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Remote Sensing Image Analysis</div><p class="cx">NDVI, EVI, LULC classification, and change detection techniques using Sentinel, Landsat, and commercial satellite imagery.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Remote Sensing</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Introduction to GIS</div><p class="cx">Fundamentals of geographic information systems, spatial data concepts, map creation, and basic analysis for beginners.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Beginner</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Data Visualization & Dashboards</div><p class="cx">Creating interactive dashboards using modern data visualization tools. From raw geospatial data to boardroom-ready insights.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Visualization</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Our Work</div>
+      <h2 class="h2">Projects &amp; <em>Research</em></h2>
+      <p class="lead">Current and completed projects in agriculture, geospatial analysis, and AI-driven solutions.</p>
+    </div>
+    <div class="pj-grid">
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#1b6e38,#27934d)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🌿</div><div class="pj-body"><div class="pj-tag">Vegetation Analysis</div><div class="pj-title">NDVI Analysis</div><p class="pj-desc">Normalized Difference Vegetation Index mapping for crop health assessment across agricultural regions using multi-spectral satellite imagery.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#0e7c94,#1aaccf)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>📡</div><div class="pj-body"><div class="pj-tag">Biomass Estimation</div><div class="pj-title">EVI Mapping</div><p class="pj-desc">Enhanced Vegetation Index analysis for improved biomass estimation and canopy structural variations in diverse land cover types.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#5b3a9e,#7c5cbe)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🗺️</div><div class="pj-body"><div class="pj-tag">Land Cover</div><div class="pj-title">LULC Classification</div><p class="pj-desc">Land Use / Land Cover classification using satellite imagery and machine learning algorithms for regional planning applications.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#b05a0a,#d47a1e)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🛸</div><div class="pj-body"><div class="pj-tag">Remote Sensing</div><div class="pj-title">Satellite & Drone Imagery</div><p class="pj-desc">High-resolution satellite and UAV imagery for precision agriculture, environmental monitoring, and resource mapping at fine scales.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#1b3c6e,#2a5db0)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🌐</div><div class="pj-body"><div class="pj-tag">Visualization</div><div class="pj-title">Web GIS Applications</div><p class="pj-desc">Interactive web-based GIS platforms for real-time spatial data visualization and decision support systems for stakeholders.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#7e1b6e,#b02a9a)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🤖</div><div class="pj-body"><div class="pj-tag">Artificial Intelligence</div><div class="pj-title">AI/ML Model Showcase</div><p class="pj-desc">Machine learning models for crop prediction, pest detection, yield estimation, and climate impact analysis using deep learning.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ★★★ STUDENT INTERNSHIP SHOWCASE ★★★ -->
+<section class="internship-sec" id="internship">
+  <div class="wrap">
+    <div class="intern-intro">
+      <div class="reveal-left">
+        <div class="eyebrow">For Students</div>
+        <h2 class="h2">Student <em>Internship</em> Showcase</h2>
+        <p class="lead">Real students. Real projects. Real impact. Kickstart your career with hands-on geospatial & agri-tech experience under expert mentorship.</p>
+        <div class="badge-row" style="margin-top:28px">
+          <span class="bp">Research Internships</span>
+          <span class="bp">Placement Cell</span>
+          <span class="bp">Certificate Program</span>
+        </div>
+        <div class="hero-actions" style="margin-top:28px">
+          <a href="#contact" class="btn-glow" style="font-size:13px;padding:12px 22px">Apply Now</a>
+          <a href="#contact" class="btn-ghost" style="font-size:13px;padding:12px 22px;border-color:var(--border2);color:var(--ink2)">Contact Placement Cell</a>
+        </div>
+      </div>
+      <div class="intern-intro-stats reveal-right">
+        <div class="ist-card"><span class="ist-num" data-count="150">0</span><div class="ist-lbl">Youth Placed Successfully</div></div>
+        <div class="ist-card"><span class="ist-num" data-count="48">0</span><div class="ist-lbl">Active Interns</div></div>
+        <div class="ist-card"><span class="ist-num" data-count="32">0</span><div class="ist-lbl">Projects Completed</div></div>
+        <div class="ist-card"><span class="ist-num" data-count="18">0</span><div class="ist-lbl">Industry Partners</div></div>
+      </div>
+    </div>
+
+    <div class="intern-cards-title reveal">
+      <span>Current &amp; Recent Interns</span>
+      <div class="intern-filter">
+        <button class="if-btn active" data-ifilter="all">All</button>
+        <button class="if-btn" data-ifilter="active">Active</button>
+        <button class="if-btn" data-ifilter="completed">Completed</button>
+      </div>
+    </div>
+
+    <div class="intern-grid">
+      <!-- Card 1 -->
+      <div class="intern-card reveal" data-status="completed">
+        <div class="ic-banner" style="background:linear-gradient(135deg,#1b6e38,#27934d)">
+          <div class="ic-banner-grid"></div>
+          <div class="ic-avatar" style="background:linear-gradient(135deg,#38c069,#1b6e38)">AR</div>
+          <div class="ic-status completed"><span class="ic-status-dot"></span>Completed</div>
+        </div>
+        <div class="ic-body">
+          <div class="ic-name">Ayesha Rashid</div>
+          <div class="ic-role">GIS Research Intern</div>
+          <div class="ic-project-label">Project</div>
+          <div class="ic-project-name">NDVI-Based Crop Health Monitoring for Kashmir Valley</div>
+          <div class="ic-meta">
+            <div class="ic-meta-row"><div class="ic-meta-icon">📚</div> Advanced GIS & Remote Sensing</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">⏱</div> 6 Months · Jan – Jun 2025</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">🏛️</div> University of Kashmir</div>
+          </div>
+          <div class="ic-cert">
+            <div class="ic-cert-icon">🎓</div>
+            <div><div class="ic-cert-text">Certificate Awarded</div><div class="ic-cert-sub">GIS & Remote Sensing Specialist · 2025</div></div>
+          </div>
+          <div class="ic-progress">
+            <div class="ic-progress-label"><span>Project Completion</span><span>100%</span></div>
+            <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:100%"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="intern-card reveal" data-status="active">
+        <div class="ic-banner" style="background:linear-gradient(135deg,#0e7c94,#1aaccf)">
+          <div class="ic-banner-grid"></div>
+          <div class="ic-avatar" style="background:linear-gradient(135deg,#4ac9e4,#0e7c94)">SR</div>
+          <div class="ic-status active"><span class="ic-status-dot"></span>Active</div>
+        </div>
+        <div class="ic-body">
+          <div class="ic-name">Suresh Rathore</div>
+          <div class="ic-role">AI/ML Research Intern</div>
+          <div class="ic-project-label">Project</div>
+          <div class="ic-project-name">Crop Yield Prediction Using LSTM Neural Networks & Satellite Time-Series Data</div>
+          <div class="ic-meta">
+            <div class="ic-meta-row"><div class="ic-meta-icon">🤖</div> AI & Machine Learning for Agriculture</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">⏱</div> 3 Months · Feb – Apr 2025</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">🏛️</div> IIT Roorkee</div>
+          </div>
+          <div class="ic-cert">
+            <div class="ic-cert-icon">📋</div>
+            <div><div class="ic-cert-text">In Progress</div><div class="ic-cert-sub">AI for Agriculture Certificate · 2025</div></div>
+          </div>
+          <div class="ic-progress">
+            <div class="ic-progress-label"><span>Project Progress</span><span>72%</span></div>
+            <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:72%"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="intern-card reveal" data-status="completed">
+        <div class="ic-banner" style="background:linear-gradient(135deg,#5b3a9e,#7c5cbe)">
+          <div class="ic-banner-grid"></div>
+          <div class="ic-avatar" style="background:linear-gradient(135deg,#9b72e0,#5b3a9e)">PK</div>
+          <div class="ic-status completed"><span class="ic-status-dot"></span>Completed</div>
+        </div>
+        <div class="ic-body">
+          <div class="ic-name">Priya Khanna</div>
+          <div class="ic-role">Web GIS Developer Intern</div>
+          <div class="ic-project-label">Project</div>
+          <div class="ic-project-name">Real-Time Agricultural Dashboard with Leaflet.js & PostGIS Backend</div>
+          <div class="ic-meta">
+            <div class="ic-meta-row"><div class="ic-meta-icon">💻</div> Full Stack Web GIS Development</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">⏱</div> 2 Months · Nov – Dec 2024</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">🏛️</div> NIT Srinagar</div>
+          </div>
+          <div class="ic-cert">
+            <div class="ic-cert-icon">🎓</div>
+            <div><div class="ic-cert-text">Certificate Awarded</div><div class="ic-cert-sub">Web GIS Developer · 2025</div></div>
+          </div>
+          <div class="ic-progress">
+            <div class="ic-progress-label"><span>Project Completion</span><span>100%</span></div>
+            <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:100%"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="intern-card reveal" data-status="active">
+        <div class="ic-banner" style="background:linear-gradient(135deg,#b05a0a,#d47a1e)">
+          <div class="ic-banner-grid"></div>
+          <div class="ic-avatar" style="background:linear-gradient(135deg,#e49d4a,#b05a0a)">MA</div>
+          <div class="ic-status active"><span class="ic-status-dot"></span>Active</div>
+        </div>
+        <div class="ic-body">
+          <div class="ic-name">Mohammed Aslam</div>
+          <div class="ic-role">Drone Mapping Intern</div>
+          <div class="ic-project-label">Project</div>
+          <div class="ic-project-name">3D Terrain Modeling of Agricultural Fields Using DJI Phantom & Agisoft</div>
+          <div class="ic-meta">
+            <div class="ic-meta-row"><div class="ic-meta-icon">🛸</div> Drone Technology & UAV Mapping</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">⏱</div> 2 Months · Mar – Apr 2025</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">🏛️</div> SKUAST Kashmir</div>
+          </div>
+          <div class="ic-cert">
+            <div class="ic-cert-icon">📋</div>
+            <div><div class="ic-cert-text">In Progress</div><div class="ic-cert-sub">UAV Mapping Specialist · 2025</div></div>
+          </div>
+          <div class="ic-progress">
+            <div class="ic-progress-label"><span>Project Progress</span><span>58%</span></div>
+            <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:58%"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="intern-card reveal" data-status="completed">
+        <div class="ic-banner" style="background:linear-gradient(135deg,#1b3c6e,#2a5db0)">
+          <div class="ic-banner-grid"></div>
+          <div class="ic-avatar" style="background:linear-gradient(135deg,#5c9ae0,#1b3c6e)">NS</div>
+          <div class="ic-status completed"><span class="ic-status-dot"></span>Completed</div>
+        </div>
+        <div class="ic-body">
+          <div class="ic-name">Neha Sharma</div>
+          <div class="ic-role">Climate Data Analyst Intern</div>
+          <div class="ic-project-label">Project</div>
+          <div class="ic-project-name">Monsoon Variability Analysis & Agrometeorology Advisory for Rajasthan Farmers</div>
+          <div class="ic-meta">
+            <div class="ic-meta-row"><div class="ic-meta-icon">🌦️</div> Climate Data Analytics</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">⏱</div> 1 Month · Oct 2024</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">🏛️</div> Rajasthan University</div>
+          </div>
+          <div class="ic-cert">
+            <div class="ic-cert-icon">🎓</div>
+            <div><div class="ic-cert-text">Certificate Awarded</div><div class="ic-cert-sub">Climate Analytics Specialist · 2024</div></div>
+          </div>
+          <div class="ic-progress">
+            <div class="ic-progress-label"><span>Project Completion</span><span>100%</span></div>
+            <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:100%"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="intern-card reveal" data-status="active">
+        <div class="ic-banner" style="background:linear-gradient(135deg,#7e1b6e,#b02a9a)">
+          <div class="ic-banner-grid"></div>
+          <div class="ic-avatar" style="background:linear-gradient(135deg,#d460be,#7e1b6e)">RB</div>
+          <div class="ic-status active"><span class="ic-status-dot"></span>Active</div>
+        </div>
+        <div class="ic-body">
+          <div class="ic-name">Rahul Bhat</div>
+          <div class="ic-role">Python GIS Intern</div>
+          <div class="ic-project-label">Project</div>
+          <div class="ic-project-name">Automated Flood Risk Assessment Pipeline Using Python, GDAL & Sentinel-1 SAR</div>
+          <div class="ic-meta">
+            <div class="ic-meta-row"><div class="ic-meta-icon">🐍</div> Python for Geospatial Analysis</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">⏱</div> 3 Months · Feb – Apr 2025</div>
+            <div class="ic-meta-row"><div class="ic-meta-icon">🏛️</div> University of Jammu</div>
+          </div>
+          <div class="ic-cert">
+            <div class="ic-cert-icon">📋</div>
+            <div><div class="ic-cert-text">In Progress</div><div class="ic-cert-sub">Python GIS Expert · 2025</div></div>
+          </div>
+          <div class="ic-progress">
+            <div class="ic-progress-label"><span>Project Progress</span><span>85%</span></div>
+            <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:85%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internship CTA Cards -->
+    <div class="intern-cta-row">
+      <div class="intern-cta-card reveal">
+        <div class="ictc-icon">🔬</div>
+        <div>
+          <div class="ictc-title">Research Internships</div>
+          <p class="ictc-desc">Work alongside industry experts on real-world research projects in geospatial tech and climate science.</p>
+          <ul class="ul-check">
+            <li>Hands-on project experience</li>
+            <li>Mentorship from domain experts</li>
+            <li>Certificate upon completion</li>
+            <li>Publication opportunities</li>
+          </ul>
+          <a href="#contact" class="btn-glow" style="font-size:13px;padding:11px 22px;display:inline-flex">Apply Now</a>
+        </div>
+      </div>
+      <div class="intern-cta-card reveal">
+        <div class="ictc-icon">🎯</div>
+        <div>
+          <div class="ictc-title">Placement Cell</div>
+          <p class="ictc-desc">Dedicated career counselling connecting students with industry partners in agritech and geospatial sectors.</p>
+          <ul class="ul-check">
+            <li>150+ youth placed successfully</li>
+            <li>Industry partner network</li>
+            <li>Career counselling support</li>
+            <li>Resume & interview preparation</li>
+          </ul>
+          <a href="#contact" class="inv-btn" style="display:inline-block;margin-top:4px">Contact Placement Cell</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Milestones</div>
+      <h2 class="h2">Our <em>Journey</em></h2>
+    </div>
+    <div class="jrn-grid">
+      <div class="tl reveal-left">
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Foundation</div><div class="tli-h">Official Registration</div><p class="tli-b">AHSIS Pvt. Ltd. officially registered under MCA, MSME, and Startup India, marking the beginning of a new chapter in geospatial innovation.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Skill Launch</div><div class="tli-h">Training Programs Initiated</div><p class="tli-b">Launched structured training in GIS, AI, and sustainable technologies, empowering students and professionals with industry-relevant skills.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Agri Innovation</div><div class="tli-h">Climate-Smart Agriculture</div><p class="tli-b">Introduced climate-smart agriculture programs and agromet advisory services, directly benefiting farming communities across rural India.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · R&D Expansion</div><div class="tli-h">GeoInnovation Lab Established</div><p class="tli-b">Established the GeoInnovation Lab and AI-driven solutions division for research and real-world prototyping.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Community Impact</div><div class="tli-h">500+ Farmers Reached</div><p class="tli-b">Reached over 500 farmers, enabling rural transformation through technology-driven agricultural interventions.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Partnerships</div><div class="tli-h">Strategic Collaborations Built</div><p class="tli-b">Built 10+ collaborations with institutions and organizations for knowledge exchange and sustainable development.</p></div>
+        <div class="tli tli-future"><div class="tli-dot"></div><div class="tli-yr">Future · Global Vision</div><div class="tli-h">Global Expansion</div><p class="tli-b">Scaling impact across South Asia with advanced AI platforms, establishing AHSIS as a global leader in geospatial innovation.</p></div>
+      </div>
+      <div class="vm-stack reveal-right">
+        <div class="vmc"><div class="vmc-eye">Our Vision</div><div class="vmc-h">Global Leadership in Geospatial Innovation</div><p class="vmc-t">To be a global leader in technology and geospatial innovation, recognized for quality, innovation, and impact. We transform businesses and communities through cutting-edge, technology-enabled solutions that support the UN Sustainable Development Goals.</p></div>
+        <div class="vmc"><div class="vmc-eye">Our Mission</div><div class="vmc-h">Empowering Through Innovation & Technology</div><p class="vmc-t">To empower businesses and communities by delivering innovative technology and geospatial solutions that drive growth, resilience, and sustainability. We provide high-quality skill development programs tailored to the unique needs of each partner.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SDG -->
+<section class="sdg-sec">
+  <div class="wrap">
+    <div class="sec-header center reveal">
+      <div class="eyebrow" style="justify-content:center">Global Impact</div>
+      <h2 class="h2">SDG <em>Alignment</em></h2>
+      <p class="lead" style="text-align:center;margin:0 auto">Dedicated to promoting sustainable development through innovation, education, and geospatial solutions aligned with the UN SDGs.</p>
+    </div>
+    <div class="sdg-grid">
+      <div class="sgc reveal"><div class="sgn">2</div><div class="sgt">Zero Hunger</div><p class="sgd">Climate-smart agriculture and food security solutions</p></div>
+      <div class="sgc reveal"><div class="sgn">4</div><div class="sgt">Quality Education</div><p class="sgd">Skill development and practical training programs</p></div>
+      <div class="sgc reveal"><div class="sgn">6</div><div class="sgt">Clean Water</div><p class="sgd">Water resource management through geospatial tech</p></div>
+      <div class="sgc reveal"><div class="sgn">7</div><div class="sgt">Clean Energy</div><p class="sgd">Renewable energy training and rural solutions</p></div>
+      <div class="sgc reveal"><div class="sgn">9</div><div class="sgt">Innovation</div><p class="sgd">Innovation hubs and technology incubation</p></div>
+      <div class="sgc reveal"><div class="sgn">13</div><div class="sgt">Climate Action</div><p class="sgd">Climate modeling and disaster risk management</p></div>
+      <div class="sgc reveal"><div class="sgn">15</div><div class="sgt">Life on Land</div><p class="sgd">Environmental monitoring and biodiversity mapping</p></div>
+      <div class="sgc reveal"><div class="sgn">17</div><div class="sgt">Partnerships</div><p class="sgd">Collaborative ecosystem for sustainable impact</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Our People</div>
+      <h2 class="h2">Leadership &amp; <em>Advisory</em></h2>
+    </div>
+    <div class="ts-label">Leadership Team</div>
+    <div class="tm-grid">
+      <div class="tmc reveal"><div class="tm-av">SG</div><div class="tm-name">Mr. Shahid Gulzar</div><div class="tm-role">Founder & Managing Director — Leads AHSIS with a vision to empower communities through geospatial innovation and sustainable development.</div></div>
+      <div class="tmc reveal"><div class="tm-av">MS</div><div class="tm-name">Ms. Moonmoon Sen</div><div class="tm-role">Chairperson & Head, AI-ML Innovations — Drives AI-ML innovation and strategic direction at AHSIS.</div></div>
+      <div class="tmc reveal"><div class="tm-av">VK</div><div class="tm-name">Ms. Varsha Khandelwal</div><div class="tm-role">Manager – Strategic Alliance & Innovation — Leads partnerships, innovation initiatives, and talent mentorship.</div></div>
+      <div class="tmc reveal"><div class="tm-av">DP</div><div class="tm-name">Dr. Devendra Pradhan</div><div class="tm-role">Chief Advisor & Head – Climate Modelling & DRM — Expert in climate modelling and disaster risk management.</div></div>
+      <div class="tmc reveal"><div class="tm-av">AG</div><div class="tm-name">Ms. Anwesha Ganguly</div><div class="tm-role">Lead – Program Development & Mentorship — Supports program development and mentorship initiatives.</div></div>
+      <div class="tmc reveal"><div class="tm-av">RS</div><div class="tm-name">Rahma Saroor</div><div class="tm-role">Coordinator – Training & Capacity Building — Coordinates structured training and capacity-building initiatives.</div></div>
+    </div>
+    <div class="ts-label">Advisory Board</div>
+    <div class="tm-grid adv">
+      <div class="tmc reveal"><div class="tm-av" style="font-size:11px">SMT</div><div class="tm-name">Dr. Saumya Mani Tripathi</div><div class="tm-role">Lead Advisor – Geoheritage & Community Resilience</div></div>
+      <div class="tmc reveal"><div class="tm-av">HC</div><div class="tm-name">Ms. Hemlata Chandolia</div><div class="tm-role">Advisor – Education & Capacity Building</div></div>
+      <div class="tmc reveal"><div class="tm-av">RK</div><div class="tm-name">Ms. Riya Kamboj</div><div class="tm-role">Lead Advisor – Geospatial & Climate Adaptation</div></div>
+      <div class="tmc reveal"><div class="tm-av">WH</div><div class="tm-name">Mr. Warish Hussain</div><div class="tm-role">Advisor – Climate Adaptation & Environmental Analyst</div></div>
+      <div class="tmc reveal"><div class="tm-av">DK</div><div class="tm-name">Dr. Deepak Kumar</div><div class="tm-role">Lead Advisor – Urban Climate & Energy Systems</div></div>
+      <div class="tmc reveal"><div class="tm-av" style="font-size:10px">SDB</div><div class="tm-name">Dr. Santasmita Das Bhattacharya</div><div class="tm-role">Advisor – Remote Sensing & Mountain Research</div></div>
+      <div class="tmc reveal"><div class="tm-av">HS</div><div class="tm-name">Dr. Husain Shabbar</div><div class="tm-role">Advisor – Earth Science Research & Innovation</div></div>
+      <div class="tmc reveal"><div class="tm-av">DP</div><div class="tm-name">Dr. Deepak Panda</div><div class="tm-role">Advisor – Rural Energy & Earth Science</div></div>
+      <div class="tmc reveal"><div class="tm-av" style="font-size:10px">HFS</div><div class="tm-name">Dr. Hakim Farooq Shah</div><div class="tm-role">Advisor – Disaster Management & Earth Science</div></div>
+      <div class="tmc reveal"><div class="tm-av">IB</div><div class="tm-name">Dr. Ibrahim Bathis</div><div class="tm-role">Advisor – Climate Resilience & Sustainability</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Insights</div>
+      <h2 class="h2">Latest from <em>AHSIS</em></h2>
+    </div>
+    <div class="bl-grid">
+      <div class="blc reveal"><div class="blc-top"></div><div class="blc-body"><div class="bl-cat"><span class="bl-dot"></span>Skill Training</div><div class="bl-title">AHSIS Launches Skill Training Initiative in Renewable Energy</div><p class="bl-exc">Empowering rural communities with practical skills in solar energy, biogas systems, and sustainable energy solutions.</p><a href="#" class="bl-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="blc reveal"><div class="blc-top"></div><div class="blc-body"><div class="bl-cat"><span class="bl-dot"></span>AI & Innovation</div><div class="bl-title">AI Meets Agriculture: AHSIS Unveils New Agro-sensing Technologies</div><p class="bl-exc">Launching AI-powered tools for smart farming — from crop health monitoring to yield prediction using satellite data.</p><a href="#" class="bl-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="blc reveal"><div class="blc-top"></div><div class="blc-body"><div class="bl-cat"><span class="bl-dot"></span>Research</div><div class="bl-title">Breaking Ground: AHSIS Expands Vertical Farming Research</div><p class="bl-exc">Exploring vertical farming techniques and controlled environment agriculture for food security in urban areas.</p><a href="#" class="bl-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="blc reveal"><div class="blc-top"></div><div class="blc-body"><div class="bl-cat"><span class="bl-dot"></span>GIS Training</div><div class="bl-title">GIS Training Program for Rural Leaders Completed</div><p class="bl-exc">Empowering grassroots leaders with geospatial tools for better resource management and planning.</p><a href="#" class="bl-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Testimonials</div>
+      <h2 class="h2">What People <em>Think</em></h2>
+    </div>
+    <div class="te-grid">
+      <div class="tec reveal"><span class="te-q-mark">"</span><p class="te-text">AHSIS represents a timely and much-needed initiative that bridges scientific understanding with real-world applications, particularly in rural and vulnerable regions.</p><div class="te-auth"><div class="te-av">DP</div><div><div class="te-name">Mr. Deepak Panda</div><div class="te-role">Ph.D. Research Scholar</div></div></div></div>
+      <div class="tec reveal"><span class="te-q-mark">"</span><p class="te-text">AHSIS stands out as a dynamic platform that is truly bridging the gap between academic research and ground-level sustainability action.</p><div class="te-auth"><div class="te-av">MJ</div><div><div class="te-name">Ms. Mahjabeen</div><div class="te-role">PhD Research Scholar</div></div></div></div>
+      <div class="tec reveal"><span class="te-q-mark">"</span><p class="te-text">AHSIS stands out for its practical, hands-on approach to sustainability, empowering communities and young professionals with regionally relevant skills.</p><div class="te-auth"><div class="te-av">HS</div><div><div class="te-name">Dr. Husain Shabbar</div><div class="te-role">Assistant Professor (Geology)</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section class="involved geo-dots">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Join Us</div>
+      <h2 class="h2">Get <em>Involved</em></h2>
+    </div>
+    <div class="inv-grid">
+      <div class="invc reveal"><div class="inv-ic">🧭</div><div class="inv-t">Become a Member</div><p class="inv-d">Join AHSIS to contribute to research, innovation, workshops, webinars, and sustainable development initiatives.</p><a href="#contact" class="inv-btn">Apply for Membership</a></div>
+      <div class="invc reveal"><div class="inv-ic">💼</div><div class="inv-t">Work With Us</div><p class="inv-d">Check back for openings in research, technology, education, and community development roles across our growing team.</p><a href="#contact" class="inv-btn">View Openings</a></div>
+      <div class="invc reveal"><div class="inv-ic">🤝</div><div class="inv-t">Partner With Us</div><p class="inv-d">Collaborate on projects, sponsor initiatives, or explore partnership opportunities for mutual growth and lasting impact.</p><a href="#contact" class="inv-btn">Explore Partnership</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section>
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Our Presence</div>
+      <h2 class="h2"><em>Locations</em></h2>
+    </div>
+    <div class="loc-grid">
+      <div class="locc reveal"><div class="loc-pin">📍</div><div><div class="loc-type">Headquarters</div><div class="loc-name">J&K, India</div><div class="loc-addr">NH-44 Anantnag, J&K – India 192101</div><div class="loc-coords"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> 33.73°N · 75.14°E</div></div></div>
+      <div class="locc reveal"><div class="loc-pin">📍</div><div><div class="loc-type">Regional Office</div><div class="loc-name">Kolkata, India</div><div class="loc-addr">Kolkata – 700089, West Bengal</div><div class="loc-coords"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> 22.57°N · 88.36°E</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Get In Touch</div>
+      <h2 class="h2">Contact <em>With Us</em></h2>
+      <p class="lead">Drop us a message and our team will get back to you within 24 hours.</p>
+    </div>
+    <div class="ct-grid">
+      <div class="ct-info reveal-left">
+        <div class="cii"><div class="cii-ic">📍</div><div><div class="cii-lbl">Headquarters</div><div class="cii-val">NH-44 Anantnag, J&K – India 192101</div></div></div>
+        <div class="cii"><div class="cii-ic">📍</div><div><div class="cii-lbl">Regional Office</div><div class="cii-val">Kolkata – 700089, West Bengal</div></div></div>
+        <div class="cii"><div class="cii-ic">📞</div><div><div class="cii-lbl">Phone</div><div class="cii-val">+91 95412 96515 / +91 98311 45771</div></div></div>
+        <div class="cii"><div class="cii-ic">✉️</div><div><div class="cii-lbl">Email</div><div class="cii-val">infoahsis@gmail.com</div></div></div>
+      </div>
+      <div class="form-wrap reveal-right">
+        <div class="form-row">
+          <div class="fg"><label>Name</label><input type="text" placeholder="Your full name"></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="fg"><label>Subject</label><select><option>General Inquiry</option><option>Partnership</option><option>Internship</option><option>Course Enrollment</option><option>Research Collaboration</option></select></div>
+        </div>
+        <div class="fg"><label>Message</label><textarea placeholder="Tell us about your project, idea, or inquiry..."></textarea></div>
+        <button class="form-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Ready to <em>Transform</em> Agriculture?</h2>
+      <p class="cta-sub">Partner with AHSIS for sustainable, technology-driven solutions that create lasting impact across rural India and beyond.</p>
+      <div class="cta-btns">
+        <a href="#contact" class="btn-white">Get Started</a>
+        <a href="#about" class="btn-ow">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo"><div class="logo-hex">A</div><span class="ft-brand">AHSIS</span></div>
+        <p class="ft-sub">Alpine Hub for Sustainable Innovation and Skills Pvt. Ltd. — Geospatial intelligence for a sustainable future.</p>
+        <div class="ft-contact">📞 +91 95412 96515<br>📞 +91 98311 45771<br>✉️ infoahsis@gmail.com</div>
+      </div>
+      <div><div class="ft-ct">Services</div><ul class="ft-links"><li><a href="#">GIS & Remote Sensing</a></li><li><a href="#">AhsisAgri Innovation</a></li><li><a href="#">AI-Driven Solutions</a></li><li><a href="#">GeoInnovation Lab</a></li><li><a href="#">Agromet Advisory</a></li></ul></div>
+      <div><div class="ft-ct">Programs & Students</div><ul class="ft-links"><li><a href="#">Skill Courses</a></li><li><a href="#">Internships</a></li><li><a href="#">Placements</a></li><li><a href="#">Become a Member</a></li></ul></div>
+      <div><div class="ft-ct">Company</div><ul class="ft-links"><li><a href="#">About Us</a></li><li><a href="#">Our Journey</a></li><li><a href="#">Team</a></li><li><a href="#">Blog</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="ft-div"></div>
+    <div class="ft-bot">
+      <div class="ft-copy">© 2025 AHSIS Pvt. Ltd. All rights reserved.</div>
+      <div class="ft-cins">CIN: U74900JK2025PTC017288 · UDYAM: JK-11-0018379 · DIPP: 201833</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════ GEO CANVAS ANIMATION ════ */
+(function(){
+  const canvas = document.getElementById('geo-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles=[], satellites=[], connections=[], nodes=[];
+  let t = 0;
+
+  function resize(){
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    initScene();
+  }
+
+  function initScene(){
+    nodes = [];
+    satellites = [];
+    particles = [];
+
+    // Grid nodes (geo data points)
+    for(let i=0;i<18;i++){
+      nodes.push({
+        x: Math.random()*W,
+        y: Math.random()*H,
+        r: Math.random()*2+1,
+        opacity: Math.random()*0.5+0.2,
+        pulse: Math.random()*Math.PI*2
+      });
+    }
+
+    // Orbiting satellites
+    const cx = W*0.62, cy = H*0.42;
+    const orbits = [
+      {rx:W*0.22,ry:H*0.26,speed:.0007,phase:0,color:'rgba(56,192,105,.7)'},
+      {rx:W*0.32,ry:H*0.38,speed:.00045,phase:1.2,color:'rgba(14,124,148,.6)'},
+      {rx:W*0.44,ry:H*0.52,speed:.00028,phase:2.5,color:'rgba(56,192,105,.4)'},
+      {rx:W*0.56,ry:H*0.62,speed:.00018,phase:4.0,color:'rgba(56,192,105,.25)'},
+    ];
+    orbits.forEach(o => {
+      o.cx = cx; o.cy = cy;
+      satellites.push(o);
+    });
+
+    // Particles
+    for(let i=0;i<60;i++){
+      particles.push({
+        x:Math.random()*W, y:Math.random()*H,
+        vx:(Math.random()-.5)*0.18, vy:(Math.random()-.5)*0.18,
+        r:Math.random()*1.2+0.3, opacity:Math.random()*0.4+0.05
+      });
+    }
+  }
+
+  function drawGlobe(cx,cy,rx,ry){
+    ctx.save();
+    ctx.strokeStyle='rgba(56,192,105,.1)';
+    ctx.lineWidth=0.8;
+    // Main ellipse
+    ctx.beginPath();
+    ctx.ellipse(cx,cy,rx,ry,0,0,Math.PI*2);
+    ctx.stroke();
+    // Meridians
+    for(let i=0;i<6;i++){
+      const a = i*(Math.PI/6);
+      ctx.beginPath();
+      ctx.ellipse(cx,cy,rx*Math.abs(Math.cos(a)),ry,0,0,Math.PI*2);
+      ctx.stroke();
+    }
+    // Parallels
+    const steps = 5;
+    for(let i=1;i<steps;i++){
+      const pct = i/steps;
+      const py = cy + (pct*2-1)*ry;
+      const pr = rx*Math.sqrt(1-Math.pow((py-cy)/ry,2));
+      if(pr>1){
+        ctx.beginPath();
+        ctx.ellipse(cx,py,pr,pr*0.18,0,0,Math.PI*2);
+        ctx.stroke();
+      }
+    }
+    // Equator
+    ctx.strokeStyle='rgba(56,192,105,.2)';
+    ctx.lineWidth=1;
+    ctx.beginPath();
+    ctx.ellipse(cx,cy,rx,ry*0.08,0,0,Math.PI*2);
+    ctx.stroke();
+    // Core dot
+    ctx.fillStyle='rgba(56,192,105,.5)';
+    ctx.beginPath();
+    ctx.arc(cx,cy,4,0,Math.PI*2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(cx,cy,10,0,Math.PI*2);
+    ctx.strokeStyle='rgba(56,192,105,.25)';
+    ctx.lineWidth=1;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    t += 1;
+    const cx = W*0.62, cy = H*0.42;
+    const rx = Math.min(W*0.28,220), ry = Math.min(H*0.36,200);
+
+    // Lat/lon grid lines
+    ctx.save();
+    ctx.strokeStyle='rgba(56,192,105,.04)';
+    ctx.lineWidth=1;
+    for(let x=0;x<W;x+=W/10){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
+    for(let y=0;y<H;y+=H/7){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+    ctx.restore();
+
+    // Animated scan line
+    const scanY = (t*0.5)%H;
+    const scanGrad = ctx.createLinearGradient(0,scanY-40,0,scanY+40);
+    scanGrad.addColorStop(0,'transparent');
+    scanGrad.addColorStop(0.5,'rgba(56,192,105,.04)');
+    scanGrad.addColorStop(1,'transparent');
+    ctx.fillStyle=scanGrad;
+    ctx.fillRect(0,scanY-40,W,80);
+
+    // Globe
+    drawGlobe(cx,cy,rx,ry);
+
+    // Orbits + satellites
+    satellites.forEach(sat=>{
+      const a = t*sat.speed+sat.phase;
+      const sx = sat.cx + sat.rx*Math.cos(a);
+      const sy = sat.cy + sat.ry*Math.sin(a);
+
+      // Orbit path
+      ctx.save();
+      ctx.strokeStyle=sat.color.replace(/[\d.]+\)$/,'0.12)');
+      ctx.lineWidth=0.8;
+      ctx.setLineDash([4,8]);
+      ctx.beginPath();
+      ctx.ellipse(sat.cx,sat.cy,sat.rx,sat.ry,0,0,Math.PI*2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Satellite dot
+      ctx.fillStyle=sat.color;
+      ctx.beginPath();
+      ctx.arc(sx,sy,3,0,Math.PI*2);
+      ctx.fill();
+      // Glow
+      const g=ctx.createRadialGradient(sx,sy,0,sx,sy,12);
+      g.addColorStop(0,sat.color.replace(/[\d.]+\)$/,'0.4)'));
+      g.addColorStop(1,'transparent');
+      ctx.fillStyle=g;
+      ctx.beginPath();
+      ctx.arc(sx,sy,12,0,Math.PI*2);
+      ctx.fill();
+
+      // Data line to nearest node
+      let minD=Infinity, nearest=null;
+      nodes.forEach(n=>{
+        const d=Math.hypot(sx-n.x,sy-n.y);
+        if(d<minD){minD=d;nearest=n}
+      });
+      if(nearest&&minD<180){
+        ctx.strokeStyle=sat.color.replace(/[\d.]+\)$/,`${0.3*(1-minD/180)})`);
+        ctx.lineWidth=0.7;
+        ctx.setLineDash([3,6]);
+        ctx.beginPath();
+        ctx.moveTo(sx,sy);
+        ctx.lineTo(nearest.x,nearest.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      ctx.restore();
+    });
+
+    // Geo nodes
+    nodes.forEach(n=>{
+      n.pulse += 0.025;
+      const p = Math.sin(n.pulse)*0.5+0.5;
+      ctx.save();
+      ctx.fillStyle=`rgba(56,192,105,${n.opacity*p+0.1})`;
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+      ctx.fill();
+      // Ripple
+      ctx.strokeStyle=`rgba(56,192,105,${0.2*p})`;
+      ctx.lineWidth=0.8;
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,n.r+5+p*8,0,Math.PI*2);
+      ctx.stroke();
+      ctx.restore();
+    });
+
+    // Particles
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+      ctx.fillStyle=`rgba(56,192,105,${p.opacity})`;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fill();
+    });
+
+    // Coordinate labels (corner)
+    ctx.fillStyle='rgba(56,192,105,.2)';
+    ctx.font='10px JetBrains Mono, monospace';
+    ctx.fillText('33.73°N  75.14°E',16,H-38);
+    ctx.fillText('AHSIS · GeoSat Feed',16,H-22);
+    // Top right
+    ctx.textAlign='right';
+    ctx.fillText(`T+${String(Math.floor(t/60)).padStart(4,'0')}`,W-16,32);
+    ctx.fillText('ORBIT TRACK ACTIVE',W-16,48);
+    ctx.textAlign='left';
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize',resize);
+  resize();
+  draw();
+})();
+
+/* ════ SCROLL PROGRESS ════ */
+window.addEventListener('scroll',()=>{
+  const p=(scrollY/(document.body.scrollHeight-innerHeight))*100;
+  document.getElementById('prog').style.width=p+'%';
+});
+
+/* ════ NAV SCROLL ════ */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>40);
+  let cur='';
+  document.querySelectorAll('section[id],div[id]').forEach(s=>{
+    if(scrollY>=s.offsetTop-100)cur=s.id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    const match=a.getAttribute('href')==='#'+cur;
+    a.classList.toggle('active',match);
+  });
+},{passive:true});
+
+/* ════ MOBILE MENU ════ */
+function toggleMenu(){
+  const h=document.getElementById('ham');
+  const m=document.getElementById('mobileMenu');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+/* ════ SCROLL REVEAL ════ */
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting)setTimeout(()=>e.target.classList.add('on'),i*55);
+  });
+},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>revObs.observe(el));
+
+// Stagger children
+document.querySelectorAll('.f-grid,.svc-grid,.co-grid,.pj-grid,.sgc,.tm-grid,.bl-grid,.te-grid,.inv-grid,.intern-grid,.intern-intro-stats,.ist-card,.sdg-grid').forEach(g=>{
+  [...g.children].forEach((c,i)=>c.style.transitionDelay=`${i*.08}s`);
+});
+
+/* ════ COUNTER ANIMATION ════ */
+function animateCounter(el){
+  const target=+el.dataset.count;
+  const suffix=el.dataset.count>9?'+':'';
+  let start=0,duration=1800;
+  const step=timestamp=>{
+    if(!start)start=timestamp;
+    const progress=Math.min((timestamp-start)/duration,1);
+    const ease=1-Math.pow(1-progress,4);
+    el.textContent=Math.round(ease*target)+(progress>=1?'+':'');
+    if(progress<1)requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const cntObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('[data-count]').forEach(el=>{
+        if(!el.dataset.animated){el.dataset.animated='1';animateCounter(el);}
+      });
+    }
+  });
+},{threshold:.5});
+const sb=document.querySelector('.stats-bar');
+if(sb)cntObs.observe(sb);
+const ii=document.querySelector('.intern-intro-stats');
+if(ii)cntObs.observe(ii);
+
+/* ════ COURSE FILTER ════ */
+const filterPills=document.querySelectorAll('.filter-pill');
+const cards=document.querySelectorAll('.cc');
+const countEl=document.getElementById('course-count');
+filterPills.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    filterPills.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    let visible=0;
+    cards.forEach(card=>{
+      const match=f==='all'||card.dataset.dur===f;
+      card.style.transition='opacity .3s,transform .3s';
+      if(match){card.classList.remove('hidden');card.style.opacity='0';card.style.transform='translateY(12px)';visible++;setTimeout(()=>{card.style.opacity='1';card.style.transform='translateY(0)'},30);}
+      else{card.style.opacity='0';card.style.transform='translateY(8px)';setTimeout(()=>card.classList.add('hidden'),280);}
+    });
+    setTimeout(()=>{countEl.textContent=visible+' course'+(visible!==1?'s':'');},50);
+  });
+});
+
+/* ════ INTERN FILTER ════ */
+const ifBtns=document.querySelectorAll('.if-btn');
+const internCards=document.querySelectorAll('.intern-card');
+ifBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    ifBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.ifilter;
+    internCards.forEach(card=>{
+      const match=f==='all'||card.dataset.status===f;
+      card.style.transition='opacity .3s,transform .3s';
+      if(match){card.style.display='';card.style.opacity='0';card.style.transform='translateY(12px)';setTimeout(()=>{card.style.opacity='1';card.style.transform='translateY(0)'},30);}
+      else{card.style.opacity='0';setTimeout(()=>card.style.display='none',280);}
+    });
+  });
+});
+
+/* ════ PROGRESS BARS ON SCROLL ════ */
+const barObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.ic-progress-fill').forEach(bar=>{
+        const w=bar.style.width;
+        bar.style.width='0';
+        setTimeout(()=>bar.style.width=w,300);
+      });
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.intern-card').forEach(c=>barObs.observe(c));
+</script>
+</body>
+</html>
