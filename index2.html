@@ -1,81 +1,3 @@
-<?php
-// ─── DATABASE CONNECTION ──────────────────────────────────────────────────────
-$host    = 'localhost';
-$db      = 'ahsis_db';
-$user    = 'root';       // change to your DB username
-$pass    = '';           // change to your DB password
-$charset = 'utf8mb4';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=$charset", $user, $pass, [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ]);
-} catch (PDOException $e) {
-    die('<p style="color:red;font-family:monospace;padding:20px">DB Error: ' . $e->getMessage() . '</p>');
-}
-
-// ─── FETCH DATA ───────────────────────────────────────────────────────────────
-$stats        = $pdo->query("SELECT * FROM impact_stats    WHERE is_active=1 ORDER BY sort_order")->fetchAll();
-$courses      = $pdo->query("SELECT * FROM courses         WHERE is_active=1 ORDER BY sort_order")->fetchAll();
-$projects     = $pdo->query("SELECT * FROM projects        WHERE is_active=1 ORDER BY sort_order")->fetchAll();
-$timeline     = $pdo->query("SELECT * FROM timeline_events WHERE is_active=1 ORDER BY sort_order")->fetchAll();
-$blogs        = $pdo->query("SELECT * FROM blogs           WHERE is_active=1 ORDER BY published_at DESC LIMIT 4")->fetchAll();
-$testimonials = $pdo->query("SELECT * FROM testimonials    WHERE is_active=1 ORDER BY sort_order")->fetchAll();
-
-// Site settings → associative array
-$cfg = [];
-foreach ($pdo->query("SELECT setting_key, setting_val FROM site_settings")->fetchAll() as $r) {
-    $cfg[$r['setting_key']] = $r['setting_val'];
-}
-
-// Helpers
-function e($v) { return htmlspecialchars($v ?? '', ENT_QUOTES); }
-function cfg($cfg, $k, $d = '') { return e($cfg[$k] ?? $d); }
-
-$dur_map = ['6m' => '6 Months', '3m' => '3 Months', '2m' => '2 Months', '1m' => '1 Month'];
-
-// ── KEY FIX: map DB popup_key → JS object keys ─────────────────────────────
-// The JS COURSES / PROJECTS objects use short keys. We map DB popup_key to them.
-$course_js_key = [
-    'gis-remote-sensing' => 'advgis',
-    'ai-ml-agriculture'  => 'aiml',
-    'webgis-development' => 'webgis',
-    'drone-mapping'      => 'drone',
-    'iot-agriculture'    => 'iot',
-    'climate-analytics'  => 'climate',
-    'python-geospatial'  => 'python',
-    'rs-image-analysis'  => 'rsi',
-    'intro-gis'          => 'introgis',
-    'data-visualization' => 'datavis',
-];
-
-$proj_js_key = [
-    'ndvi-analysis'        => 'ndvi',
-    'evi-mapping'          => 'evi',
-    'lulc-classification'  => 'lulc',
-    'satellite-drone'      => 'drone',
-    'webgis-apps'          => 'webgis',
-    'ai-ml-showcase'       => 'aiml',
-];
-
-// Gradient map for projects based on icon_color
-$proj_grad = [
-    '#0066FF' => 'linear-gradient(135deg,#1b3c6e,#2a5db0)',
-    '#0055DD' => 'linear-gradient(135deg,#0e7c94,#1aaccf)',
-    '#FF5500' => 'linear-gradient(135deg,#b05a0a,#d47a1e)',
-];
-
-// Emoji map for projects
-$proj_emoji = [
-    'ndvi-analysis'       => '🌿',
-    'evi-mapping'         => '📡',
-    'lulc-classification' => '🗺️',
-    'satellite-drone'     => '🛸',
-    'webgis-apps'         => '🌐',
-    'ai-ml-showcase'      => '🤖',
-];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -631,12 +553,10 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
 <!-- STATS -->
 <div class="stats-section">
   <div class="stats-bar reveal">
-    <?php foreach ($stats as $st): ?>
-    <div class="si">
-      <span class="si-num" data-count="<?= e($st['count_value']) ?>">0</span>
-      <div class="si-lbl"><?= e($st['label']) ?></div>
-    </div>
-    <?php endforeach; ?>
+    <div class="si"><span class="si-num" data-count="500">0</span><div class="si-lbl">Farmers Reached</div></div>
+    <div class="si"><span class="si-num" data-count="150">0</span><div class="si-lbl">Youth Placed</div></div>
+    <div class="si"><span class="si-num" data-count="200">0</span><div class="si-lbl">Courses Delivered</div></div>
+    <div class="si"><span class="si-num" data-count="10">0</span><div class="si-lbl">Collaborations</div></div>
   </div>
 </div>
 
@@ -646,9 +566,9 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
     <div class="grid2">
       <div class="reveal-left">
         <div class="eyebrow">About AHSIS</div>
-        <h2 class="h2"><?= cfg($cfg, 'about_title', 'Bridging Innovation, Sustainability &amp; Community') ?></h2>
-        <p class="lead"><?= cfg($cfg, 'about_p1') ?></p>
-        <p style="font-size:15px;line-height:1.78;color:var(--ink3);margin-top:14px;max-width:520px;"><?= cfg($cfg, 'about_p2') ?></p>
+        <h2 class="h2">Bridging <em>Innovation</em>, Sustainability & Community</h2>
+        <p class="lead">Founded in 2025, AHSIS is a DPIIT-recognized startup dedicated to bridging the gap between innovation, sustainability, and community development.</p>
+        <p style="font-size:15px;line-height:1.78;color:var(--ink3);margin-top:14px;max-width:520px;">We harness the power of geospatial intelligence, Earth observation technologies, and data-driven innovation to address complex challenges in natural resource management, climate resilience, Agrotech, and rural development.</p>
         <div class="badge-row">
           <span class="bp">MCA Registered</span><span class="bp">MSME Certified</span><span class="bp">Startup India</span><span class="bp">DPIIT Recognized</span>
         </div>
@@ -724,26 +644,19 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <button class="filter-pill" data-filter="3m"><span>3 Months</span></button>
       <button class="filter-pill" data-filter="2m"><span>2 Months</span></button>
       <button class="filter-pill" data-filter="1m"><span>1 Month</span></button>
-      <span class="course-count" id="course-count"><?= count($courses) ?> courses</span>
+      <span class="course-count" id="course-count">10 courses</span>
     </div>
     <div class="co-grid">
-      <?php foreach ($courses as $c):
-        $jsKey = $course_js_key[$c['popup_key']] ?? $c['popup_key'];
-        $durLabel = $dur_map[$c['duration_tab']] ?? $c['duration_tab'];
-      ?>
-      <div class="cc reveal" data-dur="<?= e($c['duration_tab']) ?>">
-        <div class="cc-corner"></div>
-        <span class="cd-pill">⏱ <?= e($durLabel) ?></span>
-        <div class="ct"><?= e($c['title']) ?></div>
-        <p class="cx"><?= e($c['description']) ?></p>
-        <div class="cc-footer">
-          <a href="javascript:void(0)" onclick="openCourseModal('<?= $jsKey ?>')" class="cl">
-            View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <span class="cc-tag"><?= e($durLabel) ?></span>
-        </div>
-      </div>
-      <?php endforeach; ?>
+      <div class="cc reveal" data-dur="6m"><div class="cc-corner"></div><span class="cd-pill">⏱ 6 Months</span><div class="ct">Advanced GIS & Remote Sensing</div><p class="cx">Comprehensive geospatial analysis with ArcGIS, QGIS, and satellite image processing. Industry-grade workflow from raw data to insights.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('advgis')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Geospatial</span></div></div>
+      <div class="cc reveal" data-dur="3m"><div class="cc-corner"></div><span class="cd-pill">⏱ 3 Months</span><div class="ct">AI & Machine Learning for Agriculture</div><p class="cx">Deep learning, predictive analytics, and crop health monitoring using AI models. Build and deploy real agri-intelligence systems.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('aiml')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">AI/ML</span></div></div>
+      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Full Stack Web GIS Development</div><p class="cx">Build interactive GIS web applications using modern frameworks and spatial databases for real-world deployment.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('webgis')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Web Dev</span></div></div>
+      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Drone Technology & UAV Mapping</div><p class="cx">UAV operations, aerial surveying, photogrammetry, and 3D terrain modeling for precision agriculture and environmental assessment.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('drone')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">UAV</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">IoT for Smart Agriculture</div><p class="cx">Sensor networks, soil monitoring, automated irrigation, and precision farming technologies for next-generation farms.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('iot')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">IoT</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Climate Data Analytics</div><p class="cx">Climate modeling, weather pattern analysis, and agrometeorology advisory. Turn climate data into farmer-ready intelligence.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('climate')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Climate</span></div></div>
+      <div class="cc reveal" data-dur="3m"><div class="cc-corner"></div><span class="cd-pill">⏱ 3 Months</span><div class="ct">Python for Geospatial Analysis</div><p class="cx">Geospatial libraries, satellite data processing, automation scripts, and geospatial pipelines using Python and open-source tools.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('python')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Python</span></div></div>
+      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Remote Sensing Image Analysis</div><p class="cx">NDVI, EVI, LULC classification, and change detection techniques using Sentinel, Landsat, and commercial satellite imagery.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('rsi')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Remote Sensing</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Introduction to GIS</div><p class="cx">Fundamentals of geographic information systems, spatial data concepts, map creation, and basic analysis for beginners.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('introgis')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Beginner</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Data Visualization & Dashboards</div><p class="cx">Creating interactive dashboards using modern data visualization tools. From raw geospatial data to boardroom-ready insights.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('datavis')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Visualization</span></div></div>
     </div>
   </div>
 </section>
@@ -757,28 +670,12 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <p class="lead">Current and completed projects in agriculture, geospatial analysis, and AI-driven solutions.</p>
     </div>
     <div class="pj-grid">
-      <?php foreach ($projects as $p):
-        $jsKey = $proj_js_key[$p['popup_key']] ?? $p['popup_key'];
-        $emoji = $proj_emoji[$p['popup_key']] ?? '🔬';
-        $grad  = $proj_grad[$p['icon_color']] ?? 'linear-gradient(135deg,#1b6e38,#27934d)';
-      ?>
-      <div class="pjc reveal">
-        <div class="pj-vis" style="background:<?= $grad ?>">
-          <div class="pj-vis-grid"></div>
-          <div class="pj-vis-pulse"></div>
-          <div class="pj-vis-pulse pj-vis-pulse2"></div>
-          <?= $emoji ?>
-        </div>
-        <div class="pj-body">
-          <div class="pj-tag"><?= e(ucwords(str_replace('-', ' ', $p['popup_key']))) ?></div>
-          <div class="pj-title" style="cursor:pointer" onclick="openProjectModal('<?= $jsKey ?>')"><?= e($p['title']) ?></div>
-          <p class="pj-desc"><?= e($p['description']) ?></p>
-          <a href="javascript:void(0)" class="pj-link" onclick="openProjectModal('<?= $jsKey ?>')">
-            View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <?php endforeach; ?>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#1b6e38,#27934d)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🌿</div><div class="pj-body"><div class="pj-tag">Vegetation Analysis</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('ndvi')">NDVI Analysis</div><p class="pj-desc">Normalized Difference Vegetation Index mapping for crop health assessment across agricultural regions using multi-spectral satellite imagery.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#0e7c94,#1aaccf)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>📡</div><div class="pj-body"><div class="pj-tag">Biomass Estimation</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('evi')">EVI Mapping</div><p class="pj-desc">Enhanced Vegetation Index analysis for improved biomass estimation and canopy structural variations in diverse land cover types.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#5b3a9e,#7c5cbe)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🗺️</div><div class="pj-body"><div class="pj-tag">Land Cover</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('lulc')">LULC Classification</div><p class="pj-desc">Land Use / Land Cover classification using satellite imagery and machine learning algorithms for regional planning applications.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#b05a0a,#d47a1e)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🛸</div><div class="pj-body"><div class="pj-tag">Remote Sensing</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('drone')">Satellite & Drone Imagery</div><p class="pj-desc">High-resolution satellite and UAV imagery for precision agriculture, environmental monitoring, and resource mapping at fine scales.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#1b3c6e,#2a5db0)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🌐</div><div class="pj-body"><div class="pj-tag">Visualization</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('webgis')">Web GIS Applications</div><p class="pj-desc">Interactive web-based GIS platforms for real-time spatial data visualization and decision support systems for stakeholders.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#7e1b6e,#b02a9a)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🤖</div><div class="pj-body"><div class="pj-tag">Artificial Intelligence</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('aiml')">AI/ML Model Showcase</div><p class="pj-desc">Machine learning models for crop prediction, pest detection, yield estimation, and climate impact analysis using deep learning.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
     </div>
   </div>
 </section>
@@ -1032,14 +929,13 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
     </div>
     <div class="jrn-grid">
       <div class="tl reveal-left">
-        <?php foreach ($timeline as $ev): ?>
-        <div class="tli <?= $ev['is_future'] ? 'tli-future' : '' ?>">
-          <div class="tli-dot"></div>
-          <div class="tli-yr"><?= e($ev['year_label']) ?> · <?= e($ev['title']) ?></div>
-          <div class="tli-h"><?= e($ev['title']) ?></div>
-          <p class="tli-b"><?= e($ev['description']) ?></p>
-        </div>
-        <?php endforeach; ?>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Foundation</div><div class="tli-h">Official Registration</div><p class="tli-b">AHSIS Pvt. Ltd. officially registered under MCA, MSME, and Startup India, marking the beginning of a new chapter in geospatial innovation.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Skill Launch</div><div class="tli-h">Training Programs Initiated</div><p class="tli-b">Launched structured training in GIS, AI, and sustainable technologies, empowering students and professionals with industry-relevant skills.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Agri Innovation</div><div class="tli-h">Climate-Smart Agriculture</div><p class="tli-b">Introduced climate-smart agriculture programs and agromet advisory services, directly benefiting farming communities across rural India.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · R&D Expansion</div><div class="tli-h">GeoInnovation Lab Established</div><p class="tli-b">Established the GeoInnovation Lab and AI-driven solutions division for research and real-world prototyping.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Community Impact</div><div class="tli-h">500+ Farmers Reached</div><p class="tli-b">Reached over 500 farmers, enabling rural transformation through technology-driven agricultural interventions.</p></div>
+        <div class="tli"><div class="tli-dot"></div><div class="tli-yr">2025 · Partnerships</div><div class="tli-h">Strategic Collaborations Built</div><p class="tli-b">Built 10+ collaborations with institutions and organizations for knowledge exchange and sustainable development.</p></div>
+        <div class="tli tli-future"><div class="tli-dot"></div><div class="tli-yr">Future · Global Vision</div><div class="tli-h">Global Expansion</div><p class="tli-b">Scaling impact across South Asia with advanced AI platforms, establishing AHSIS as a global leader in geospatial innovation.</p></div>
       </div>
       <div class="vm-stack reveal-right">
         <div class="vmc"><div class="vmc-eye">Our Vision</div><div class="vmc-h">Global Leadership in Geospatial Innovation</div><p class="vmc-t">To be a global leader in technology and geospatial innovation, recognized for quality, innovation, and impact. We transform businesses and communities through cutting-edge, technology-enabled solutions that support the UN Sustainable Development Goals.</p></div>
@@ -1110,23 +1006,10 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <h2 class="h2">Latest from <em>AHSIS</em></h2>
     </div>
     <div class="bl-grid">
-      <?php foreach ($blogs as $b): ?>
-      <div class="blc reveal">
-        <div class="blc-top" style="border-top:3px solid <?= e($b['tag_color']) ?>"></div>
-        <div class="blc-body">
-          <div class="bl-cat" style="color:<?= e($b['tag_color']) ?>">
-            <span class="bl-dot" style="background:<?= e($b['tag_color']) ?>"></span>
-            <?= e($b['tag']) ?>
-          </div>
-          <div class="bl-title"><?= e($b['title']) ?></div>
-          <p class="bl-exc"><?= e($b['excerpt']) ?></p>
-          <div style="font-size:11.5px;color:var(--ink4);margin-bottom:12px;font-family:'JetBrains Mono',monospace;letter-spacing:.03em">
-            <?= e($b['author_name']) ?> &nbsp;·&nbsp; <?= date('M j, Y', strtotime($b['published_at'])) ?>
-          </div>
-          <a href="#" class="bl-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-      <?php endforeach; ?>
+      <div class="blc reveal"><div class="blc-top"></div><div class="blc-body"><div class="bl-cat"><span class="bl-dot"></span>Skill Training</div><div class="bl-title">AHSIS Launches Skill Training Initiative in Renewable Energy</div><p class="bl-exc">Empowering rural communities with practical skills in solar energy, biogas systems, and sustainable energy solutions.</p><a href="#" class="bl-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="blc reveal"><div class="blc-top"></div><div class="blc-body"><div class="bl-cat"><span class="bl-dot"></span>AI & Innovation</div><div class="bl-title">AI Meets Agriculture: AHSIS Unveils New Agro-sensing Technologies</div><p class="bl-exc">Launching AI-powered tools for smart farming — from crop health monitoring to yield prediction using satellite data.</p><a href="#" class="bl-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="blc reveal"><div class="blc-top"></div><div class="blc-body"><div class="bl-cat"><span class="bl-dot"></span>Research</div><div class="bl-title">Breaking Ground: AHSIS Expands Vertical Farming Research</div><p class="bl-exc">Exploring vertical farming techniques and controlled environment agriculture for food security in urban areas.</p><a href="#" class="bl-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="blc reveal"><div class="blc-top"></div><div class="blc-body"><div class="bl-cat"><span class="bl-dot"></span>GIS Training</div><div class="bl-title">GIS Training Program for Rural Leaders Completed</div><p class="bl-exc">Empowering grassroots leaders with geospatial tools for better resource management and planning.</p><a href="#" class="bl-link">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
     </div>
   </div>
 </section>
@@ -1139,19 +1022,9 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <h2 class="h2">What People <em>Think</em></h2>
     </div>
     <div class="te-grid">
-      <?php foreach ($testimonials as $t): ?>
-      <div class="tec reveal">
-        <span class="te-q-mark">"</span>
-        <p class="te-text"><?= e(trim($t['quote'], '"')) ?></p>
-        <div class="te-auth">
-          <div class="te-av"><?= e($t['initials']) ?></div>
-          <div>
-            <div class="te-name"><?= e($t['author_name']) ?></div>
-            <div class="te-role"><?= e($t['author_role']) ?></div>
-          </div>
-        </div>
-      </div>
-      <?php endforeach; ?>
+      <div class="tec reveal"><span class="te-q-mark">"</span><p class="te-text">AHSIS represents a timely and much-needed initiative that bridges scientific understanding with real-world applications, particularly in rural and vulnerable regions.</p><div class="te-auth"><div class="te-av">DP</div><div><div class="te-name">Mr. Deepak Panda</div><div class="te-role">Ph.D. Research Scholar</div></div></div></div>
+      <div class="tec reveal"><span class="te-q-mark">"</span><p class="te-text">AHSIS stands out as a dynamic platform that is truly bridging the gap between academic research and ground-level sustainability action.</p><div class="te-auth"><div class="te-av">MJ</div><div><div class="te-name">Ms. Mahjabeen</div><div class="te-role">PhD Research Scholar</div></div></div></div>
+      <div class="tec reveal"><span class="te-q-mark">"</span><p class="te-text">AHSIS stands out for its practical, hands-on approach to sustainability, empowering communities and young professionals with regionally relevant skills.</p><div class="te-auth"><div class="te-av">HS</div><div><div class="te-name">Dr. Husain Shabbar</div><div class="te-role">Assistant Professor (Geology)</div></div></div></div>
     </div>
   </div>
 </section>
@@ -1195,10 +1068,10 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
     </div>
     <div class="ct-grid">
       <div class="ct-info reveal-left">
-        <div class="cii"><div class="cii-ic">📍</div><div><div class="cii-lbl">Headquarters</div><div class="cii-val"><?= cfg($cfg, 'contact_address1') ?></div></div></div>
-        <div class="cii"><div class="cii-ic">📍</div><div><div class="cii-lbl">Regional Office</div><div class="cii-val"><?= cfg($cfg, 'contact_address2') ?></div></div></div>
-        <div class="cii"><div class="cii-ic">📞</div><div><div class="cii-lbl">Phone</div><div class="cii-val"><?= cfg($cfg, 'contact_phone') ?></div></div></div>
-        <div class="cii"><div class="cii-ic">✉️</div><div><div class="cii-lbl">Email</div><div class="cii-val"><a href="mailto:<?= cfg($cfg, 'contact_email') ?>"><?= cfg($cfg, 'contact_email') ?></a></div></div></div>
+        <div class="cii"><div class="cii-ic">📍</div><div><div class="cii-lbl">Headquarters</div><div class="cii-val">NH-44 Anantnag, J&K – India 192101</div></div></div>
+        <div class="cii"><div class="cii-ic">📍</div><div><div class="cii-lbl">Regional Office</div><div class="cii-val">Kolkata – 700089, West Bengal</div></div></div>
+        <div class="cii"><div class="cii-ic">📞</div><div><div class="cii-lbl">Phone</div><div class="cii-val">+91 95412 96515 / +91 98311 45771</div></div></div>
+        <div class="cii"><div class="cii-ic">✉️</div><div><div class="cii-lbl">Email</div><div class="cii-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ed84838b828c859e849ead8a808c8481c38e8280">[email&#160;protected]</a></div></div></div>
       </div>
       <div class="form-wrap reveal-right">
         <div class="form-row">
@@ -1237,7 +1110,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <div>
         <div class="ft-logo"><div class="logo-hex">A</div><span class="ft-brand">AHSIS</span></div>
         <p class="ft-sub">Alpine Hub for Sustainable Innovation and Skills Pvt. Ltd. — Geospatial intelligence for a sustainable future.</p>
-        <div class="ft-contact">📞 <?= cfg($cfg, 'contact_phone') ?><br>✉️ <a href="mailto:<?= cfg($cfg, 'contact_email') ?>"><?= cfg($cfg, 'contact_email') ?></a></div>
+        <div class="ft-contact">📞 +91 95412 96515<br>📞 +91 98311 45771<br>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="92fbfcf4fdf3fae1fbe1d2f5fff3fbfebcf1fdff">[email&#160;protected]</a></div>
       </div>
       <div><div class="ft-ct">Services</div><ul class="ft-links"><li><a href="#">GIS & Remote Sensing</a></li><li><a href="#">AhsisAgri Innovation</a></li><li><a href="#">AI-Driven Solutions</a></li><li><a href="#">GeoInnovation Lab</a></li><li><a href="#">Agromet Advisory</a></li></ul></div>
       <div><div class="ft-ct">Programs & Students</div><ul class="ft-links"><li><a href="#">Skill Courses</a></li><li><a href="#">Internships</a></li><li><a href="#">Placements</a></li><li><a href="#">Become a Member</a></li></ul></div>
@@ -1246,12 +1119,12 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
     <div class="ft-div"></div>
     <div class="ft-bot">
       <div class="ft-copy">© 2025 AHSIS Pvt. Ltd. All rights reserved.</div>
-      <div class="ft-cins"><?= cfg($cfg, 'footer_cin') ?></div>
+      <div class="ft-cins">CIN: U74900JK2025PTC017288 · UDYAM: JK-11-0018379 · DIPP: 201833</div>
     </div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ════ GEO CANVAS ANIMATION ════ */
 (function(){
   const canvas = document.getElementById('geo-canvas');
@@ -1696,7 +1569,7 @@ document.querySelectorAll('.intern-card,.ist-card').forEach(el=>barObs.observe(e
 <!-- Form modals -->
 <div class="m-overlay" id="formModal" onclick="handleModalClick(event,'formModal')">
   <div class="m-box slim" id="formBox">
-    
+
     <div id="formContent"></div>
   </div>
 </div>
