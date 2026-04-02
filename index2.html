@@ -485,7 +485,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
     </ul>
     <div class="nav-right">
       <span class="nav-badge">DPIIT Recognized</span>
-      <a href="#contact" class="nav-cta">Partner With Us</a>
+      <a href="javascript:void(0)" class="nav-cta" onclick="openFormModal('partner')">Partner With Us</a>
       <div class="ham" id="ham" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
@@ -610,12 +610,12 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <h2 class="h2">Specialization <em>Areas</em></h2>
     </div>
     <div class="svc-grid">
-      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">01</div><div class="st">GIS & Remote Sensing</div><p class="sd">Advanced geospatial solutions for mapping, monitoring, and spatial decision-making using cutting-edge satellite and sensor technologies.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">02</div><div class="st">AhsisAgri Innovation</div><p class="sd">Precision farming, crop monitoring, and technology-driven Agri-solutions for transforming agricultural productivity and sustainability.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">03</div><div class="st">GeoInnovation Lab</div><p class="sd">Research, prototyping, and GIS-based innovations for real-world applications, bridging the gap between lab and field deployment.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">04</div><div class="st">Agromet Advisory</div><p class="sd">Weather-based advisory and climate-smart solutions for farmers, delivering actionable insights through spatial analytics and AI.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">05</div><div class="st">Innovation Hubs & Incubation</div><p class="sd">Supporting startups and innovators with mentoring, incubation, and resources to develop scalable technology solutions.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">06</div><div class="st">AI-Driven Solutions</div><p class="sd">Leveraging artificial intelligence for analytics, automation, and decision support in agricultural and environmental monitoring systems.</p><a href="#" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">01</div><div class="st">GIS & Remote Sensing</div><p class="sd">Advanced geospatial solutions for mapping, monitoring, and spatial decision-making using cutting-edge satellite and sensor technologies.</p><a href="javascript:void(0)" onclick="openServiceModal('gis')" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">02</div><div class="st">AhsisAgri Innovation</div><p class="sd">Precision farming, crop monitoring, and technology-driven Agri-solutions for transforming agricultural productivity and sustainability.</p><a href="javascript:void(0)" onclick="openServiceModal('agri')" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">03</div><div class="st">GeoInnovation Lab</div><p class="sd">Research, prototyping, and GIS-based innovations for real-world applications, bridging the gap between lab and field deployment.</p><a href="javascript:void(0)" onclick="openServiceModal('geolab')" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">04</div><div class="st">Agromet Advisory</div><p class="sd">Weather-based advisory and climate-smart solutions for farmers, delivering actionable insights through spatial analytics and AI.</p><a href="javascript:void(0)" onclick="openServiceModal('agromet')" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">05</div><div class="st">Innovation Hubs & Incubation</div><p class="sd">Supporting startups and innovators with mentoring, incubation, and resources to develop scalable technology solutions.</p><a href="javascript:void(0)" onclick="openServiceModal('hub')" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <div class="sc reveal"><div class="sc-bar"></div><div class="sn">06</div><div class="st">AI-Driven Solutions</div><p class="sd">Leveraging artificial intelligence for analytics, automation, and decision support in agricultural and environmental monitoring systems.</p><a href="javascript:void(0)" onclick="openServiceModal('ai')" class="sl">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -647,16 +647,16 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <span class="course-count" id="course-count">10 courses</span>
     </div>
     <div class="co-grid">
-      <div class="cc reveal" data-dur="6m"><div class="cc-corner"></div><span class="cd-pill">⏱ 6 Months</span><div class="ct">Advanced GIS & Remote Sensing</div><p class="cx">Comprehensive geospatial analysis with ArcGIS, QGIS, and satellite image processing. Industry-grade workflow from raw data to insights.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Geospatial</span></div></div>
-      <div class="cc reveal" data-dur="3m"><div class="cc-corner"></div><span class="cd-pill">⏱ 3 Months</span><div class="ct">AI & Machine Learning for Agriculture</div><p class="cx">Deep learning, predictive analytics, and crop health monitoring using AI models. Build and deploy real agri-intelligence systems.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">AI/ML</span></div></div>
-      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Full Stack Web GIS Development</div><p class="cx">Build interactive GIS web applications using modern frameworks and spatial databases for real-world deployment.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Web Dev</span></div></div>
-      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Drone Technology & UAV Mapping</div><p class="cx">UAV operations, aerial surveying, photogrammetry, and 3D terrain modeling for precision agriculture and environmental assessment.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">UAV</span></div></div>
-      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">IoT for Smart Agriculture</div><p class="cx">Sensor networks, soil monitoring, automated irrigation, and precision farming technologies for next-generation farms.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">IoT</span></div></div>
-      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Climate Data Analytics</div><p class="cx">Climate modeling, weather pattern analysis, and agrometeorology advisory. Turn climate data into farmer-ready intelligence.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Climate</span></div></div>
-      <div class="cc reveal" data-dur="3m"><div class="cc-corner"></div><span class="cd-pill">⏱ 3 Months</span><div class="ct">Python for Geospatial Analysis</div><p class="cx">Geospatial libraries, satellite data processing, automation scripts, and geospatial pipelines using Python and open-source tools.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Python</span></div></div>
-      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Remote Sensing Image Analysis</div><p class="cx">NDVI, EVI, LULC classification, and change detection techniques using Sentinel, Landsat, and commercial satellite imagery.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Remote Sensing</span></div></div>
-      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Introduction to GIS</div><p class="cx">Fundamentals of geographic information systems, spatial data concepts, map creation, and basic analysis for beginners.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Beginner</span></div></div>
-      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Data Visualization & Dashboards</div><p class="cx">Creating interactive dashboards using modern data visualization tools. From raw geospatial data to boardroom-ready insights.</p><div class="cc-footer"><a href="#" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Visualization</span></div></div>
+      <div class="cc reveal" data-dur="6m"><div class="cc-corner"></div><span class="cd-pill">⏱ 6 Months</span><div class="ct">Advanced GIS & Remote Sensing</div><p class="cx">Comprehensive geospatial analysis with ArcGIS, QGIS, and satellite image processing. Industry-grade workflow from raw data to insights.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('advgis')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Geospatial</span></div></div>
+      <div class="cc reveal" data-dur="3m"><div class="cc-corner"></div><span class="cd-pill">⏱ 3 Months</span><div class="ct">AI & Machine Learning for Agriculture</div><p class="cx">Deep learning, predictive analytics, and crop health monitoring using AI models. Build and deploy real agri-intelligence systems.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('aiml')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">AI/ML</span></div></div>
+      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Full Stack Web GIS Development</div><p class="cx">Build interactive GIS web applications using modern frameworks and spatial databases for real-world deployment.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('webgis')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Web Dev</span></div></div>
+      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Drone Technology & UAV Mapping</div><p class="cx">UAV operations, aerial surveying, photogrammetry, and 3D terrain modeling for precision agriculture and environmental assessment.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('drone')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">UAV</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">IoT for Smart Agriculture</div><p class="cx">Sensor networks, soil monitoring, automated irrigation, and precision farming technologies for next-generation farms.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('iot')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">IoT</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Climate Data Analytics</div><p class="cx">Climate modeling, weather pattern analysis, and agrometeorology advisory. Turn climate data into farmer-ready intelligence.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('climate')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Climate</span></div></div>
+      <div class="cc reveal" data-dur="3m"><div class="cc-corner"></div><span class="cd-pill">⏱ 3 Months</span><div class="ct">Python for Geospatial Analysis</div><p class="cx">Geospatial libraries, satellite data processing, automation scripts, and geospatial pipelines using Python and open-source tools.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('python')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Python</span></div></div>
+      <div class="cc reveal" data-dur="2m"><div class="cc-corner"></div><span class="cd-pill">⏱ 2 Months</span><div class="ct">Remote Sensing Image Analysis</div><p class="cx">NDVI, EVI, LULC classification, and change detection techniques using Sentinel, Landsat, and commercial satellite imagery.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('rsi')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Remote Sensing</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Introduction to GIS</div><p class="cx">Fundamentals of geographic information systems, spatial data concepts, map creation, and basic analysis for beginners.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('introgis')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Beginner</span></div></div>
+      <div class="cc reveal" data-dur="1m"><div class="cc-corner"></div><span class="cd-pill">⏱ 1 Month</span><div class="ct">Data Visualization & Dashboards</div><p class="cx">Creating interactive dashboards using modern data visualization tools. From raw geospatial data to boardroom-ready insights.</p><div class="cc-footer"><a href="javascript:void(0)" onclick="openCourseModal('datavis')" class="cl">View Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="cc-tag">Visualization</span></div></div>
     </div>
   </div>
 </section>
@@ -670,12 +670,12 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <p class="lead">Current and completed projects in agriculture, geospatial analysis, and AI-driven solutions.</p>
     </div>
     <div class="pj-grid">
-      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#1b6e38,#27934d)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🌿</div><div class="pj-body"><div class="pj-tag">Vegetation Analysis</div><div class="pj-title">NDVI Analysis</div><p class="pj-desc">Normalized Difference Vegetation Index mapping for crop health assessment across agricultural regions using multi-spectral satellite imagery.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#0e7c94,#1aaccf)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>📡</div><div class="pj-body"><div class="pj-tag">Biomass Estimation</div><div class="pj-title">EVI Mapping</div><p class="pj-desc">Enhanced Vegetation Index analysis for improved biomass estimation and canopy structural variations in diverse land cover types.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#5b3a9e,#7c5cbe)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🗺️</div><div class="pj-body"><div class="pj-tag">Land Cover</div><div class="pj-title">LULC Classification</div><p class="pj-desc">Land Use / Land Cover classification using satellite imagery and machine learning algorithms for regional planning applications.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#b05a0a,#d47a1e)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🛸</div><div class="pj-body"><div class="pj-tag">Remote Sensing</div><div class="pj-title">Satellite & Drone Imagery</div><p class="pj-desc">High-resolution satellite and UAV imagery for precision agriculture, environmental monitoring, and resource mapping at fine scales.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#1b3c6e,#2a5db0)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🌐</div><div class="pj-body"><div class="pj-tag">Visualization</div><div class="pj-title">Web GIS Applications</div><p class="pj-desc">Interactive web-based GIS platforms for real-time spatial data visualization and decision support systems for stakeholders.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#7e1b6e,#b02a9a)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🤖</div><div class="pj-body"><div class="pj-tag">Artificial Intelligence</div><div class="pj-title">AI/ML Model Showcase</div><p class="pj-desc">Machine learning models for crop prediction, pest detection, yield estimation, and climate impact analysis using deep learning.</p><a href="#" class="pj-link">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#1b6e38,#27934d)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🌿</div><div class="pj-body"><div class="pj-tag">Vegetation Analysis</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('ndvi')">NDVI Analysis</div><p class="pj-desc">Normalized Difference Vegetation Index mapping for crop health assessment across agricultural regions using multi-spectral satellite imagery.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#0e7c94,#1aaccf)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>📡</div><div class="pj-body"><div class="pj-tag">Biomass Estimation</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('evi')">EVI Mapping</div><p class="pj-desc">Enhanced Vegetation Index analysis for improved biomass estimation and canopy structural variations in diverse land cover types.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#5b3a9e,#7c5cbe)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🗺️</div><div class="pj-body"><div class="pj-tag">Land Cover</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('lulc')">LULC Classification</div><p class="pj-desc">Land Use / Land Cover classification using satellite imagery and machine learning algorithms for regional planning applications.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#b05a0a,#d47a1e)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🛸</div><div class="pj-body"><div class="pj-tag">Remote Sensing</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('drone')">Satellite & Drone Imagery</div><p class="pj-desc">High-resolution satellite and UAV imagery for precision agriculture, environmental monitoring, and resource mapping at fine scales.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#1b3c6e,#2a5db0)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🌐</div><div class="pj-body"><div class="pj-tag">Visualization</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('webgis')">Web GIS Applications</div><p class="pj-desc">Interactive web-based GIS platforms for real-time spatial data visualization and decision support systems for stakeholders.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+      <div class="pjc reveal"><div class="pj-vis" style="background:linear-gradient(135deg,#7e1b6e,#b02a9a)"><div class="pj-vis-grid"></div><div class="pj-vis-pulse"></div><div class="pj-vis-pulse pj-vis-pulse2"></div>🤖</div><div class="pj-body"><div class="pj-tag">Artificial Intelligence</div><div class="pj-title" style="cursor:pointer" onclick="openProjectModal('aiml')">AI/ML Model Showcase</div><p class="pj-desc">Machine learning models for crop prediction, pest detection, yield estimation, and climate impact analysis using deep learning.</p><a href="javascript:void(0)" class="pj-link" onclick="this.closest('.pjc').querySelector('.pj-title').click()">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
     </div>
   </div>
 </section>
@@ -694,8 +694,8 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
           <span class="bp">Certificate Program</span>
         </div>
         <div class="hero-actions" style="margin-top:28px">
-          <a href="#contact" class="btn-glow" style="font-size:13px;padding:12px 22px">Apply Now</a>
-          <a href="#contact" class="btn-ghost" style="font-size:13px;padding:12px 22px;border-color:var(--border2);color:var(--ink2)">Contact Placement Cell</a>
+          <button class="btn-glow" style="font-size:13px;padding:12px 22px;border:none;cursor:pointer" onclick="openFormModal('apply')">Apply Now</button>
+          <button class="btn-ghost" style="font-size:13px;padding:12px 22px;border-color:var(--border2);color:var(--ink2);border:1.5px solid var(--border2);border-radius:999px;cursor:pointer;background:none" onclick="openFormModal('placement')">Contact Placement Cell</button>
         </div>
       </div>
       <div class="intern-intro-stats reveal-right">
@@ -740,6 +740,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
           <div class="ic-progress">
             <div class="ic-progress-label"><span>Project Completion</span><span>100%</span></div>
             <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:100%"></div></div>
+          <button class="intern-view-btn" onclick="openInternModal('ar')">View Full Profile →</button>
           </div>
         </div>
       </div>
@@ -767,6 +768,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
           <div class="ic-progress">
             <div class="ic-progress-label"><span>Project Progress</span><span>72%</span></div>
             <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:72%"></div></div>
+          <button class="intern-view-btn" onclick="openInternModal('sr')">View Full Profile →</button>
           </div>
         </div>
       </div>
@@ -794,6 +796,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
           <div class="ic-progress">
             <div class="ic-progress-label"><span>Project Completion</span><span>100%</span></div>
             <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:100%"></div></div>
+          <button class="intern-view-btn" onclick="openInternModal('pk')">View Full Profile →</button>
           </div>
         </div>
       </div>
@@ -821,6 +824,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
           <div class="ic-progress">
             <div class="ic-progress-label"><span>Project Progress</span><span>58%</span></div>
             <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:58%"></div></div>
+          <button class="intern-view-btn" onclick="openInternModal('ma')">View Full Profile →</button>
           </div>
         </div>
       </div>
@@ -848,6 +852,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
           <div class="ic-progress">
             <div class="ic-progress-label"><span>Project Completion</span><span>100%</span></div>
             <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:100%"></div></div>
+          <button class="intern-view-btn" onclick="openInternModal('ns')">View Full Profile →</button>
           </div>
         </div>
       </div>
@@ -875,6 +880,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
           <div class="ic-progress">
             <div class="ic-progress-label"><span>Project Progress</span><span>85%</span></div>
             <div class="ic-progress-bar"><div class="ic-progress-fill" style="width:85%"></div></div>
+          <button class="intern-view-btn" onclick="openInternModal('rb')">View Full Profile →</button>
           </div>
         </div>
       </div>
@@ -893,7 +899,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
             <li>Certificate upon completion</li>
             <li>Publication opportunities</li>
           </ul>
-          <a href="#contact" class="btn-glow" style="font-size:13px;padding:11px 22px;display:inline-flex">Apply Now</a>
+          <button class="btn-glow" style="font-size:13px;padding:11px 22px;display:inline-flex;border:none;cursor:pointer" onclick="openFormModal('apply')">Apply Now</button>
         </div>
       </div>
       <div class="intern-cta-card reveal">
@@ -907,7 +913,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
             <li>Career counselling support</li>
             <li>Resume & interview preparation</li>
           </ul>
-          <a href="#contact" class="inv-btn" style="display:inline-block;margin-top:4px">Contact Placement Cell</a>
+          <button class="inv-btn" style="display:inline-block;margin-top:4px;border:1.5px solid var(--green-m)" onclick="openFormModal('placement')">Contact Placement Cell</button>
         </div>
       </div>
     </div>
@@ -969,25 +975,25 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
     </div>
     <div class="ts-label">Leadership Team</div>
     <div class="tm-grid">
-      <div class="tmc reveal"><div class="tm-av">SG</div><div class="tm-name">Mr. Shahid Gulzar</div><div class="tm-role">Founder & Managing Director — Leads AHSIS with a vision to empower communities through geospatial innovation and sustainable development.</div></div>
-      <div class="tmc reveal"><div class="tm-av">MS</div><div class="tm-name">Ms. Moonmoon Sen</div><div class="tm-role">Chairperson & Head, AI-ML Innovations — Drives AI-ML innovation and strategic direction at AHSIS.</div></div>
-      <div class="tmc reveal"><div class="tm-av">VK</div><div class="tm-name">Ms. Varsha Khandelwal</div><div class="tm-role">Manager – Strategic Alliance & Innovation — Leads partnerships, innovation initiatives, and talent mentorship.</div></div>
-      <div class="tmc reveal"><div class="tm-av">DP</div><div class="tm-name">Dr. Devendra Pradhan</div><div class="tm-role">Chief Advisor & Head – Climate Modelling & DRM — Expert in climate modelling and disaster risk management.</div></div>
-      <div class="tmc reveal"><div class="tm-av">AG</div><div class="tm-name">Ms. Anwesha Ganguly</div><div class="tm-role">Lead – Program Development & Mentorship — Supports program development and mentorship initiatives.</div></div>
-      <div class="tmc reveal"><div class="tm-av">RS</div><div class="tm-name">Rahma Saroor</div><div class="tm-role">Coordinator – Training & Capacity Building — Coordinates structured training and capacity-building initiatives.</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('sg')"><div class="tm-av">SG</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('sg')">Mr. Shahid Gulzar</div><div class="tm-role">Founder & Managing Director — Leads AHSIS with a vision to empower communities through geospatial innovation and sustainable development.</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('ms')"><div class="tm-av">MS</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('ms')">Ms. Moonmoon Sen</div><div class="tm-role">Chairperson & Head, AI-ML Innovations — Drives AI-ML innovation and strategic direction at AHSIS.</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('vk')"><div class="tm-av">VK</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('vk')">Ms. Varsha Khandelwal</div><div class="tm-role">Manager – Strategic Alliance & Innovation — Leads partnerships, innovation initiatives, and talent mentorship.</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('dp')"><div class="tm-av">DP</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('dp')">Dr. Devendra Pradhan</div><div class="tm-role">Chief Advisor & Head – Climate Modelling & DRM — Expert in climate modelling and disaster risk management.</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('ag')"><div class="tm-av">AG</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('ag')">Ms. Anwesha Ganguly</div><div class="tm-role">Lead – Program Development & Mentorship — Supports program development and mentorship initiatives.</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('rs')"><div class="tm-av">RS</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('rs')">Rahma Saroor</div><div class="tm-role">Coordinator – Training & Capacity Building — Coordinates structured training and capacity-building initiatives.</div></div>
     </div>
     <div class="ts-label">Advisory Board</div>
     <div class="tm-grid adv">
-      <div class="tmc reveal"><div class="tm-av" style="font-size:11px">SMT</div><div class="tm-name">Dr. Saumya Mani Tripathi</div><div class="tm-role">Lead Advisor – Geoheritage & Community Resilience</div></div>
-      <div class="tmc reveal"><div class="tm-av">HC</div><div class="tm-name">Ms. Hemlata Chandolia</div><div class="tm-role">Advisor – Education & Capacity Building</div></div>
-      <div class="tmc reveal"><div class="tm-av">RK</div><div class="tm-name">Ms. Riya Kamboj</div><div class="tm-role">Lead Advisor – Geospatial & Climate Adaptation</div></div>
-      <div class="tmc reveal"><div class="tm-av">WH</div><div class="tm-name">Mr. Warish Hussain</div><div class="tm-role">Advisor – Climate Adaptation & Environmental Analyst</div></div>
-      <div class="tmc reveal"><div class="tm-av">DK</div><div class="tm-name">Dr. Deepak Kumar</div><div class="tm-role">Lead Advisor – Urban Climate & Energy Systems</div></div>
-      <div class="tmc reveal"><div class="tm-av" style="font-size:10px">SDB</div><div class="tm-name">Dr. Santasmita Das Bhattacharya</div><div class="tm-role">Advisor – Remote Sensing & Mountain Research</div></div>
-      <div class="tmc reveal"><div class="tm-av">HS</div><div class="tm-name">Dr. Husain Shabbar</div><div class="tm-role">Advisor – Earth Science Research & Innovation</div></div>
-      <div class="tmc reveal"><div class="tm-av">DP</div><div class="tm-name">Dr. Deepak Panda</div><div class="tm-role">Advisor – Rural Energy & Earth Science</div></div>
-      <div class="tmc reveal"><div class="tm-av" style="font-size:10px">HFS</div><div class="tm-name">Dr. Hakim Farooq Shah</div><div class="tm-role">Advisor – Disaster Management & Earth Science</div></div>
-      <div class="tmc reveal"><div class="tm-av">IB</div><div class="tm-name">Dr. Ibrahim Bathis</div><div class="tm-role">Advisor – Climate Resilience & Sustainability</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('smt')"><div class="tm-av" style="font-size:11px">SMT</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('smt')">Dr. Saumya Mani Tripathi</div><div class="tm-role">Lead Advisor – Geoheritage & Community Resilience</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('hc')"><div class="tm-av">HC</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('hc')">Ms. Hemlata Chandolia</div><div class="tm-role">Advisor – Education & Capacity Building</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('rk')"><div class="tm-av">RK</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('rk')">Ms. Riya Kamboj</div><div class="tm-role">Lead Advisor – Geospatial & Climate Adaptation</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('wh')"><div class="tm-av">WH</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('wh')">Mr. Warish Hussain</div><div class="tm-role">Advisor – Climate Adaptation & Environmental Analyst</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('dk')"><div class="tm-av">DK</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('dk')">Dr. Deepak Kumar</div><div class="tm-role">Lead Advisor – Urban Climate & Energy Systems</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('sdb')"><div class="tm-av" style="font-size:10px">SDB</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('sdb')">Dr. Santasmita Das Bhattacharya</div><div class="tm-role">Advisor – Remote Sensing & Mountain Research</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('hs')"><div class="tm-av">HS</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('hs')">Dr. Husain Shabbar</div><div class="tm-role">Advisor – Earth Science Research & Innovation</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('dpanda')"><div class="tm-av">DP</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('dpanda')">Dr. Deepak Panda</div><div class="tm-role">Advisor – Rural Energy & Earth Science</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('hfs')"><div class="tm-av" style="font-size:10px">HFS</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('hfs')">Dr. Hakim Farooq Shah</div><div class="tm-role">Advisor – Disaster Management & Earth Science</div></div>
+      <div class="tmc reveal" style="cursor:pointer" onclick="openLeaderModal('ib')"><div class="tm-av">IB</div><div class="tm-name" style="cursor:pointer" onclick="openLeaderModal('ib')">Dr. Ibrahim Bathis</div><div class="tm-role">Advisor – Climate Resilience & Sustainability</div></div>
     </div>
   </div>
 </section>
@@ -1031,9 +1037,9 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <h2 class="h2">Get <em>Involved</em></h2>
     </div>
     <div class="inv-grid">
-      <div class="invc reveal"><div class="inv-ic">🧭</div><div class="inv-t">Become a Member</div><p class="inv-d">Join AHSIS to contribute to research, innovation, workshops, webinars, and sustainable development initiatives.</p><a href="#contact" class="inv-btn">Apply for Membership</a></div>
-      <div class="invc reveal"><div class="inv-ic">💼</div><div class="inv-t">Work With Us</div><p class="inv-d">Check back for openings in research, technology, education, and community development roles across our growing team.</p><a href="#contact" class="inv-btn">View Openings</a></div>
-      <div class="invc reveal"><div class="inv-ic">🤝</div><div class="inv-t">Partner With Us</div><p class="inv-d">Collaborate on projects, sponsor initiatives, or explore partnership opportunities for mutual growth and lasting impact.</p><a href="#contact" class="inv-btn">Explore Partnership</a></div>
+      <div class="invc reveal"><div class="inv-ic">🧭</div><div class="inv-t">Become a Member</div><p class="inv-d">Join AHSIS to contribute to research, innovation, workshops, webinars, and sustainable development initiatives.</p><button class="inv-btn" style="border:1.5px solid var(--green-m)" onclick="openFormModal('member')">Apply for Membership</button></div>
+      <div class="invc reveal"><div class="inv-ic">💼</div><div class="inv-t">Work With Us</div><p class="inv-d">Check back for openings in research, technology, education, and community development roles across our growing team.</p><button class="inv-btn" style="border:1.5px solid var(--green-m)" onclick="openFormModal('career')">View Openings</button></div>
+      <div class="invc reveal"><div class="inv-ic">🤝</div><div class="inv-t">Partner With Us</div><p class="inv-d">Collaborate on projects, sponsor initiatives, or explore partnership opportunities for mutual growth and lasting impact.</p><button class="inv-btn" style="border:1.5px solid var(--green-m)" onclick="openFormModal('partner')">Explore Partnership</button></div>
     </div>
   </div>
 </section>
@@ -1065,7 +1071,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
         <div class="cii"><div class="cii-ic">📍</div><div><div class="cii-lbl">Headquarters</div><div class="cii-val">NH-44 Anantnag, J&K – India 192101</div></div></div>
         <div class="cii"><div class="cii-ic">📍</div><div><div class="cii-lbl">Regional Office</div><div class="cii-val">Kolkata – 700089, West Bengal</div></div></div>
         <div class="cii"><div class="cii-ic">📞</div><div><div class="cii-lbl">Phone</div><div class="cii-val">+91 95412 96515 / +91 98311 45771</div></div></div>
-        <div class="cii"><div class="cii-ic">✉️</div><div><div class="cii-lbl">Email</div><div class="cii-val">infoahsis@gmail.com</div></div></div>
+        <div class="cii"><div class="cii-ic">✉️</div><div><div class="cii-lbl">Email</div><div class="cii-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ed84838b828c859e849ead8a808c8481c38e8280">[email&#160;protected]</a></div></div></div>
       </div>
       <div class="form-wrap reveal-right">
         <div class="form-row">
@@ -1077,7 +1083,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
           <div class="fg"><label>Subject</label><select><option>General Inquiry</option><option>Partnership</option><option>Internship</option><option>Course Enrollment</option><option>Research Collaboration</option></select></div>
         </div>
         <div class="fg"><label>Message</label><textarea placeholder="Tell us about your project, idea, or inquiry..."></textarea></div>
-        <button class="form-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Send Message</button>
+        <button class="form-btn" onclick="submitContactForm(event)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Send Message</button>
       </div>
     </div>
   </div>
@@ -1090,7 +1096,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <h2 class="cta-title">Ready to <em>Transform</em> Agriculture?</h2>
       <p class="cta-sub">Partner with AHSIS for sustainable, technology-driven solutions that create lasting impact across rural India and beyond.</p>
       <div class="cta-btns">
-        <a href="#contact" class="btn-white">Get Started</a>
+        <a href="javascript:void(0)" class="btn-white" onclick="openFormModal('contact')">Get Started</a>
         <a href="#about" class="btn-ow">Learn More</a>
       </div>
     </div>
@@ -1104,7 +1110,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
       <div>
         <div class="ft-logo"><div class="logo-hex">A</div><span class="ft-brand">AHSIS</span></div>
         <p class="ft-sub">Alpine Hub for Sustainable Innovation and Skills Pvt. Ltd. — Geospatial intelligence for a sustainable future.</p>
-        <div class="ft-contact">📞 +91 95412 96515<br>📞 +91 98311 45771<br>✉️ infoahsis@gmail.com</div>
+        <div class="ft-contact">📞 +91 95412 96515<br>📞 +91 98311 45771<br>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="92fbfcf4fdf3fae1fbe1d2f5fff3fbfebcf1fdff">[email&#160;protected]</a></div>
       </div>
       <div><div class="ft-ct">Services</div><ul class="ft-links"><li><a href="#">GIS & Remote Sensing</a></li><li><a href="#">AhsisAgri Innovation</a></li><li><a href="#">AI-Driven Solutions</a></li><li><a href="#">GeoInnovation Lab</a></li><li><a href="#">Agromet Advisory</a></li></ul></div>
       <div><div class="ft-ct">Programs & Students</div><ul class="ft-links"><li><a href="#">Skill Courses</a></li><li><a href="#">Internships</a></li><li><a href="#">Placements</a></li><li><a href="#">Become a Member</a></li></ul></div>
@@ -1118,7 +1124,7 @@ footer{background:#020b04;padding:clamp(48px,6vw,72px) 0 28px}
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ════ GEO CANVAS ANIMATION ════ */
 (function(){
   const canvas = document.getElementById('geo-canvas');
@@ -1454,14 +1460,940 @@ const barObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       e.target.querySelectorAll('.ic-progress-fill').forEach(bar=>{
-        const w=bar.style.width;
-        bar.style.width='0';
-        setTimeout(()=>bar.style.width=w,300);
+        bar.style.width = bar.style.width; // trigger transition
       });
     }
   });
 },{threshold:.3});
-document.querySelectorAll('.intern-card').forEach(c=>barObs.observe(c));
+document.querySelectorAll('.intern-card,.ist-card').forEach(el=>barObs.observe(el));
 </script>
+
+<!-- ██████████████████████████████████████████████████████████
+     MODAL SYSTEM — CSS + HTML + JS
+     ██████████████████████████████████████████████████████████ -->
+<style>
+/* ════ MODAL CORE ════ */
+.m-overlay{position:fixed;inset:0;z-index:3000;background:rgba(5,15,7,.82);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
+.m-overlay.open{opacity:1;pointer-events:all}
+.m-box{background:var(--white);border-radius:var(--rl);width:100%;max-height:92vh;overflow-y:auto;position:relative;transform:translateY(24px) scale(.97);transition:transform .35s cubic-bezier(.16,1,.3,1);box-shadow:0 32px 80px rgba(0,0,0,.3)}
+.m-overlay.open .m-box{transform:none}
+.m-box.wide{max-width:860px}
+.m-box.slim{max-width:560px}
+.m-box.mid{max-width:700px}
+.m-close{position:sticky;top:14px;float:right;margin:14px 14px 0 0;width:34px;height:34px;border-radius:50%;background:var(--soft);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;line-height:1;color:var(--ink3);z-index:10;transition:background .2s,color .2s;flex-shrink:0}
+.m-close:hover{background:var(--border);color:var(--ink)}
+.m-header{padding:36px 36px 0}
+.m-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:10px;display:inline-flex;align-items:center;gap:7px}
+.m-eyebrow::before{content:'';width:16px;height:1.5px;background:var(--green);flex-shrink:0}
+.m-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(20px,3vw,30px);font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.1;margin-bottom:8px}
+.m-sub{font-size:14px;color:var(--ink3);line-height:1.7;margin-bottom:0}
+.m-body{padding:24px 36px 36px}
+.m-sep{height:1px;background:var(--border);margin:22px 0}
+.m-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.m-tag{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-p);border:1px solid var(--green-p2);padding:5px 13px;border-radius:var(--rp);margin-bottom:18px}
+.m-vis{height:180px;display:flex;align-items:center;justify-content:center;font-size:48px;border-radius:var(--r);position:relative;overflow:hidden;margin-bottom:24px}
+.m-vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:20px 20px;opacity:.6}
+.m-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.m-stat{background:var(--soft);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center}
+.m-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--green)}
+.m-stat-lbl{font-size:11px;color:var(--ink3);margin-top:3px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em}
+.m-info-row{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--border)}
+.m-info-row:last-child{border-bottom:none}
+.m-info-icon{width:32px;height:32px;border-radius:8px;background:var(--green-p);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.m-info-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:2px}
+.m-info-val{font-size:13.5px;color:var(--ink2);font-weight:600}
+.m-section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.m-pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.m-pill{font-size:12px;font-weight:600;color:var(--ink2);background:var(--soft);border:1px solid var(--border);padding:5px 13px;border-radius:var(--rp)}
+.m-pill.green{color:var(--green);background:var(--green-p);border-color:var(--green-p2)}
+.m-ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.m-ul li{font-size:13.5px;color:var(--ink2);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.m-ul li::before{content:'▹';color:var(--green);font-size:12px;margin-top:1px;flex-shrink:0}
+.m-cert{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--green-p),var(--green-p2));border:1px solid var(--green-p2);border-radius:10px;padding:14px 16px;margin-top:16px}
+.m-cert-icon{width:38px;height:38px;border-radius:9px;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.m-cert-text{font-size:13px;font-weight:700;color:var(--green)}
+.m-cert-sub{font-size:11.5px;color:var(--green-m)}
+.m-progress-bar{height:6px;background:var(--border);border-radius:var(--rp);overflow:hidden;margin-top:6px}
+.m-progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--green-b));border-radius:var(--rp);transition:width 1.2s ease}
+.m-avatar{width:80px;height:80px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;color:var(--green);background:var(--green-p);border:2px solid var(--green-p2);flex-shrink:0;margin-bottom:14px}
+.m-leader-bio{font-size:14px;line-height:1.78;color:var(--ink3);margin-top:12px}
+.m-expertise-card{background:var(--soft);border:1px solid var(--border);border-radius:var(--r);padding:14px}
+.m-expertise-card .m-section-title{margin-bottom:7px}
+
+/* Intern view btn */
+.intern-view-btn{width:100%;margin-top:14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--green);background:var(--green-p);border:1px solid var(--green-p2);padding:9px;border-radius:var(--rp);cursor:pointer;transition:background .2s,color .2s;display:block}
+.intern-view-btn:hover{background:var(--green);color:#fff}
+
+/* Leader card pointer */
+.tmc[style*="cursor:pointer"]:hover{box-shadow:var(--s2);transform:translateY(-3px)}
+
+/* Form modal */
+.fm-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fm-fg{margin-bottom:14px}
+.fm-fg label{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--ink3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.fm-fg input,.fm-fg textarea,.fm-fg select{width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:9px;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:14px;padding:11px 15px;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
+.fm-fg input:focus,.fm-fg textarea:focus,.fm-fg select:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(27,110,56,.1)}
+.fm-fg textarea{height:100px;resize:vertical}
+.fm-btn{width:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--green),var(--green-m));border:none;padding:15px;border-radius:var(--rp);cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(27,110,56,.3);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px}
+.fm-btn:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(27,110,56,.38)}
+.fm-note{font-size:12px;color:var(--ink4);text-align:center;margin-top:12px}
+.m-form-header{background:linear-gradient(135deg,var(--green),var(--green-m));padding:32px 36px 28px;border-radius:var(--rl) var(--rl) 0 0;color:#fff;position:relative;overflow:hidden}
+.m-form-header::after{content:'';position:absolute;bottom:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.06)}
+.m-form-header .m-title{color:#fff}
+.m-form-header .m-eyebrow{color:rgba(255,255,255,.7)}
+.m-form-header .m-eyebrow::before{background:rgba(255,255,255,.5)}
+.m-form-body{padding:28px 36px 36px}
+
+/* Success toast */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--green);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;padding:14px 28px;border-radius:var(--rp);box-shadow:0 8px 32px rgba(27,110,56,.4);z-index:9999;transition:transform .4s cubic-bezier(.16,1,.3,1);display:flex;align-items:center;gap:8px}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:600px){
+  .m-header,.m-body,.m-form-body,.m-form-header{padding-left:20px;padding-right:20px}
+  .m-grid2,.fm-grid{grid-template-columns:1fr}
+  .m-stat-grid{grid-template-columns:1fr 1fr}
+  .m-vis{height:120px;font-size:36px}
+}
+</style>
+
+<!-- ════ MODAL OVERLAYS ════ -->
+
+<!-- Generic detail modal (projects, services, courses, interns, leaders) -->
+<div class="m-overlay" id="detailModal" onclick="handleModalClick(event,'detailModal')">
+  <div class="m-box wide" id="detailBox">
+    <button class="m-close" onclick="closeModal('detailModal')">✕</button>
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<!-- Form modals -->
+<div class="m-overlay" id="formModal" onclick="handleModalClick(event,'formModal')">
+  <div class="m-box slim" id="formBox">
+    <button class="m-close" onclick="closeModal('formModal')" style="background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.2)">✕</button>
+    <div id="formContent"></div>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast">✓ Message sent! We'll get back to you soon.</div>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   DATA STORE
+═══════════════════════════════════════════════════ */
+const PROJECTS = {
+  ndvi:{
+    tag:'Vegetation Analysis', emoji:'🌿', gradient:'linear-gradient(135deg,#1b6e38,#27934d)',
+    title:'NDVI Analysis', duration:'Ongoing', team:'4 Researchers', partners:'ISRO, SAC',
+    desc:'Normalized Difference Vegetation Index (NDVI) mapping is a flagship project at AHSIS, focusing on crop health assessment across diverse agricultural regions using multi-spectral satellite imagery from Sentinel-2 and Landsat-8.',
+    objectives:['Real-time crop health monitoring using NDVI indices','Seasonal vegetation change detection across J&K and North India','Integration with farmer advisory systems for early warning','Multi-year time-series analysis for climate impact assessment'],
+    tools:['QGIS 3.x','Google Earth Engine','Python (rasterio, numpy)','Sentinel-2 MSI','R Statistical Environment'],
+    outcomes:['500+ agricultural plots monitored','Early pest detection accuracy: 87%','Advisory reach: 3 districts','Data integrated into AHSIS AgroSat platform'],
+    status:'Active', publications:'2 Under Review',
+  },
+  evi:{
+    tag:'Biomass Estimation', emoji:'📡', gradient:'linear-gradient(135deg,#0e7c94,#1aaccf)',
+    title:'EVI Mapping', duration:'6 Months', team:'3 Researchers', partners:'NRSC, ICAR',
+    desc:'Enhanced Vegetation Index (EVI) analysis provides superior biomass estimation compared to standard NDVI by correcting atmospheric distortions and canopy background signals in diverse land cover types across the Indian subcontinent.',
+    objectives:['Improved above-ground biomass estimation','Canopy structural variation mapping','Cross-validation with field survey data','Integration with carbon sequestration models'],
+    tools:['ArcGIS Pro','ENVI Remote Sensing','MODIS Terra/Aqua','Python Geospatial Stack','Tableau Analytics'],
+    outcomes:['12 agro-climatic zones mapped','Biomass accuracy: ±8% vs field data','Carbon stock estimates for 5 districts','Published methodology adopted by 2 universities'],
+    status:'Completed', publications:'1 Published',
+  },
+  lulc:{
+    tag:'Land Cover Classification', emoji:'🗺️', gradient:'linear-gradient(135deg,#5b3a9e,#7c5cbe)',
+    title:'LULC Classification', duration:'8 Months', team:'5 Researchers', partners:'NRSA, State Govt.',
+    desc:'Comprehensive Land Use / Land Cover classification project using machine learning algorithms applied to multi-temporal satellite imagery for regional planning, change detection, and environmental impact assessment across Northern India.',
+    objectives:['High-accuracy LULC mapping at 10m resolution','Temporal change detection (2010–2025)','Urban expansion & agricultural land loss analysis','Integration with district planning databases'],
+    tools:['Random Forest & SVM classifiers','Google Earth Engine ML','QGIS & ArcGIS','Sentinel-1 SAR + Sentinel-2 Optical','Ground truth field surveys'],
+    outcomes:['Overall accuracy: 92.4%','15-year change map produced','Urban encroachment quantified: 340 sq km','Data shared with 3 government bodies'],
+    status:'Completed', publications:'2 Published',
+  },
+  drone:{
+    tag:'Remote Sensing & UAV', emoji:'🛸', gradient:'linear-gradient(135deg,#b05a0a,#d47a1e)',
+    title:'Satellite & Drone Imagery', duration:'Ongoing', team:'6 Field + 3 Lab', partners:'DJI India, SKUAST',
+    desc:'High-resolution satellite and UAV/drone imagery project for precision agriculture, environmental monitoring, and resource mapping at fine scales. The project integrates photogrammetric processing with AI-based feature extraction.',
+    objectives:['Sub-5cm resolution agricultural field mapping','3D terrain model generation for slope analysis','Crop row detection and count automation','Integration with precision irrigation systems'],
+    tools:['DJI Phantom 4 RTK','Agisoft Metashape Pro','Pix4Dmapper','Python OpenCV for feature extraction','PostGIS spatial database'],
+    outcomes:['200 hectares mapped at 3cm GSD','DTM accuracy: ±4cm vertical','Crop count error: <3%','3 farmer cooperatives benefited'],
+    status:'Active', publications:'Under Review',
+  },
+  webgis:{
+    tag:'Web GIS & Visualization', emoji:'🌐', gradient:'linear-gradient(135deg,#1b3c6e,#2a5db0)',
+    title:'Web GIS Applications', duration:'4 Months', team:'3 Developers', partners:'AHSIS Tech Division',
+    desc:'Interactive web-based GIS platforms providing real-time spatial data visualization and decision support systems for farmers, policymakers, and researchers. Built on modern open-source GIS web stacks with mobile-first design principles.',
+    objectives:['Real-time crop monitoring dashboard for farmers','Spatial data sharing platform for researchers','District-level agri-decision support portal','Mobile-responsive GIS interface for field workers'],
+    tools:['Leaflet.js & Mapbox GL','GeoServer WMS/WFS','PostGIS + PostgreSQL','Django REST Framework','React.js frontend'],
+    outcomes:['3 deployed web GIS portals','500+ registered users','Real-time weather overlay integration','Farmer query response time: <2 seconds'],
+    status:'Active', publications:'1 Case Study Published',
+  },
+  aiml:{
+    tag:'Artificial Intelligence', emoji:'🤖', gradient:'linear-gradient(135deg,#7e1b6e,#b02a9a)',
+    title:'AI/ML Model Showcase', duration:'Ongoing', team:'4 AI Researchers', partners:'IIT Roorkee, ICAR',
+    desc:'Cutting-edge machine learning and deep learning models for crop prediction, pest detection, yield estimation, and climate impact analysis. The showcase features production-ready models developed at AHSIS GeoInnovation Lab.',
+    objectives:['LSTM-based crop yield prediction from satellite time-series','CNN-based pest and disease detection from drone imagery','Climate impact forecasting using ensemble models','Explainable AI for farmer-facing advisory systems'],
+    tools:['TensorFlow & PyTorch','Scikit-learn','Google Colab & A100 GPUs','SHAP for explainability','FastAPI model serving'],
+    outcomes:['Yield prediction R²: 0.91','Pest detection accuracy: 94.2%','Models deployed in 3 pilot villages','Open-source toolkit released on GitHub'],
+    status:'Active', publications:'3 Under Review',
+  },
+};
+
+const SERVICES = {
+  gis:{
+    num:'01', emoji:'🛰️', color:'#1b6e38',
+    title:'GIS & Remote Sensing',
+    tagline:'Spatial Intelligence at Scale',
+    desc:'Advanced geospatial solutions leveraging the latest satellite, LiDAR, and sensor technologies. We deliver end-to-end spatial workflows from raw data ingestion to actionable insights for resource management, environmental monitoring, and infrastructure planning.',
+    features:['Multi-spectral & SAR satellite image analysis','NDVI, EVI, LULC, and change detection mapping','3D terrain modeling and digital elevation analysis','Spatial database design and management','Custom GIS web portals and dashboards','Field survey design and GPS data integration'],
+    useCases:['Agricultural crop health monitoring','Flood and disaster risk mapping','Forest cover change detection','Urban growth planning and analysis'],
+    tools:['ArcGIS Pro · QGIS · ENVI','Google Earth Engine','PostGIS · GeoServer','Python Geospatial Stack'],
+  },
+  agri:{
+    num:'02', emoji:'🌾', color:'#27934d',
+    title:'AhsisAgri Innovation',
+    tagline:'Precision Farming for Modern Agriculture',
+    desc:'Integrated precision farming solutions combining IoT sensor networks, satellite remote sensing, and AI-driven analytics to transform agricultural productivity. From crop monitoring to market linkage, we deliver complete agri-tech ecosystems for farming communities.',
+    features:['Precision crop monitoring using satellite & drone imagery','Soil health mapping and nutrient recommendation','Weather-based irrigation scheduling','Pest & disease early warning systems','Agri-market linkage and price intelligence','Farmer advisory apps in regional languages'],
+    useCases:['Smallholder farmer empowerment','Corporate farm management','Government agri schemes implementation','FPO capacity building'],
+    tools:['Satellite imagery APIs','IoT soil sensors','Custom mobile apps','AI/ML analytics'],
+  },
+  geolab:{
+    num:'03', emoji:'🔬', color:'#0e7c94',
+    title:'GeoInnovation Lab',
+    tagline:'Where Ideas Become Solutions',
+    desc:'A dedicated research and prototyping facility bridging academic research and real-world field deployment. The GeoInnovation Lab at AHSIS hosts ongoing R&D in geospatial AI, new sensor technologies, and open-source tool development.',
+    features:['Research prototyping and proof-of-concept development','Open-source GIS tool development','Student and faculty collaboration programs','Algorithm development and benchmarking','Technology transfer and IP licensing','Workshops and hackathons'],
+    useCases:['Academic research partnerships','Government R&D projects','Startup incubation in GeoTech','Industry challenge solutions'],
+    tools:['High-performance computing cluster','GPU workstations for deep learning','Licensed remote sensing software','Field survey equipment'],
+  },
+  agromet:{
+    num:'04', emoji:'🌦️', color:'#b05a0a',
+    title:'Agromet Advisory',
+    tagline:'Data-Driven Weather Intelligence for Farmers',
+    desc:'Weather-based advisory and climate-smart solutions converting meteorological data into farmer-actionable insights. Our agromet services integrate IMD data, satellite-derived climate products, and AI models to deliver hyper-local crop advisories.',
+    features:['Hyper-local weather forecasting (village level)','Crop-specific sowing and harvesting advisories','Frost, drought, and flood risk alerts','Agrometeorology report generation','Integration with Kisan SMS advisory systems','Climate trend analysis for crop planning'],
+    useCases:['Rainfed agriculture support','Insurance sector risk assessment','State horticulture departments','Export-quality produce planning'],
+    tools:['IMD API integration','ERA5 reanalysis data','Custom agromet models','SMS & app delivery'],
+  },
+  hub:{
+    num:'05', emoji:'💡', color:'#5b3a9e',
+    title:'Innovation Hubs & Incubation',
+    tagline:'Nurturing the Next Generation of AgriTech',
+    desc:'AHSIS supports startups, student innovators, and social entrepreneurs through mentoring, incubation support, co-working resources, and access to its research infrastructure. We partner with academic institutions and government bodies to build a thriving GeoTech innovation ecosystem.',
+    features:['6-month incubation program for GeoTech startups','Access to AHSIS research infrastructure','Business development and investor connect','IP and patent advisory services','Regulatory guidance for agri-tech ventures','Community and alumni network access'],
+    useCases:['Early-stage GeoTech startups','Student entrepreneurship projects','Social enterprise in agri sector','Technology transfer commercialization'],
+    tools:['Business mentoring sessions','Cloud computing credits','Lab and co-working space','Expert network access'],
+  },
+  ai:{
+    num:'06', emoji:'🤖', color:'#7e1b6e',
+    title:'AI-Driven Solutions',
+    tagline:'Intelligent Automation for Smart Agriculture',
+    desc:'Full-spectrum artificial intelligence services for agriculture and environment — from custom model development to production deployment. Our AI team builds explainable, robust, and scalable systems designed for real-world agricultural conditions.',
+    features:['Custom deep learning model development','Satellite time-series analysis with LSTM/Transformer','Computer vision for crop disease detection','Natural language processing for advisory chatbots','AutoML pipelines for non-technical users','Edge AI deployment for field devices'],
+    useCases:['Crop yield prediction systems','Insurance claim automation','Supply chain optimization','Government scheme beneficiary targeting'],
+    tools:['TensorFlow & PyTorch','Google Cloud AI','FastAPI model serving','MLflow model management'],
+  },
+};
+
+const COURSES = {
+  advgis:{
+    duration:'6 Months', tag:'Geospatial', emoji:'🛰️', color:'var(--green)',
+    title:'Advanced GIS & Remote Sensing',
+    level:'Intermediate–Advanced', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'Comprehensive geospatial analysis with ArcGIS, QGIS, and satellite image processing. Master the complete industry-grade workflow from raw satellite data acquisition to publication-ready spatial analysis and client-ready GIS products.',
+    syllabus:['Module 1: GIS Fundamentals & Coordinate Systems (Wks 1–3)','Module 2: Satellite Image Processing & Classification (Wks 4–8)','Module 3: NDVI, EVI & Vegetation Indices (Wks 9–12)','Module 4: Digital Elevation Modeling (Wks 13–16)','Module 5: Web GIS & Data Sharing (Wks 17–20)','Module 6: Capstone Project & Portfolio (Wks 21–24)'],
+    skills:['ArcGIS Pro','QGIS','Google Earth Engine','Remote Sensing Analysis','Spatial Statistics','Python for GIS'],
+    who:'Science graduates, government GIS officers, environmental consultants, agricultural engineers.',
+    cert:'GIS & Remote Sensing Specialist Certificate — AHSIS Certified',
+  },
+  aiml:{
+    duration:'3 Months', tag:'AI/ML', emoji:'🤖', color:'#7e1b6e',
+    title:'AI & Machine Learning for Agriculture',
+    level:'Intermediate', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'Deep learning, predictive analytics, and crop health monitoring using AI models. Build and deploy real agri-intelligence systems. Covers the full ML pipeline from data collection to model deployment in agricultural contexts.',
+    syllabus:['Module 1: Python & Data Science Fundamentals (Wks 1–2)','Module 2: Machine Learning Algorithms (Wks 3–5)','Module 3: Deep Learning & CNNs (Wks 6–8)','Module 4: Time-Series Analysis with LSTM (Wks 9–10)','Module 5: Model Deployment & APIs (Wks 11–12)'],
+    skills:['Python','TensorFlow/Keras','Scikit-learn','Satellite Data APIs','FastAPI Deployment','Data Visualization'],
+    who:'CS/engineering graduates, agri-tech professionals, data enthusiasts, research students.',
+    cert:'AI for Agriculture Practitioner Certificate — AHSIS Certified',
+  },
+  webgis:{
+    duration:'2 Months', tag:'Web Dev', emoji:'🌐', color:'#1b3c6e',
+    title:'Full Stack Web GIS Development',
+    level:'Beginner–Intermediate', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'Build interactive GIS web applications using modern frameworks and spatial databases. From Leaflet.js front-end to PostGIS back-end, master the complete web GIS development stack for real-world deployment.',
+    syllabus:['Module 1: HTML/CSS/JS Refresher & GIS Concepts (Wks 1–2)','Module 2: Leaflet.js & Mapbox GL (Wks 3–4)','Module 3: GeoServer & Spatial APIs (Wks 5–6)','Module 4: PostGIS & Django Backend (Wks 7–8)'],
+    skills:['JavaScript','Leaflet.js','GeoServer','PostGIS','Django REST','PostgreSQL'],
+    who:'Web developers wanting to add GIS skills, geography students, software engineers.',
+    cert:'Web GIS Developer Certificate — AHSIS Certified',
+  },
+  drone:{
+    duration:'2 Months', tag:'UAV', emoji:'🛸', color:'#b05a0a',
+    title:'Drone Technology & UAV Mapping',
+    level:'Beginner–Intermediate', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'Complete UAV operations curriculum covering aerial surveying, photogrammetry, and 3D terrain modeling. Includes practical flight sessions, regulatory compliance, and precision agriculture applications of drone technology.',
+    syllabus:['Module 1: UAV Regulations & Safety (Wks 1–2)','Module 2: Flight Planning & Operations (Wks 3–4)','Module 3: Photogrammetry & 3D Modeling (Wks 5–6)','Module 4: Agricultural Applications & Precision Mapping (Wks 7–8)'],
+    skills:['DJI Drone Operations','Agisoft Metashape','Pix4Dmapper','DGCA Regulations','3D Modeling','Orthomosaic Production'],
+    who:'Agricultural engineers, surveyors, environmental scientists, remote sensing professionals.',
+    cert:'Certified UAV Mapping Specialist — AHSIS Certified',
+  },
+  iot:{
+    duration:'1 Month', tag:'IoT', emoji:'📡', color:'#0e7c94',
+    title:'IoT for Smart Agriculture',
+    level:'Beginner', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'Sensor networks, soil monitoring, automated irrigation, and precision farming technologies for next-generation farms. Hands-on with Arduino, Raspberry Pi, and cloud connectivity for agricultural IoT deployments.',
+    syllabus:['Week 1: IoT Fundamentals & Agricultural Sensors','Week 2: Microcontrollers & Node Setup','Week 3: Cloud Integration & Data Dashboards','Week 4: Smart Irrigation Project & Deployment'],
+    skills:['Arduino/Raspberry Pi','Soil & Weather Sensors','MQTT Protocol','AWS IoT','Dashboard Design','Field Deployment'],
+    who:'Agricultural students, progressive farmers, agri-tech entrepreneurs.',
+    cert:'IoT for Smart Agriculture Certificate — AHSIS Certified',
+  },
+  climate:{
+    duration:'1 Month', tag:'Climate', emoji:'🌦️', color:'#b05a0a',
+    title:'Climate Data Analytics',
+    level:'Beginner–Intermediate', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'Climate modeling, weather pattern analysis, and agrometeorology advisory. Learn to access, process, and interpret climate datasets (ERA5, IMD, CHIRPS) and translate them into farmer-ready actionable intelligence.',
+    syllabus:['Week 1: Climate Data Sources & Access (ERA5, IMD, CHIRPS)','Week 2: Statistical Analysis & Trend Detection','Week 3: Agrometeorology & Crop Advisory Models','Week 4: Dashboard Creation & Communication'],
+    skills:['Python (xarray, pandas)','Climate Data Portals','Statistical Analysis','Visualization','Agromet Modeling','Report Generation'],
+    who:'Meteorology students, agricultural scientists, development sector professionals.',
+    cert:'Climate Analytics Specialist Certificate — AHSIS Certified',
+  },
+  python:{
+    duration:'3 Months', tag:'Python', emoji:'🐍', color:'#27934d',
+    title:'Python for Geospatial Analysis',
+    level:'Beginner–Intermediate', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'Master geospatial Python libraries, satellite data processing, automation scripts, and geospatial pipelines using Python and open-source tools. Go from Python basics to production-ready geospatial automation.',
+    syllabus:['Module 1: Python Fundamentals & Data Science Libraries (Wks 1–3)','Module 2: Geospatial Libraries — GDAL, rasterio, geopandas (Wks 4–6)','Module 3: Satellite Data APIs & Google Earth Engine (Wks 7–9)','Module 4: Automation & Pipeline Development (Wks 10–12)'],
+    skills:['Python 3.x','GDAL/OGR','Rasterio','GeoPandas','Shapely','Earth Engine Python API'],
+    who:'Geographers, environmental scientists, GIS analysts, data scientists.',
+    cert:'Python Geospatial Analyst Certificate — AHSIS Certified',
+  },
+  rsi:{
+    duration:'2 Months', tag:'Remote Sensing', emoji:'🔭', color:'#5b3a9e',
+    title:'Remote Sensing Image Analysis',
+    level:'Intermediate', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'In-depth remote sensing analysis covering NDVI, EVI, LULC classification, and change detection techniques using Sentinel, Landsat, and commercial satellite imagery. Develop skills from image preprocessing to advanced classification.',
+    syllabus:['Module 1: Remote Sensing Fundamentals & Sensors (Wks 1–2)','Module 2: Image Preprocessing & Radiometric Correction (Wks 3–4)','Module 3: NDVI, EVI & Index Analysis (Wks 5–6)','Module 4: LULC Classification & Accuracy Assessment (Wks 7–8)'],
+    skills:['ENVI Software','Google Earth Engine','Band Math & Indices','Supervised Classification','Accuracy Assessment','Change Detection'],
+    who:'GIS professionals, environmental researchers, satellite data analysts.',
+    cert:'Remote Sensing Analyst Certificate — AHSIS Certified',
+  },
+  introgis:{
+    duration:'1 Month', tag:'Beginner', emoji:'🗺️', color:'#1b6e38',
+    title:'Introduction to GIS',
+    level:'Beginner', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'Perfect starting point for anyone entering the geospatial world. Learn GIS fundamentals, spatial data concepts, map creation, and basic analysis. No prior technical experience required — just a passion for spatial thinking.',
+    syllabus:['Week 1: What is GIS? — Concepts & Applications','Week 2: QGIS Installation & Basic Operations','Week 3: Spatial Data Types & Attribute Analysis','Week 4: Map Design & Final Project'],
+    skills:['QGIS','Map Design','Spatial Thinking','Data Import & Export','Basic Attribute Analysis','Cartography Basics'],
+    who:'Students, government officers, NGO workers, farmers, teachers — anyone curious about maps.',
+    cert:'GIS Foundations Certificate — AHSIS Certified',
+  },
+  datavis:{
+    duration:'1 Month', tag:'Visualization', emoji:'📊', color:'#0e7c94',
+    title:'Data Visualization & Dashboards',
+    level:'Beginner–Intermediate', fee:'Contact Us', starts:'Monthly Batches',
+    desc:'Creating interactive dashboards using modern data visualization tools. From raw geospatial data to boardroom-ready insights. Learn to tell compelling stories with data using charts, maps, and interactive web dashboards.',
+    syllabus:['Week 1: Data Visualization Principles & Tools Overview','Week 2: Python Visualization — Matplotlib, Seaborn, Plotly','Week 3: Interactive Web Dashboards — Dash & Streamlit','Week 4: Spatial Visualization & Capstone Dashboard'],
+    skills:['Python Matplotlib/Plotly','Tableau','Streamlit','Dash Framework','Storytelling with Data','Kepler.gl for Spatial Viz'],
+    who:'Analysts, consultants, researchers, students in any STEM field.',
+    cert:'Data Visualization Specialist Certificate — AHSIS Certified',
+  },
+};
+
+const INTERNS = {
+  ar:{
+    name:'Ayesha Rashid', initials:'AR', gradient:'linear-gradient(135deg,#38c069,#1b6e38)',
+    role:'GIS Research Intern', status:'completed', progress:100,
+    project:'NDVI-Based Crop Health Monitoring for Kashmir Valley',
+    duration:'6 Months · Jan – Jun 2025', institution:'University of Kashmir',
+    course:'Advanced GIS & Remote Sensing',
+    cert:'GIS & Remote Sensing Specialist · 2025',
+    bio:'Ayesha is a dedicated GIS researcher who completed a comprehensive 6-month internship at AHSIS, working on satellite-based vegetation health monitoring for the Kashmir Valley region. Her work directly benefited farming communities with timely crop health advisories.',
+    achievements:['Processed 18 months of Sentinel-2 satellite imagery','Developed an automated NDVI alert system for 3 districts','Presented findings at AHSIS Annual Research Symposium 2025','Received Best Intern Award — GIS Category'],
+    tools:['QGIS 3.x','Google Earth Engine','Python (rasterio)','ArcGIS Online','R Statistical'],
+    outcomes:'Her NDVI monitoring pipeline is now operational and serving 200+ farmers in the Kashmir Valley with seasonal crop health advisories.',
+  },
+  sr:{
+    name:'Suresh Rathore', initials:'SR', gradient:'linear-gradient(135deg,#4ac9e4,#0e7c94)',
+    role:'AI/ML Research Intern', status:'active', progress:72,
+    project:'Crop Yield Prediction Using LSTM Neural Networks & Satellite Time-Series Data',
+    duration:'3 Months · Feb – Apr 2025', institution:'IIT Roorkee',
+    course:'AI & Machine Learning for Agriculture',
+    cert:'AI for Agriculture Certificate · 2025',
+    bio:'Suresh is an IIT Roorkee student specializing in machine learning applications for smart agriculture. Currently developing an LSTM-based crop yield prediction model that fuses satellite-derived vegetation indices with agrometeorology data.',
+    achievements:['Developed LSTM architecture for paddy yield prediction','Achieved R²=0.89 on validation dataset — best in cohort','Collaborating with ICAR for ground truth data collection','Research paper under peer review — ISPRS Journal'],
+    tools:['Python','TensorFlow/Keras','Google Earth Engine','LSTM Networks','Matplotlib/Seaborn'],
+    outcomes:'Ongoing — Model expected to achieve >90% R² by project completion. Deployment planned for Kharif 2025 season.',
+  },
+  pk:{
+    name:'Priya Khanna', initials:'PK', gradient:'linear-gradient(135deg,#9b72e0,#5b3a9e)',
+    role:'Web GIS Developer Intern', status:'completed', progress:100,
+    project:'Real-Time Agricultural Dashboard with Leaflet.js & PostGIS Backend',
+    duration:'2 Months · Nov – Dec 2024', institution:'NIT Srinagar',
+    course:'Full Stack Web GIS Development',
+    cert:'Web GIS Developer · 2025',
+    bio:'Priya is a full-stack developer who brought her software engineering skills to the geospatial domain. She built AHSIS\'s first publicly accessible agricultural monitoring dashboard, which is now used by government field officers and farmers.',
+    achievements:['Deployed 3 live web GIS portals for AHSIS','Built a PostGIS-powered spatial query engine','Integrated real-time weather overlay from IMD API','Dashboard handles 500+ concurrent users'],
+    tools:['Leaflet.js','PostGIS','Django REST','React.js','GeoServer WMS','AWS EC2'],
+    outcomes:'The AgriDash portal developed during her internship serves 3 districts and is being scaled to cover all of J&K in 2025.',
+  },
+  ma:{
+    name:'Mohammed Aslam', initials:'MA', gradient:'linear-gradient(135deg,#e49d4a,#b05a0a)',
+    role:'Drone Mapping Intern', status:'active', progress:58,
+    project:'3D Terrain Modeling of Agricultural Fields Using DJI Phantom & Agisoft',
+    duration:'2 Months · Mar – Apr 2025', institution:'SKUAST Kashmir',
+    course:'Drone Technology & UAV Mapping',
+    cert:'UAV Mapping Specialist · 2025',
+    bio:'Mohammed is a UAV enthusiast and agriculture student who is applying drone technology to create high-resolution 3D terrain models of agricultural fields in J&K. His work focuses on precision topography for irrigation planning.',
+    achievements:['Mapped 80 hectares of agricultural land at 5cm GSD','Generated first DTM for Lidder Valley flood risk assessment','DGCA Remote Pilot Certificate obtained during internship','Presented drone findings to SKUAST faculty'],
+    tools:['DJI Phantom 4 RTK','Agisoft Metashape','Pix4Dmapper','QGIS Terrain Analysis','AutoCAD for engineering drawings'],
+    outcomes:'Ongoing — 3D terrain models being used for irrigation channel design optimization in 2 agricultural villages.',
+  },
+  ns:{
+    name:'Neha Sharma', initials:'NS', gradient:'linear-gradient(135deg,#5c9ae0,#1b3c6e)',
+    role:'Climate Data Analyst Intern', status:'completed', progress:100,
+    project:'Monsoon Variability Analysis & Agrometeorology Advisory for Rajasthan Farmers',
+    duration:'1 Month · Oct 2024', institution:'Rajasthan University',
+    course:'Climate Data Analytics',
+    cert:'Climate Analytics Specialist · 2024',
+    bio:'Neha is a climatologist and agriculture enthusiast who completed an intensive 1-month climate data analytics internship. She developed a monsoon variability analysis methodology for Rajasthan\'s rainfed agricultural zones.',
+    achievements:['Analyzed 30 years of IMD rainfall data for 8 Rajasthan districts','Produced seasonal crop advisory calendar for kharif 2024','Advisory reached 1,500+ farmers via SMS system','Methodology adopted by Rajasthan Agriculture Dept.'],
+    tools:['Python (xarray, pandas)','ERA5 Climate Data','IMD Gridded Data','Matplotlib Visualization','CHIRPS Rainfall Dataset'],
+    outcomes:'Her agrometeorology advisory calendar is now published by the Rajasthan State Agriculture Department as a seasonal guide for rainfed farmers.',
+  },
+  rb:{
+    name:'Rahul Bhat', initials:'RB', gradient:'linear-gradient(135deg,#d460be,#7e1b6e)',
+    role:'Python GIS Intern', status:'active', progress:85,
+    project:'Automated Flood Risk Assessment Pipeline Using Python, GDAL & Sentinel-1 SAR',
+    duration:'3 Months · Feb – Apr 2025', institution:'University of Jammu',
+    course:'Python for Geospatial Analysis',
+    cert:'Python GIS Expert · 2025',
+    bio:'Rahul is a geospatial Python developer who is building an automated flood risk assessment pipeline for J&K\'s vulnerable river valleys. His project uses Sentinel-1 SAR data to detect flood-inundated areas and generate risk maps automatically.',
+    achievements:['Built fully automated SAR processing pipeline using GDAL','Flood detection accuracy: 91% vs field validation','Processing time reduced from 4 hours to 12 minutes vs manual','Pipeline integrated into AHSIS disaster response system'],
+    tools:['Python 3.10','GDAL/OGR','Sentinel-1 SAR data','Snap2StaMPS','PostGIS spatial DB','Streamlit dashboard'],
+    outcomes:'Ongoing — Pipeline successfully triggered during March 2025 Jhelum flooding event, providing near-real-time flood maps to district disaster management authority.',
+  },
+};
+
+const LEADERS = {
+  sg:{
+    initials:'SG', name:'Mr. Shahid Gulzar', type:'Leadership',
+    role:'Founder & Managing Director',
+    tagline:'Visionary leader driving sustainable geospatial innovation',
+    bio:'Mr. Shahid Gulzar is the founder and driving force behind AHSIS. With a deep passion for leveraging technology for community development, he established AHSIS with the vision of bridging the gap between cutting-edge geospatial technology and the practical needs of rural communities across India. Under his leadership, AHSIS has grown into a DPIIT-recognized startup with operations spanning J&K and West Bengal.',
+    expertise:['Geospatial Technology Strategy','Startup & Business Development','Rural Development & Policy','Sustainable Agriculture','Community Engagement','Team Leadership'],
+    highlights:['Founded AHSIS Pvt. Ltd. in 2025 — DPIIT Recognized','Built a team of 15+ researchers and technologists','Established partnerships with 10+ institutions','Reached 500+ farmers in Year 1'],
+  },
+  ms:{
+    initials:'MS', name:'Ms. Moonmoon Sen', type:'Leadership',
+    role:'Chairperson & Head, AI-ML Innovations',
+    tagline:'Steering AI-powered transformation in agriculture',
+    bio:'Ms. Moonmoon Sen brings strategic vision and AI expertise to AHSIS as Chairperson. She spearheads the organization\'s artificial intelligence and machine learning division, driving the development of innovative AI-powered tools for precision agriculture and environmental monitoring. Her leadership ensures AHSIS stays at the forefront of agri-AI innovation.',
+    expertise:['Artificial Intelligence & Machine Learning','Strategic Planning','Agricultural Technology','Deep Learning Systems','Innovation Management','Cross-Functional Leadership'],
+    highlights:['Led development of 3 AI models currently in production','Established AHSIS GeoInnovation Lab','Mentored 10+ AI/ML research interns','Industry collaborations with IIT Roorkee & ICAR'],
+  },
+  vk:{
+    initials:'VK', name:'Ms. Varsha Khandelwal', type:'Leadership',
+    role:'Manager – Strategic Alliance & Innovation',
+    tagline:'Building bridges between innovation and impact',
+    bio:'Ms. Varsha Khandelwal manages strategic partnerships and innovation initiatives at AHSIS, ensuring the organization builds meaningful collaborations with academic institutions, government bodies, and industry partners. She also leads talent mentorship programs that have shaped the careers of numerous young professionals.',
+    expertise:['Partnership Development','Innovation Management','Talent Mentorship','Program Design','Stakeholder Engagement','Knowledge Transfer'],
+    highlights:['Established 10+ institutional partnerships','Designed AHSIS Internship Showcase Program','Mentored 30+ students and young professionals','Led outreach to 500+ farming communities'],
+  },
+  dp:{
+    initials:'DP', name:'Dr. Devendra Pradhan', type:'Leadership',
+    role:'Chief Advisor & Head – Climate Modelling & DRM',
+    tagline:'Climate science for community resilience',
+    bio:'Dr. Devendra Pradhan is a distinguished expert in climate modeling and disaster risk management, serving as Chief Advisor and Head of AHSIS\'s Climate Division. He brings decades of research experience to translate complex climate data into actionable strategies for farmers and policymakers.',
+    expertise:['Climate Modeling & Prediction','Disaster Risk Management','Earth System Science','Remote Sensing for DRM','Agricultural Climatology','Policy Advisory'],
+    highlights:['30+ years in climate and geospatial research','Developed AHSIS AgroMet advisory framework','Advisor to state disaster management bodies','Author of 25+ peer-reviewed publications'],
+  },
+  ag:{
+    initials:'AG', name:'Ms. Anwesha Ganguly', type:'Leadership',
+    role:'Lead – Program Development & Mentorship',
+    tagline:'Empowering the next generation of geospatial professionals',
+    bio:'Ms. Anwesha Ganguly leads program development and mentorship at AHSIS, designing structured learning experiences and supporting the professional growth of interns, students, and early-career researchers. She has been instrumental in shaping AHSIS\'s internship showcase and skill development programs.',
+    expertise:['Curriculum Design','Mentorship & Coaching','Skill Development','Program Management','Research Support','Community Building'],
+    highlights:['Designed 8 AHSIS skill development courses','Mentored 48+ active and completed interns','Led AHSIS Annual Symposium 2025','Created peer learning community for 150+ alumni'],
+  },
+  rs:{
+    initials:'RS', name:'Rahma Saroor', type:'Leadership',
+    role:'Coordinator – Training & Capacity Building',
+    tagline:'Building capacity for lasting change',
+    bio:'Rahma Saroor coordinates AHSIS\'s training and capacity building initiatives, ensuring structured learning experiences are delivered effectively across all programs. She manages logistics, participant support, and quality assurance for AHSIS\'s growing portfolio of skill training programs.',
+    expertise:['Training Coordination','Capacity Building','Quality Assurance','Logistics Management','Community Training','Stakeholder Communication'],
+    highlights:['Coordinated 200+ training sessions','Managed batch enrollment for 500+ participants','Developed training quality assessment framework','Built grassroots outreach network in J&K'],
+  },
+  smt:{
+    initials:'SMT', name:'Dr. Saumya Mani Tripathi', type:'Advisory',
+    role:'Lead Advisor – Geoheritage & Community Resilience',
+    tagline:'Geoscience for cultural and natural heritage preservation',
+    bio:'Dr. Saumya Mani Tripathi is a distinguished geoscientist specializing in geoheritage documentation and community resilience. She advises AHSIS on integrating cultural and natural heritage considerations into geospatial projects, particularly for vulnerable mountain communities.',
+    expertise:['Geoheritage Documentation','Community Resilience','Mountain Geoscience','Spatial Heritage Mapping','Environmental Education'],
+    highlights:['Pioneer in geoheritage mapping in the Himalayas','Advisor to UNESCO geopark initiatives','20+ publications in geoscience journals','Led community mapping projects in 5 states'],
+  },
+  hc:{
+    initials:'HC', name:'Ms. Hemlata Chandolia', type:'Advisory',
+    role:'Advisor – Education & Capacity Building',
+    tagline:'Education as the foundation for sustainable development',
+    bio:'Ms. Hemlata Chandolia brings extensive experience in education policy and capacity building to AHSIS\'s advisory board. She guides the organization\'s training program design to ensure they are pedagogically sound, accessible, and impactful for diverse learner communities.',
+    expertise:['Education Policy','Curriculum Development','Adult Learning','Capacity Building','Rural Education','Program Evaluation'],
+    highlights:['20+ years in education and capacity building','Designed national-level training frameworks','Worked with UNDP and World Bank education programs','Champion for women\'s education in rural areas'],
+  },
+  rk:{
+    initials:'RK', name:'Ms. Riya Kamboj', type:'Advisory',
+    role:'Lead Advisor – Geospatial & Climate Adaptation',
+    tagline:'Spatial solutions for a changing climate',
+    bio:'Ms. Riya Kamboj is a geospatial and climate adaptation expert who advises AHSIS on integrating climate adaptation strategies into its geospatial and agricultural programs. Her expertise bridges the gap between climate science and ground-level adaptation action.',
+    expertise:['Geospatial Analysis','Climate Adaptation','Vulnerability Mapping','Satellite Remote Sensing','Agricultural Adaptation','Spatial Planning'],
+    highlights:['Led climate vulnerability mapping for 3 Indian states','Expert contributor to IPCC Working Group reports','Designed community-based climate adaptation frameworks','Advisor to National Disaster Management Authority'],
+  },
+  wh:{
+    initials:'WH', name:'Mr. Warish Hussain', type:'Advisory',
+    role:'Advisor – Climate Adaptation & Environmental Analyst',
+    tagline:'Environmental intelligence for resilient communities',
+    bio:'Mr. Warish Hussain is an environmental analyst with deep expertise in climate adaptation and environmental impact assessment. He guides AHSIS on environmental compliance, ecosystem service mapping, and community-level climate resilience building.',
+    expertise:['Environmental Impact Assessment','Climate Adaptation','Ecosystem Services Mapping','Environmental Policy','Community Resilience','Carbon Markets'],
+    highlights:['Conducted EIAs for 15+ major projects','Climate adaptation advisor in J&K','Expert in environmental policy advocacy','Researcher in mountain ecosystem services'],
+  },
+  dk:{
+    initials:'DK', name:'Dr. Deepak Kumar', type:'Advisory',
+    role:'Lead Advisor – Urban Climate & Energy Systems',
+    tagline:'Smart energy solutions for climate-resilient cities',
+    bio:'Dr. Deepak Kumar is a leading expert in urban climate systems and sustainable energy, bringing interdisciplinary insights to AHSIS\'s advisory board. He guides the integration of urban climate analysis and renewable energy dimensions into AHSIS\'s programs and projects.',
+    expertise:['Urban Climate Modeling','Renewable Energy Systems','Smart City Solutions','Energy Policy','GIS for Urban Planning','Microclimate Analysis'],
+    highlights:['Led urban heat island mapping for 5 Indian cities','15+ years in energy systems research','Advisor to Smart Cities Mission (GoI)','Author of urban climate policy briefs for MoEFCC'],
+  },
+  sdb:{
+    initials:'SDB', name:'Dr. Santasmita Das Bhattacharya', type:'Advisory',
+    role:'Advisor – Remote Sensing & Mountain Research',
+    tagline:'High-altitude science for a high-altitude future',
+    bio:'Dr. Santasmita Das Bhattacharya specializes in remote sensing applications for mountain research, bringing rare expertise in high-altitude ecosystem monitoring to AHSIS. She advises on satellite-based snow cover, glacier, and alpine ecosystem studies.',
+    expertise:['Mountain Remote Sensing','Snow & Glacier Studies','Alpine Ecosystem Mapping','Cryosphere Research','High-Altitude GIS','Satellite Image Analysis'],
+    highlights:['Pioneer in Himalayan glacier retreat mapping','15+ peer-reviewed publications in mountain science','Field research in J&K, Ladakh, and Uttarakhand','Collaborator with SAC-ISRO on cryosphere projects'],
+  },
+  hs:{
+    initials:'HS', name:'Dr. Husain Shabbar', type:'Advisory',
+    role:'Advisor – Earth Science Research & Innovation',
+    tagline:'Earth science at the service of sustainable communities',
+    bio:'Dr. Husain Shabbar is an earth scientist who provides expert guidance on geological and environmental science dimensions of AHSIS\'s research programs. His interdisciplinary background helps integrate geological insights into geospatial and agricultural projects.',
+    expertise:['Earth Sciences','Geological Mapping','Environmental Geology','Geohazard Assessment','Structural Geology','Scientific Communication'],
+    highlights:['Assistant Professor with active research portfolio','Geological hazard mapping for J&K districts','Science communicator and educator','Collaborator on interdisciplinary sustainability projects'],
+  },
+  dpanda:{
+    initials:'DP', name:'Dr. Deepak Panda', type:'Advisory',
+    role:'Advisor – Rural Energy & Earth Science',
+    tagline:'Energy and earth science for rural empowerment',
+    bio:'Dr. Deepak Panda advises AHSIS on rural energy systems and earth science applications. A PhD research scholar with active research in energy transitions and sustainable development, he brings fresh perspectives on how science can serve rural communities.',
+    expertise:['Rural Energy Systems','Sustainable Development','Earth Science','Research Methodology','Science Communication','Policy Analysis'],
+    highlights:['Ongoing PhD research in rural energy transitions','Published research in sustainability journals','Advocate for community-based renewable energy','Testimonial highlighted at AHSIS Research Symposium'],
+  },
+  hfs:{
+    initials:'HFS', name:'Dr. Hakim Farooq Shah', type:'Advisory',
+    role:'Advisor – Disaster Management & Earth Science',
+    tagline:'Science-based solutions for disaster resilience',
+    bio:'Dr. Hakim Farooq Shah brings expertise in disaster management and earth science to AHSIS\'s advisory board. He provides critical guidance on disaster risk reduction strategies and the use of geospatial technologies for early warning and emergency response.',
+    expertise:['Disaster Risk Management','Earth Sciences','Emergency Response GIS','Flood & Landslide Modeling','Hazard Mapping','Community DRR'],
+    highlights:['Expert in J&K disaster risk landscape','Developed community DRR frameworks for mountain villages','Contributed to National DRM Action Plan','Geospatial advisor during 2024 flood emergency'],
+  },
+  ib:{
+    initials:'IB', name:'Dr. Ibrahim Bathis', type:'Advisory',
+    role:'Advisor – Climate Resilience & Sustainability',
+    tagline:'Building resilient systems for a sustainable future',
+    bio:'Dr. Ibrahim Bathis is a sustainability and climate resilience expert who guides AHSIS on integrating long-term resilience thinking into its programs. He provides strategic advice on building climate-smart communities and sustainable technology ecosystems.',
+    expertise:['Climate Resilience','Sustainability Science','Systems Thinking','Community Development','Sustainable Agriculture','Resilience Assessment'],
+    highlights:['Expert in climate-smart community development','Advisor on UN Sustainable Development Goal alignment','Research in agricultural systems resilience','Contributed to AHSIS SDG alignment framework'],
+  },
+};
+
+/* ═══════════════════════════════════════════════════
+   MODAL ENGINE
+═══════════════════════════════════════════════════ */
+function openModal(overlayId){ document.getElementById(overlayId).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(overlayId){ document.getElementById(overlayId).classList.remove('open'); document.body.style.overflow=''; }
+function handleModalClick(e, id){ if(e.target.id===id) closeModal(id); }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){closeModal('detailModal');closeModal('formModal');} });
+
+/* ——— PROJECT MODAL ——— */
+function openProjectModal(id){
+  const d = PROJECTS[id]; if(!d) return;
+  const isActive = d.status === 'Active';
+  document.getElementById('detailContent').innerHTML = `
+    <div class="m-header">
+      <div class="m-eyebrow">${d.tag}</div>
+      <div class="m-title">${d.title}</div>
+      <div class="m-sub">${d.desc}</div>
+    </div>
+    <div class="m-body">
+      <div class="m-vis" style="background:${d.gradient}">
+        <div class="m-vis-grid"></div>
+        <span style="font-size:52px;position:relative;z-index:1">${d.emoji}</span>
+      </div>
+      <div class="m-stat-grid">
+        <div class="m-stat"><div class="m-stat-num" style="font-size:14px">${d.duration}</div><div class="m-stat-lbl">Duration</div></div>
+        <div class="m-stat"><div class="m-stat-num" style="font-size:14px">${d.team}</div><div class="m-stat-lbl">Team</div></div>
+        <div class="m-stat"><div class="m-stat-num" style="font-size:14px">${d.partners}</div><div class="m-stat-lbl">Partners</div></div>
+      </div>
+      <div class="m-sep"></div>
+      <div class="m-grid2">
+        <div>
+          <div class="m-section-title">🎯 Objectives</div>
+          <ul class="m-ul">${d.objectives.map(o=>`<li>${o}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <div class="m-section-title">✅ Key Outcomes</div>
+          <ul class="m-ul">${d.outcomes.map(o=>`<li>${o}</li>`).join('')}</ul>
+        </div>
+      </div>
+      <div class="m-sep"></div>
+      <div class="m-section-title">🛠 Tools & Technologies</div>
+      <div class="m-pill-row">${d.tools.map(t=>`<span class="m-pill green">${t}</span>`).join('')}</div>
+      <div class="m-sep"></div>
+      <div class="m-info-row">
+        <div class="m-info-icon">📊</div>
+        <div><div class="m-info-label">Status</div><div class="m-info-val" style="color:${isActive?'var(--green)':'var(--ink2)'}">${d.status}</div></div>
+      </div>
+      <div class="m-info-row">
+        <div class="m-info-icon">📄</div>
+        <div><div class="m-info-label">Publications</div><div class="m-info-val">${d.publications}</div></div>
+      </div>
+      <div style="margin-top:22px">
+        <button class="fm-btn" onclick="openFormModal('collab');closeModal('detailModal')">🤝 Collaborate on This Project</button>
+      </div>
+    </div>`;
+  openModal('detailModal');
+}
+
+/* ——— SERVICE MODAL ——— */
+function openServiceModal(id){
+  const d = SERVICES[id]; if(!d) return;
+  document.getElementById('detailContent').innerHTML = `
+    <div class="m-header" style="background:linear-gradient(135deg,${d.color}22,transparent)">
+      <div style="font-size:42px;margin-bottom:14px">${d.emoji}</div>
+      <div class="m-eyebrow">Service ${d.num}</div>
+      <div class="m-title">${d.title}</div>
+      <div class="m-sub">${d.tagline}</div>
+    </div>
+    <div class="m-body">
+      <p style="font-size:14.5px;line-height:1.78;color:var(--ink3);margin-bottom:22px">${d.desc}</p>
+      <div class="m-sep"></div>
+      <div class="m-grid2">
+        <div>
+          <div class="m-section-title">⚡ What We Offer</div>
+          <ul class="m-ul">${d.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <div class="m-section-title">🎯 Use Cases</div>
+          <ul class="m-ul">${d.useCases.map(u=>`<li>${u}</li>`).join('')}</ul>
+        </div>
+      </div>
+      <div class="m-sep"></div>
+      <div class="m-section-title">🛠 Technologies & Tools</div>
+      <div class="m-pill-row">${d.tools.map(t=>`<span class="m-pill green">${t}</span>`).join('')}</div>
+      <div style="margin-top:22px">
+        <button class="fm-btn" onclick="openFormModal('contact');closeModal('detailModal')">📬 Get a Quote for This Service</button>
+      </div>
+    </div>`;
+  openModal('detailModal');
+}
+
+/* ——— COURSE MODAL ——— */
+function openCourseModal(id){
+  const d = COURSES[id]; if(!d) return;
+  document.getElementById('detailContent').innerHTML = `
+    <div class="m-header">
+      <span class="m-tag">${d.emoji} ${d.duration} · ${d.tag}</span>
+      <div class="m-title">${d.title}</div>
+      <div class="m-sub">${d.desc}</div>
+    </div>
+    <div class="m-body">
+      <div class="m-stat-grid">
+        <div class="m-stat"><div class="m-stat-num" style="font-size:13px">${d.level}</div><div class="m-stat-lbl">Level</div></div>
+        <div class="m-stat"><div class="m-stat-num" style="font-size:13px">${d.starts}</div><div class="m-stat-lbl">Intake</div></div>
+        <div class="m-stat"><div class="m-stat-num" style="font-size:13px">${d.duration}</div><div class="m-stat-lbl">Duration</div></div>
+      </div>
+      <div class="m-sep"></div>
+      <div class="m-section-title">📋 Curriculum Overview</div>
+      <ul class="m-ul">${d.syllabus.map(s=>`<li>${s}</li>`).join('')}</ul>
+      <div class="m-sep"></div>
+      <div class="m-section-title">🛠 Skills You'll Gain</div>
+      <div class="m-pill-row">${d.skills.map(s=>`<span class="m-pill green">${s}</span>`).join('')}</div>
+      <div class="m-sep"></div>
+      <div class="m-info-row">
+        <div class="m-info-icon">👥</div>
+        <div><div class="m-info-label">Who Should Enroll</div><div class="m-info-val" style="font-weight:400;font-size:13.5px">${d.who}</div></div>
+      </div>
+      <div class="m-cert">
+        <div class="m-cert-icon">🎓</div>
+        <div><div class="m-cert-text">Certificate Upon Completion</div><div class="m-cert-sub">${d.cert}</div></div>
+      </div>
+      <div style="margin-top:22px">
+        <button class="fm-btn" onclick="openFormModal('enroll');closeModal('detailModal')">🎓 Enroll in This Course</button>
+      </div>
+    </div>`;
+  openModal('detailModal');
+}
+
+/* ——— INTERN MODAL ——— */
+function openInternModal(id){
+  const d = INTERNS[id]; if(!d) return;
+  const isActive = d.status === 'active';
+  document.getElementById('detailContent').innerHTML = `
+    <div class="m-header" style="background:linear-gradient(135deg,var(--soft),var(--white))">
+      <div class="m-avatar" style="background:${d.gradient};color:#fff;border:none">${d.initials}</div>
+      <div class="m-eyebrow">${d.role}</div>
+      <div class="m-title">${d.name}</div>
+      <div class="m-sub">${d.bio}</div>
+    </div>
+    <div class="m-body">
+      <div class="m-info-row">
+        <div class="m-info-icon">🔬</div>
+        <div><div class="m-info-label">Project</div><div class="m-info-val">${d.project}</div></div>
+      </div>
+      <div class="m-info-row">
+        <div class="m-info-icon">📚</div>
+        <div><div class="m-info-label">Course</div><div class="m-info-val">${d.course}</div></div>
+      </div>
+      <div class="m-info-row">
+        <div class="m-info-icon">⏱</div>
+        <div><div class="m-info-label">Duration</div><div class="m-info-val">${d.duration}</div></div>
+      </div>
+      <div class="m-info-row">
+        <div class="m-info-icon">🏛️</div>
+        <div><div class="m-info-label">Institution</div><div class="m-info-val">${d.institution}</div></div>
+      </div>
+      <div style="margin:18px 0 6px">
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-bottom:6px">
+          <span>Project ${isActive?'Progress':'Completion'}</span><span>${d.progress}%</span>
+        </div>
+        <div class="m-progress-bar"><div class="m-progress-fill" style="width:${d.progress}%"></div></div>
+      </div>
+      <div class="m-sep"></div>
+      <div class="m-section-title">🏆 Key Achievements</div>
+      <ul class="m-ul">${d.achievements.map(a=>`<li>${a}</li>`).join('')}</ul>
+      <div class="m-sep"></div>
+      <div class="m-section-title">🛠 Tools & Technologies Used</div>
+      <div class="m-pill-row">${d.tools.map(t=>`<span class="m-pill green">${t}</span>`).join('')}</div>
+      <div class="m-sep"></div>
+      <div class="m-section-title">🌟 Impact & Outcomes</div>
+      <p style="font-size:14px;line-height:1.75;color:var(--ink3)">${d.outcomes}</p>
+      <div class="m-cert">
+        <div class="m-cert-icon">${isActive?'📋':'🎓'}</div>
+        <div>
+          <div class="m-cert-text">${isActive?'In Progress':'Certificate Awarded'}</div>
+          <div class="m-cert-sub">${d.cert}</div>
+        </div>
+      </div>
+    </div>`;
+  openModal('detailModal');
+}
+
+/* ——— LEADER MODAL ——— */
+function openLeaderModal(id){
+  const d = LEADERS[id]; if(!d) return;
+  document.getElementById('detailContent').innerHTML = `
+    <div class="m-header" style="background:linear-gradient(135deg,var(--soft),var(--white));padding-bottom:24px">
+      <div class="m-avatar">${d.initials}</div>
+      <div class="m-eyebrow">${d.type} · AHSIS</div>
+      <div class="m-title">${d.name}</div>
+      <div class="m-sub">${d.role}</div>
+      <p style="font-size:13px;color:var(--ink4);font-style:italic;margin-top:6px">"${d.tagline}"</p>
+    </div>
+    <div class="m-body">
+      <div class="m-section-title">About</div>
+      <p class="m-leader-bio">${d.bio}</p>
+      <div class="m-sep"></div>
+      <div class="m-grid2">
+        <div>
+          <div class="m-section-title">🎯 Areas of Expertise</div>
+          <ul class="m-ul">${d.expertise.map(e=>`<li>${e}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <div class="m-section-title">🏆 Key Highlights</div>
+          <ul class="m-ul">${d.highlights.map(h=>`<li>${h}</li>`).join('')}</ul>
+        </div>
+      </div>
+      <div style="margin-top:22px">
+        <button class="fm-btn" onclick="openFormModal('contact');closeModal('detailModal')">📬 Get in Touch with AHSIS</button>
+      </div>
+    </div>`;
+  openModal('detailModal');
+}
+
+/* ═══════════════════════════════════════════════════
+   FORM MODALS
+═══════════════════════════════════════════════════ */
+const FORMS = {
+  contact:{
+    icon:'✉️', eyebrow:'Get In Touch', title:'Contact AHSIS',
+    subtitle:'Drop us a message and our team will respond within 24 hours.',
+    fields:`
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="fm-fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="fm-fg"><label>Subject</label><select><option>General Inquiry</option><option>Partnership</option><option>Research Collaboration</option><option>Media / Press</option><option>Other</option></select></div>
+      </div>
+      <div class="fm-fg"><label>Message *</label><textarea placeholder="Tell us about your inquiry..." required></textarea></div>`,
+    btnText:'📨 Send Message',
+  },
+  apply:{
+    icon:'🎓', eyebrow:'Internship Program', title:'Apply for Internship',
+    subtitle:'Start your journey with AHSIS. Complete the form and our placement team will reach out.',
+    fields:`
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="fm-fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Phone *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+        <div class="fm-fg"><label>University / College *</label><input type="text" placeholder="Your institution" required></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Degree & Branch</label><input type="text" placeholder="e.g., B.Tech CS, MSc Geography"></div>
+        <div class="fm-fg"><label>Graduation Year</label><input type="text" placeholder="e.g., 2025 / 2026"></div>
+      </div>
+      <div class="fm-fg"><label>Area of Interest *</label><select required><option value="">Select...</option><option>GIS & Remote Sensing</option><option>AI/ML for Agriculture</option><option>Drone & UAV Mapping</option><option>Web GIS Development</option><option>Climate Data Analytics</option><option>Python for Geospatial</option></select></div>
+      <div class="fm-fg"><label>Why AHSIS? (Brief Statement)</label><textarea placeholder="Tell us why you'd like to intern at AHSIS and what you hope to achieve..."></textarea></div>`,
+    btnText:'🚀 Submit Application',
+  },
+  placement:{
+    icon:'💼', eyebrow:'Placement Cell', title:'Contact Placement Cell',
+    subtitle:'Connect with our career counselling team for job placement support.',
+    fields:`
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="fm-fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="fm-fg"><label>Current Status</label><select><option>Final Year Student</option><option>Recent Graduate</option><option>Working Professional</option><option>Career Changer</option></select></div>
+      </div>
+      <div class="fm-fg"><label>Skills / Domain</label><input type="text" placeholder="e.g., GIS, Python, Remote Sensing, AI/ML"></div>
+      <div class="fm-fg"><label>What kind of roles are you seeking?</label><textarea placeholder="Describe the roles or organizations you're interested in..."></textarea></div>`,
+    btnText:'🎯 Get Placement Support',
+  },
+  member:{
+    icon:'🧭', eyebrow:'Membership', title:'Become a Member',
+    subtitle:'Join the AHSIS community and contribute to research, innovation, and sustainable development.',
+    fields:`
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="fm-fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="fm-fg"><label>Profession</label><select><option>Student</option><option>Researcher / Academic</option><option>Government Officer</option><option>Industry Professional</option><option>Farmer / Agriculturist</option><option>NGO Worker</option><option>Other</option></select></div>
+      </div>
+      <div class="fm-fg"><label>Organization / Institution</label><input type="text" placeholder="Your organization or university"></div>
+      <div class="fm-fg"><label>How would you like to contribute?</label><textarea placeholder="Research, workshops, field visits, mentoring, funding — tell us more..."></textarea></div>`,
+    btnText:'🌿 Apply for Membership',
+  },
+  career:{
+    icon:'💼', eyebrow:'Careers', title:'Work With AHSIS',
+    subtitle:'Join our growing team of researchers, technologists, and community builders.',
+    fields:`
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="fm-fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="fm-fg"><label>Role Interest</label><select><option>Geospatial Analyst</option><option>AI/ML Engineer</option><option>Field Research Associate</option><option>Program Coordinator</option><option>Web GIS Developer</option><option>Trainer / Educator</option><option>Other</option></select></div>
+      </div>
+      <div class="fm-fg"><label>Years of Experience</label><input type="text" placeholder="e.g., Fresher / 2 years / 5+ years"></div>
+      <div class="fm-fg"><label>Tell us about yourself & why AHSIS</label><textarea placeholder="Your background, skills, and motivation to join AHSIS..."></textarea></div>`,
+    btnText:'📤 Submit Expression of Interest',
+  },
+  partner:{
+    icon:'🤝', eyebrow:'Partnerships', title:'Partner With AHSIS',
+    subtitle:'Collaborate on projects, sponsor initiatives, or explore strategic partnership opportunities.',
+    fields:`
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Contact Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="fm-fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Organization *</label><input type="text" placeholder="Company / Institute / Government body" required></div>
+        <div class="fm-fg"><label>Partnership Type</label><select><option>Research Collaboration</option><option>Sponsorship / Funding</option><option>Technology Partnership</option><option>Training Partnership</option><option>Government / Policy</option><option>International Partnership</option></select></div>
+      </div>
+      <div class="fm-fg"><label>Website</label><input type="url" placeholder="https://yourorganization.com"></div>
+      <div class="fm-fg"><label>Collaboration Proposal</label><textarea placeholder="Describe the collaboration you have in mind, your goals, and how we can work together..."></textarea></div>`,
+    btnText:'🤝 Explore Partnership',
+  },
+  enroll:{
+    icon:'🎓', eyebrow:'Course Enrollment', title:'Enroll in a Course',
+    subtitle:'Take the next step in your geospatial career. Fill in your details and we\'ll be in touch with enrollment details.',
+    fields:`
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="fm-fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Phone *</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+        <div class="fm-fg"><label>Course of Interest *</label><select required><option value="">Select Course...</option><option>Advanced GIS & Remote Sensing (6 months)</option><option>AI & Machine Learning for Agriculture (3 months)</option><option>Full Stack Web GIS Development (2 months)</option><option>Drone Technology & UAV Mapping (2 months)</option><option>IoT for Smart Agriculture (1 month)</option><option>Climate Data Analytics (1 month)</option><option>Python for Geospatial Analysis (3 months)</option><option>Remote Sensing Image Analysis (2 months)</option><option>Introduction to GIS (1 month)</option><option>Data Visualization & Dashboards (1 month)</option></select></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Education Background</label><input type="text" placeholder="e.g., B.Sc Geography, B.Tech CS"></div>
+        <div class="fm-fg"><label>Preferred Start</label><select><option>Next Available Batch</option><option>Within 1 Month</option><option>In 2–3 Months</option><option>Just Exploring</option></select></div>
+      </div>
+      <div class="fm-fg"><label>Any questions or special requirements?</label><textarea placeholder="Optional — let us know if you have any questions about the course..."></textarea></div>`,
+    btnText:'🎓 Reserve My Spot',
+  },
+  collab:{
+    icon:'🔬', eyebrow:'Research Collaboration', title:'Collaborate on Research',
+    subtitle:'Interested in collaborating on this project or a related research initiative? Let\'s connect.',
+    fields:`
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Full Name *</label><input type="text" placeholder="Your full name" required></div>
+        <div class="fm-fg"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
+      </div>
+      <div class="fm-grid">
+        <div class="fm-fg"><label>Institution / Organization</label><input type="text" placeholder="University, Institute, or Company"></div>
+        <div class="fm-fg"><label>Collaboration Type</label><select><option>Joint Research</option><option>Data Sharing</option><option>Field Partnership</option><option>Co-Publication</option><option>Funding / Grant</option><option>Technical Support</option></select></div>
+      </div>
+      <div class="fm-fg"><label>Your Relevant Expertise</label><input type="text" placeholder="e.g., Remote Sensing, Machine Learning, Agronomy"></div>
+      <div class="fm-fg"><label>Collaboration Proposal</label><textarea placeholder="Describe your research background and how you'd like to collaborate..."></textarea></div>`,
+    btnText:'🚀 Propose Collaboration',
+  },
+};
+
+function openFormModal(id){
+  const d = FORMS[id]; if(!d) return;
+  document.getElementById('formContent').innerHTML = `
+    <div class="m-form-header">
+      <button class="m-close" onclick="closeModal('formModal')" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.2)">✕</button>
+      <div style="font-size:36px;margin-bottom:12px">${d.icon}</div>
+      <div class="m-eyebrow" style="color:rgba(255,255,255,.7)">${d.eyebrow}</div>
+      <div class="m-title">${d.title}</div>
+      <p style="font-size:13.5px;color:rgba(255,255,255,.65);margin-top:6px">${d.subtitle}</p>
+    </div>
+    <div class="m-form-body">
+      ${d.fields}
+      <button class="fm-btn" onclick="submitForm(event)">${d.btnText}</button>
+      <div class="fm-note">We typically respond within 24 hours · Your data is safe with us</div>
+    </div>`;
+  openModal('formModal');
+}
+
+function submitForm(e){
+  e.preventDefault();
+  closeModal('formModal');
+  showToast('✓ Submitted successfully! Our team will contact you soon.');
+}
+
+function submitContactForm(e){
+  e.preventDefault();
+  showToast('✓ Message sent! We\'ll get back to you within 24 hours.');
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 4000);
+}
+</script>
+-e 
 </body>
 </html>
